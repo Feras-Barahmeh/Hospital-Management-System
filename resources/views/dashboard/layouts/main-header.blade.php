@@ -263,12 +263,24 @@
 									<a class="dropdown-item" href=""><i class="bx bxs-inbox"></i>Inbox</a>
 									<a class="dropdown-item" href=""><i class="bx bx-envelope"></i>Messages</a>
 									<a class="dropdown-item" href=""><i class="bx bx-slider-alt"></i> Account Settings</a>
-									<a class="dropdown-item" href="{{ url('/' . $page='page-signin') }}"><i class="bx bx-log-out"></i> Sign Out</a>
+
+                                    {{-- Start Logout Authentication --}}
+                                    <form method="POST" action="{{ route('logout') }}">
+                                        @csrf
+                                        <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();this.closest('form').submit();">
+                                            <i class="bx bx-log-out"></i> Sign Out
+                                        </a>
+                                    </form>
+                                    {{-- End Logout Authentication --}}
 								</div>
 							</div>
 							<div class="dropdown main-header-message right-toggle">
 								<a class="nav-link pr-0" data-toggle="sidebar-right" data-target=".sidebar-right">
-									<svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+									<svg xmlns="http://www.w3.org/2000/svg" class="header-icon-svgs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-menu">
+                                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                                    </svg>
 								</a>
 							</div>
 						</div>

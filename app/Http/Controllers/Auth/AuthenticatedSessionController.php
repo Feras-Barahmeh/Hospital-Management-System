@@ -17,7 +17,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
+        return view('dashboard.user.auth.signin');
     }
 
     /**
@@ -29,7 +29,8 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+//        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->route('user.dashboard');
     }
 
     /**

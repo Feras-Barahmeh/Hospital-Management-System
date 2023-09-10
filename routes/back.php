@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Backend Routes
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
@@ -15,4 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/dashboard-admin', [DashboardController::class, "index"]);
+//Route::get('/dashboard-admin', [DashboardController::class, "index"]);
+
+Route::middleware(['auth'])->prefix("user")->name("user.")->group(function () {
+    Route::get('dashboard', function () {
+        return view('dashboard.user.dashboard');
+    })->name('dashboard');
+});
+
+
+require __DIR__.'/auth.php';
