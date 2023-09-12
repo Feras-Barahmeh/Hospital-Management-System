@@ -949,7 +949,7 @@
 								<table class="table card-table country-table mb-0">
 									<tbody>
 										<tr>
-											<td class="w-1"><img src="{{URL::asset('assets/img/flags/us_flag.jpg')}}" alt="flags" class="flag wd-30 ht-20 flag-us mt-1"></i></td>
+											<td class="w-1"><img src="{{URL::asset('assets/img/flags/en_flag.jpg')}}" alt="flags" class="flag wd-30 ht-20 flag-us mt-1"></i></td>
 											<td>USA
 												<div class="progress progress-sm mt-1">
 													<div class="progress-bar bg-primary wd-80"></div>
@@ -967,7 +967,7 @@
 											<td class="text-right"><span class="text-muted">$3214</span></td>
 										</tr>
 										<tr>
-											<td class="w-1"><img src="{{URL::asset('assets/img/flags/germany_flag.jpg')}}" alt="flags" class="flag wd-30 ht-20 flag-us mt-1"></i></td>
+											<td class="w-1"><img src="{{URL::asset('assets/img/flags/de_flag.jpg')}}" alt="flags" class="flag wd-30 ht-20 flag-us mt-1"></i></td>
 											<td>Germany
 												<div class="progress progress-sm mt-1">
 													<div class="progress-bar bg-success wd-30"></div>
@@ -994,7 +994,7 @@
 											<td class="text-right"><span class="text-muted ">$1543</span></td>
 										</tr>
 										<tr>
-											<td class="w-1"><img src="{{URL::asset('assets/img/flags/french_flag.jpg')}}" alt="flags" class="flag wd-30 ht-20 flag-us mt-1"></i></td>
+											<td class="w-1"><img src="{{URL::asset('assets/img/flags/fr_flag.jpg')}}" alt="flags" class="flag wd-30 ht-20 flag-us mt-1"></i></td>
 											<td>French
 												<div class="progress progress-sm mt-1">
 													<div class="progress-bar bg-teal wd-40"></div>

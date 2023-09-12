@@ -1,9 +1,9 @@
 @extends('dashboard.layouts.master')
 
-{{--@section('css')--}}
+@push('css')
 <link rel="stylesheet" href="{{asset('dashboard/plugins/owl-carousel/owl.carousel.css')}}">
 <link href="{{asset('dashboard/plugins/jqvmap/jqvmap.min.css')}}" rel="stylesheet">
-{{--@endsection--}}
+@endpush
 @section('page-header')
 
 				<!-- breadcrumb -->
