@@ -38,12 +38,10 @@ class AdminController extends Controller
     public function store(AdminLoginRequest $request): RedirectResponse
     {
         $request->authenticate();
-
         $request->session()->regenerate();
 
-//        return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
+
         return redirect()->route(RouteServiceProvider::ADMIN_HOME);
-//        return redirect()->intended(RouteServiceProvider::ADMIN_HOME);
     }
 
     /**

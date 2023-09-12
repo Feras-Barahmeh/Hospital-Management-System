@@ -11,3 +11,13 @@ option {
 .gap-10 {
     gap: 10px;
 }
+.show-password-hint {
+    position: absolute;
+    left: 5px;
+    top: 40px;
+    cursor: pointer;
+    transition: color .3s ease-in;
+}
+.show-password-hint:hover {
+    color: #a5a0b1;
+}

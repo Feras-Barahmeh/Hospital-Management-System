@@ -26,58 +26,33 @@
 										<div class="card-sigin">
 											<div class="mb-5 d-flex"> <a href="{{ url('/' . $page='index') }}"><img src="{{asset('dashboard/img/brand/favicon.png')}}" class="sign-favicon ht-40" alt="logo"></a><h1 class="main-logo1 ml-1 mr-0 my-auto tx-28">Va<span>le</span>x</h1></div>
 											<div class="card-sigin">
-												<div class="main-signup-header">
-													<h2>Welcome back!</h2>
+                                                {{-- start messages --}}
+                                                @if ($errors->has('email'))
+                                                    <div class="alert alert-danger">{{ $errors->first('email') }}</div>
+                                                @endif
+
+                                                @if ($errors->has('password'))
+                                                    <div class="alert alert-danger">{{ $errors->first('password') }}</div>
+                                                @endif
+                                                {{-- End messages --}}
+
+                                                <div class="main-signup-header">
+													<h2 class="mb-6">{{ trans('dashboard/login.welcome') }}</h2>
 
                                                     <select class="form-control mt-2 mb-2" select-rank autofocus aria-label="Default select example">
-                                                        <option selected disabled>Login as....</option>
-                                                        <option value="user" >patient</option>
-                                                        <option value="doctor">Doctor</option>
-                                                        <option value="admin">Admin</option>
+                                                        <option selected disabled>{{ trans('dashboard/login.login_as') }}</option>
+                                                        <option value="user" >{{ trans('dashboard/login.user') }}</option>
+                                                        <option value="doctor">{{ trans('dashboard/login.doctor') }}</option>
+                                                        <option value="admin">{{ trans('dashboard/login.admin') }}</option>
                                                     </select>
 
-                                                    {{-- login form user --}}
-                                                    <section class="panel-form d-none" panel-form id="user">
-                                                        <h5 class="font-weight-semibold mb-4 mt-4">Please sign in as patient.</h5>
-                                                        <form method="POST" action="{{ route('user.login') }}">
-                                                            @csrf
-                                                            <div class="form-group">
-                                                                <label for="email">Email</label>
-                                                                <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-control" autofocus placeholder="Enter your email" >
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="password">Password</label>
-                                                                <input id="password" name="password" class="form-control" placeholder="Enter your password" type="password">
-                                                            </div>
-
-                                                            <button type="submit" class="btn btn-main-primary btn-block">Sign In</button>
-
-                                                        </form>
-                                                    </section>
-
-                                                     {{-- login form admin --}}
-                                                    <section class="panel-form d-none" panel-form id="admin">
-                                                        <h5 class="font-weight-semibold mb-4 mt-4">Please sign in as admin.</h5>
-                                                        <form method="POST" action="{{ route('admin.login') }}">
-                                                            @csrf
-                                                            <div class="form-group">
-                                                                <label for="email">Email</label>
-                                                                <input type="email" id="email" name="email" value="{{ old('email') }}" class="form-control" autofocus placeholder="Enter your email" >
-                                                            </div>
-                                                            <div class="form-group">
-                                                                <label for="password">Password</label>
-                                                                <input id="password" name="password" class="form-control" placeholder="Enter your password" type="password">
-                                                            </div>
-                                                            <button type="submit" class="btn btn-main-primary btn-block">Sign In</button>
-
-                                                        </form>
-                                                    </section>
-
-
+                                                    {{-- start forms --}}
+                                                    @include('dashboard.user.auth.layouts.login-form')
+                                                    {{-- end forms --}}
 
 													<div class="main-signin-footer mt-5">
-														<span class="d-block"><a href="">Forgot password?</a></span>
-														<span class="d-block">Don't have an account? <a href="{{ url('/' . $page='signup') }}">Create an Account</a></span>
+														<span class="d-block"><a href="">{{ trans('dashboard/login.forgot_pass') }}</a></span>
+														<span class="d-block">{{ trans('dashboard/login.has_account') }}<a href="{{ url('/' . $page='signup') }}">{{ trans('dashboard/login.create_account') }}</a></span>
 													</div>
 												</div>
 											</div>
