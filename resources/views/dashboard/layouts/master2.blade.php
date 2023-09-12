@@ -13,7 +13,7 @@
 	<body class="main-body dark-theme">
 		<!-- Loader -->
 		<div id="global-loader">
-			<img src="{{asset('build/assets/dashboard/img/loader.svg')}}" class="loader-img" alt="Loader">
+			<img src="{{asset('dashboard/img/loader.svg')}}" class="loader-img" alt="Loader">
 		</div>
 		<!-- /Loader -->
 		@yield('content')

@@ -1,0 +1,7 @@
+select,
+option {
+    cursor: pointer;
+}
+.panel-form {
+    transition: dispaly 1s ease-in;
+}

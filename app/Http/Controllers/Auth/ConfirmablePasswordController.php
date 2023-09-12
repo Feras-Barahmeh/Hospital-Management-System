@@ -22,6 +22,7 @@ class ConfirmablePasswordController extends Controller
 
     /**
      * Confirm the user's password.
+     * @throws ValidationException
      */
     public function store(Request $request): RedirectResponse
     {
@@ -36,6 +37,6 @@ class ConfirmablePasswordController extends Controller
 
         $request->session()->put('auth.password_confirmed_at', time());
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->intended(RouteServiceProvider::USER_HOME);
     }
 }
