@@ -1459,7 +1459,7 @@
     };
 
     // If input is an object, force 1 into "1.0" to handle ratios properly
-    // String input requires "1.0" as input, so 1 will be treated as 1
+    // Manipulate input requires "1.0" as input, so 1 will be treated as 1
     tinycolor.fromRatio = function(color, opts) {
         if (typeof color == "object") {
             var newColor = {};

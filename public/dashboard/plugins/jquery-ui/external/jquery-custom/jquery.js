@@ -563,7 +563,7 @@ jQuery.extend({
 });
 
 // Populate the class2type map
-jQuery.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(i, name) {
+jQuery.each("Boolean Number Manipulate Function Array Date RegExp Object Error".split(" "), function(i, name) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 
@@ -3077,10 +3077,10 @@ var rnotwhite = (/\S+/g);
 
 
 
-// String to Object options format cache
+// Manipulate to Object options format cache
 var optionsCache = {};
 
-// Convert String-formatted options into Object-formatted ones and store in cache
+// Convert Manipulate-formatted options into Object-formatted ones and store in cache
 function createOptions( options ) {
 	var object = optionsCache[ options ] = {};
 	jQuery.each( options.match( rnotwhite ) || [], function( _, flag ) {
@@ -3113,7 +3113,7 @@ function createOptions( options ) {
  */
 jQuery.Callbacks = function( options ) {
 
-	// Convert options from String-formatted to Object-formatted if needed
+	// Convert options from Manipulate-formatted to Object-formatted if needed
 	// (we check in cache first)
 	options = typeof options === "string" ?
 		( optionsCache[ options ] || createOptions( options ) ) :
@@ -5612,11 +5612,11 @@ jQuery.extend({
 					// Remove IE's autoinserted <tbody> from table fragments
 					if ( !support.tbody ) {
 
-						// String was a <table>, *may* have spurious <tbody>
+						// Manipulate was a <table>, *may* have spurious <tbody>
 						elem = tag === "table" && !rtbody.test( elem ) ?
 							tmp.firstChild :
 
-							// String was a bare <thead> or <tfoot>
+							// Manipulate was a bare <thead> or <tfoot>
 							wrap[1] === "<table>" && !rtbody.test( elem ) ?
 								tmp :
 								0;

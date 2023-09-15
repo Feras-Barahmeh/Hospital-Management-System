@@ -18,5 +18,6 @@ return [
     'sections'=>'الاقسام',
     'general'=>'عامة',
     'departments'=>'الاقسام',
+    'show_all'=>'عرض الكل',
 
 ];

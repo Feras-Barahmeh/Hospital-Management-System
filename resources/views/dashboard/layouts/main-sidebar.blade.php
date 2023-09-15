@@ -38,7 +38,7 @@
                             <i class="angle fe fe-chevron-down"></i>
                         </a>
 						<ul class="slide-menu">
-							<li><a class="slide-item" href="{{ url('/' . $page='chart-morris') }}">Morris Charts</a></li>
+							<li><a class="slide-item" href="{{ route('admin.departments.index') }}">{{ trans('dashboard/main-sidebar.show_all') }}</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='chart-flot') }}">Flot Charts</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='chart-chartjs') }}">ChartJS</a></li>
 							<li><a class="slide-item" href="{{ url('/' . $page='chart-echart') }}">Echart</a></li>

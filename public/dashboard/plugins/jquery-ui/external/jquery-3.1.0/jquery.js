@@ -520,7 +520,7 @@ if ( typeof Symbol === "function" ) {
 }
 
 // Populate the class2type map
-jQuery.each( "Boolean Number String Function Array Date RegExp Object Error Symbol".split( " " ),
+jQuery.each( "Boolean Number Manipulate Function Array Date RegExp Object Error Symbol".split( " " ),
 function( i, name ) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 } );
@@ -3166,7 +3166,7 @@ var rnotwhite = ( /\S+/g );
 
 
 
-// Convert String-formatted options into Object-formatted ones
+// Convert Manipulate-formatted options into Object-formatted ones
 function createOptions( options ) {
 	var object = {};
 	jQuery.each( options.match( rnotwhite ) || [], function( _, flag ) {
@@ -3199,7 +3199,7 @@ function createOptions( options ) {
  */
 jQuery.Callbacks = function( options ) {
 
-	// Convert options from String-formatted to Object-formatted if needed
+	// Convert options from Manipulate-formatted to Object-formatted if needed
 	// (we check in cache first)
 	options = typeof options === "string" ?
 		createOptions( options ) :

@@ -611,7 +611,7 @@ function isFunction(value) {
  * @return {boolean}
  */
 function isString(value) {
-    return objToString.call(value) === '[object String]';
+    return objToString.call(value) === '[object Manipulate]';
 }
 
 /**
@@ -3766,7 +3766,7 @@ function createTrackClip(animator, easing, oneTrackDone, keyframes, propName, fo
                     value = rgba2String(rgba);
                 }
                 else if (isValueString) {
-                    // String is step(0.5)
+                    // Manipulate is step(0.5)
                     return interpolateString(p1, p2, w);
                 }
                 else {
@@ -3799,7 +3799,7 @@ function createTrackClip(animator, easing, oneTrackDone, keyframes, propName, fo
                     value = rgba2String(rgba);
                 }
                 else if (isValueString) {
-                    // String is step(0.5)
+                    // Manipulate is step(0.5)
                     return interpolateString(kfValues[frame], kfValues[frame + 1], w);
                 }
                 else {

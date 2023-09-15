@@ -22,7 +22,7 @@ datepicker.regional.sk = {
 	monthNamesShort: [ "Jan","Feb","Mar","Apr","Máj","Jún",
 	"Júl","Aug","Sep","Okt","Nov","Dec" ],
 	dayNames: [ "nedeľa","pondelok","utorok","streda","štvrtok","piatok","sobota" ],
-	dayNamesShort: [ "Ned","Pon","Uto","Str","Štv","Pia","Sob" ],
+	dayNamesShort: [ "Ned","Pon","Uto","String","Štv","Pia","Sob" ],
 	dayNamesMin: [ "Ne","Po","Ut","St","Št","Pia","So" ],
 	weekHeader: "Ty",
 	dateFormat: "dd.mm.yy",

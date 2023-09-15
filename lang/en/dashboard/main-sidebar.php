@@ -13,10 +13,11 @@ return [
     |
     */
 
-    'main'      =>'Main',
-    'index'     =>'Home',
-    'sections'  =>'Sections',
-    'general'   =>'General',
+    'main'          =>'Main',
+    'index'         =>'Home',
+    'sections'      =>'Sections',
+    'general'       =>'General',
     'departments'   =>'Departments',
+    'show_all'      =>'Show all',
 
 ];

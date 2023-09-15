@@ -648,7 +648,7 @@ jQuery.extend({
 		return obj;
 	},
 
-	// Use native String.trim function wherever possible
+	// Use native Manipulate.trim function wherever possible
 	trim: core_trim && !core_trim.call("\uFEFF\xA0") ?
 		function( text ) {
 			return text == null ?
@@ -924,7 +924,7 @@ jQuery.ready.promise = function( obj ) {
 };
 
 // Populate the class2type map
-jQuery.each("Boolean Number String Function Array Date RegExp Object Error".split(" "), function(i, name) {
+jQuery.each("Boolean Number Manipulate Function Array Date RegExp Object Error".split(" "), function(i, name) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 
@@ -947,10 +947,10 @@ function isArraylike( obj ) {
 
 // All jQuery objects should point back to these
 rootjQuery = jQuery(document);
-// String to Object options format cache
+// Manipulate to Object options format cache
 var optionsCache = {};
 
-// Convert String-formatted options into Object-formatted ones and store in cache
+// Convert Manipulate-formatted options into Object-formatted ones and store in cache
 function createOptions( options ) {
 	var object = optionsCache[ options ] = {};
 	jQuery.each( options.match( core_rnotwhite ) || [], function( _, flag ) {
@@ -983,7 +983,7 @@ function createOptions( options ) {
  */
 jQuery.Callbacks = function( options ) {
 
-	// Convert options from String-formatted to Object-formatted if needed
+	// Convert options from Manipulate-formatted to Object-formatted if needed
 	// (we check in cache first)
 	options = typeof options === "string" ?
 		( optionsCache[ options ] || createOptions( options ) ) :
@@ -1521,7 +1521,7 @@ jQuery.support = (function() {
 
 var rbrace = /(?:\{[\s\S]*\}|\[[\s\S]*\])$/,
 	rmultiDash = /([A-Z])/g;
-	
+
 function internalData( elem, name, data, pvt /* Internal Use Only */ ){
 	if ( !jQuery.acceptData( elem ) ) {
 		return;
@@ -1737,7 +1737,7 @@ jQuery.extend({
 	_data: function( elem, name, data ) {
 		return internalData( elem, name, data, true );
 	},
-	
+
 	_removeData: function( elem, name ) {
 		return internalRemoveData( elem, name, true );
 	},
@@ -6463,11 +6463,11 @@ jQuery.extend({
 					// Remove IE's autoinserted <tbody> from table fragments
 					if ( !jQuery.support.tbody ) {
 
-						// String was a <table>, *may* have spurious <tbody>
+						// Manipulate was a <table>, *may* have spurious <tbody>
 						elem = tag === "table" && !rtbody.test( elem ) ?
 							tmp.firstChild :
 
-							// String was a bare <thead> or <tfoot>
+							// Manipulate was a bare <thead> or <tfoot>
 							wrap[1] === "<table>" && !rtbody.test( elem ) ?
 								tmp :
 								0;
@@ -7365,7 +7365,7 @@ var
 	// Document location
 	ajaxLocParts,
 	ajaxLocation,
-	
+
 	ajax_nonce = jQuery.now(),
 
 	ajax_rquery = /\?/,

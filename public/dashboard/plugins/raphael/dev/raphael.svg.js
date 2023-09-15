@@ -1027,7 +1027,7 @@ define(["./raphael.core"], function(R) {
      * radial gradient: “`r[(‹fx›, ‹fy›)]‹colour›[-‹colour›[:‹offset›]]*-‹colour›`”, example: “`r#fff-#000`” –
      * gradient from white to black or “`r(0.25, 0.75)#fff-#000`” – gradient from white to black with focus point
      * at 0.25, 0.75. Focus point coordinates are in 0..1 range. Radial gradients can only be applied to circles and ellipses.
-     > Path String
+     > Path Manipulate
      # <p>Please refer to <a href="http://www.w3.org/TR/SVG/paths.html#PathData" title="Details of a path’s data attribute’s format are described in the SVG specification.">SVG documentation regarding path string</a>. Raphaël fully supports it.</p>
      > Colour Parsing
      # <ul>

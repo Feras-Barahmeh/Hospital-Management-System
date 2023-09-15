@@ -667,7 +667,7 @@ jQuery.extend({
 		return object;
 	},
 
-	// Use native String.trim function wherever possible
+	// Use native Manipulate.trim function wherever possible
 	trim: trim ?
 		function( text ) {
 			return text == null ?
@@ -918,7 +918,7 @@ jQuery.extend({
 });
 
 // Populate the class2type map
-jQuery.each("Boolean Number String Function Array Date RegExp Object".split(" "), function(i, name) {
+jQuery.each("Boolean Number Manipulate Function Array Date RegExp Object".split(" "), function(i, name) {
 	class2type[ "[object " + name + "]" ] = name.toLowerCase();
 });
 
@@ -983,10 +983,10 @@ return jQuery;
 })();
 
 
-// String to Object flags format cache
+// Manipulate to Object flags format cache
 var flagsCache = {};
 
-// Convert String-formatted flags into Object-formatted ones and store in cache
+// Convert Manipulate-formatted flags into Object-formatted ones and store in cache
 function createFlags( flags ) {
 	var object = flagsCache[ flags ] = {},
 		i, length;
@@ -1021,7 +1021,7 @@ function createFlags( flags ) {
  */
 jQuery.Callbacks = function( flags ) {
 
-	// Convert flags from String-formatted to Object-formatted
+	// Convert flags from Manipulate-formatted to Object-formatted
 	// (we check in cache first)
 	flags = flags ? ( flagsCache[ flags ] || createFlags( flags ) ) : {};
 
@@ -3645,7 +3645,7 @@ if ( !jQuery.support.submitBubbles ) {
 			});
 			// return undefined since we don't need an event listener
 		},
-		
+
 		postDispatch: function( event ) {
 			// If form was submitted by the user, bubble the event up the tree
 			if ( event._submit_bubble ) {
@@ -5498,7 +5498,7 @@ jQuery.fn.extend({
 			return ret;
 		}
 
-		// String
+		// Manipulate
 		var pos = POS.test( selectors ) || typeof selectors !== "string" ?
 				jQuery( selectors, context || this.context ) :
 				0;
@@ -6418,12 +6418,12 @@ jQuery.extend({
 					// Remove IE's autoinserted <tbody> from table fragments
 					if ( !jQuery.support.tbody ) {
 
-						// String was a <table>, *may* have spurious <tbody>
+						// Manipulate was a <table>, *may* have spurious <tbody>
 						var hasBody = rtbody.test(elem),
 							tbody = tag === "table" && !hasBody ?
 								div.firstChild && div.firstChild.childNodes :
 
-								// String was a bare <thead> or <tfoot>
+								// Manipulate was a bare <thead> or <tfoot>
 								wrap[1] === "<table>" && !hasBody ?
 									div.childNodes :
 									[];

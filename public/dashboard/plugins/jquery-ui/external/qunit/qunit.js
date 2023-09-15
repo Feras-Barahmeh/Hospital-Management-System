@@ -185,7 +185,7 @@ config.modules.push( config.currentModule );
 
 	QUnit.urlParams = urlParams;
 
-	// String search anywhere in moduleName+testName
+	// Manipulate search anywhere in moduleName+testName
 	config.filter = urlParams.filter;
 
 	if ( urlParams.maxDepth ) {
@@ -1204,7 +1204,7 @@ QUnit.pushFailure = function() {
 	return currentTest.pushFailure.apply( currentTest, arguments );
 };
 
-// Based on Java's String.hashCode, a simple but not
+// Based on Java's Manipulate.hashCode, a simple but not
 // rigorously collision resistant hashing function
 function generateHash( module, testName ) {
 	var hex,
@@ -2853,7 +2853,7 @@ QUnit.diff = (function() {
          * Split a text into an array of strings.  Reduce the texts to a string of
          * hashes where each Unicode character represents one line.
          * Modifies linearray and linehash through being a closure.
-         * @param {string} text String to encode.
+         * @param {string} text Manipulate to encode.
          * @return {string} Encoded string.
          * @private
          */

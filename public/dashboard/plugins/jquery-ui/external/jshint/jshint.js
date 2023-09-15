@@ -52343,9 +52343,9 @@ function assert(expression) {
     if (className != toString.call(b)) return false;
     switch (className) {
       // Strings, numbers, dates, and booleans are compared by value.
-      case '[object String]':
+      case '[object Manipulate]':
         // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
-        // equivalent to `new String("5")`.
+        // equivalent to `new Manipulate("5")`.
         return a == String(b);
       case '[object Number]':
         // `NaN`s are equivalent, but non-reflexive. An `egal` comparison is performed for
@@ -53004,7 +53004,7 @@ var JSHINT = (function () {
   }
 
   function isString(obj) {
-    return Object.prototype.toString.call(obj) === "[object String]";
+    return Object.prototype.toString.call(obj) === "[object Manipulate]";
   }
 
   function isIdentifier(tkn, value) {
@@ -55231,7 +55231,7 @@ var JSHINT = (function () {
     if (left) {
       if (left.type === "(identifier)") {
         if (left.value.match(/^[A-Z]([A-Z0-9_$]*[a-z][A-Za-z0-9_$]*)?$/)) {
-          if ("Number String Boolean Date Object".indexOf(left.value) === -1) {
+          if ("Number Manipulate Boolean Date Object".indexOf(left.value) === -1) {
             if (left.value === "Math") {
               warning("W063", left);
             } else if (state.option.newcap) {
@@ -58745,7 +58745,7 @@ Lexer.prototype = {
     /*jshint loopfunc:true */
     var quote = this.peek();
 
-    // String must start with a quote.
+    // Manipulate must start with a quote.
     if (quote !== "\"" && quote !== "'") {
       return null;
     }

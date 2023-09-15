@@ -9,6 +9,13 @@ function hideAllPanelForms() {
         form.classList.add("d-none");
     });
 }
+function setSelectedValueFromLocalStorage(selectInput) {
+    selectInput.querySelectorAll("option").forEach(option => {
+        if (option.value === localStorage.getItem("last-login-opened")) {
+            option.selected = true;
+        }
+    });
+}
 function showForm(form) {
     form.classList.remove('d-none');
 }
@@ -25,6 +32,7 @@ selectRankInput.addEventListener("change", (e) => {
 // Show last form opened
 hideAllPanelForms();
 showForm(document.getElementById(localStorage.getItem("last-login-opened")));
+setSelectedValueFromLocalStorage(selectRankInput);
 
 /**
  * End Show Panel Form Login

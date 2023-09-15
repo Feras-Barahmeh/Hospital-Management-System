@@ -131,13 +131,13 @@ function formatNum(num, digits) {
 	return Math.round(num * pow) / pow;
 }
 
-// @function trim(str: String): String
-// Compatibility polyfill for [String.prototype.trim](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String/Trim)
+// @function trim(str: Manipulate): Manipulate
+// Compatibility polyfill for [Manipulate.prototype.trim](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String/Trim)
 function trim(str) {
 	return str.trim ? str.trim() : str.replace(/^\s+|\s+$/g, '');
 }
 
-// @function splitWords(str: String): String[]
+// @function splitWords(str: Manipulate): Manipulate[]
 // Trims and splits the string on whitespace and returns the array of parts.
 function splitWords(str) {
 	return trim(str).split(/\s+/);
@@ -155,7 +155,7 @@ function setOptions(obj, options) {
 	return obj.options;
 }
 
-// @function getParamString(obj: Object, existingUrl?: String, uppercase?: Boolean): String
+// @function getParamString(obj: Object, existingUrl?: Manipulate, uppercase?: Boolean): Manipulate
 // Converts an object into a parameter URL string, e.g. `{a: "foo", b: "bar"}`
 // translates to `'?a=foo&b=bar'`. If `existingUrl` is set, the parameters will
 // be appended at the end. If `uppercase` is `true`, the parameter names will
@@ -170,7 +170,7 @@ function getParamString(obj, existingUrl, uppercase) {
 
 var templateRe = /\{ *([\w_-]+) *\}/g;
 
-// @function template(str: String, data: Object): String
+// @function template(str: Manipulate, data: Object): Manipulate
 // Simple templating facility, accepts a template string of the form `'Hello {a}, {b}'`
 // and a data object like `{a: 'foo', b: 'bar'}`, returns evaluated string
 // `('Hello foo, bar')`. You can also specify functions instead of strings for
@@ -204,7 +204,7 @@ function indexOf(array, el) {
 	return -1;
 }
 
-// @property emptyImageUrl: String
+// @property emptyImageUrl: Manipulate
 // Data URI string containing a base64-encoded empty GIF image.
 // Used as a hack to free memory from unused images on WebKit-powered
 // mobile devices (by setting image `src` to this string).
@@ -378,7 +378,7 @@ Class.mergeOptions = function (options) {
 
 // @function addInitHook(fn: Function): this
 // Adds a [constructor hook](#class-constructor-hooks) to the class.
-Class.addInitHook = function (fn) { // (Function) || (String, args...)
+Class.addInitHook = function (fn) { // (Function) || (Manipulate, args...)
 	var args = Array.prototype.slice.call(arguments, 1);
 
 	var init = typeof fn === 'function' ? fn : function () {
@@ -430,7 +430,7 @@ function checkDeprecatedMixinEvents(includes) {
  */
 
 var Events = {
-	/* @method on(type: String, fn: Function, context?: Object): this
+	/* @method on(type: Manipulate, fn: Function, context?: Object): this
 	 * Adds a listener function (`fn`) to a particular event type of the object. You can optionally specify the context of the listener (object the this keyword will point to). You can also pass several space-separated types (e.g. `'click dblclick'`).
 	 *
 	 * @alternative
@@ -459,7 +459,7 @@ var Events = {
 		return this;
 	},
 
-	/* @method off(type: String, fn?: Function, context?: Object): this
+	/* @method off(type: Manipulate, fn?: Function, context?: Object): this
 	 * Removes a previously added listener function. If no function is specified, it will remove all the listeners of that particular event from the object. Note that if you passed a custom context to `on`, you must pass the same context to `off` in order to remove the listener.
 	 *
 	 * @alternative
@@ -570,7 +570,7 @@ var Events = {
 		}
 	},
 
-	// @method fire(type: String, data?: Object, propagate?: Boolean): this
+	// @method fire(type: Manipulate, data?: Object, propagate?: Boolean): this
 	// Fires an event of the specified type. You can optionally provide an data
 	// object — the first argument of the listener function will contain its
 	// properties. The event can optionally be propagated to event parents.
@@ -605,7 +605,7 @@ var Events = {
 		return this;
 	},
 
-	// @method listens(type: String): Boolean
+	// @method listens(type: Manipulate): Boolean
 	// Returns `true` if a particular event type has any listeners attached to it.
 	listens: function (type, propagate) {
 		var listeners = this._events && this._events[type];
@@ -883,7 +883,7 @@ Point.prototype = {
 		       Math.abs(point.y) <= Math.abs(this.y);
 	},
 
-	// @method toString(): String
+	// @method toString(): Manipulate
 	// Returns a string representation of the point for debugging purposes.
 	toString: function () {
 		return 'Point(' +
@@ -1301,7 +1301,7 @@ LatLngBounds.prototype = {
 		return latOverlaps && lngOverlaps;
 	},
 
-	// @method toBBoxString(): String
+	// @method toBBoxString(): Manipulate
 	// Returns a string with bounding box coordinates in a 'southwest_lng,southwest_lat,northeast_lng,northeast_lat' format. Useful for sending requests to web services that return geo data.
 	toBBoxString: function () {
 		return [this.getWest(), this.getSouth(), this.getEast(), this.getNorth()].join(',');
@@ -1400,7 +1400,7 @@ LatLng.prototype = {
 		return margin <= (maxMargin === undefined ? 1.0E-9 : maxMargin);
 	},
 
-	// @method toString(): String
+	// @method toString(): Manipulate
 	// Returns a string representation of the point (for debugging purposes).
 	toString: function (precision) {
 		return 'LatLng(' +
@@ -1556,7 +1556,7 @@ var CRS = {
 	// @method distance(latlng1: LatLng, latlng2: LatLng): Number
 	// Returns the distance between two geographical coordinates.
 
-	// @property code: String
+	// @property code: Manipulate
 	// Standard code name of the CRS passed into WMS services (e.g. `'EPSG:3857'`)
 	//
 	// @property wrapLng: Number[]
@@ -1781,7 +1781,7 @@ var EPSG900913 = extend({}, EPSG3857, {
 // @namespace SVG; @section
 // There are several static functions which can be called without instantiating L.SVG:
 
-// @function create(name: String): SVGElement
+// @function create(name: Manipulate): SVGElement
 // Returns a instance of [SVGElement](https://developer.mozilla.org/docs/Web/API/SVGElement),
 // corresponding to the class name passed. For example, using 'line' will return
 // an instance of [SVGLineElement](https://developer.mozilla.org/docs/Web/API/SVGLineElement).
@@ -1789,7 +1789,7 @@ function svgCreate(name) {
 	return document.createElementNS('http://www.w3.org/2000/svg', name);
 }
 
-// @function pointsToPath(rings: Point[], closed: Boolean): String
+// @function pointsToPath(rings: Point[], closed: Boolean): Manipulate
 // Generates a SVG path string for multiple rings, with each ring turning
 // into "M..L..L.." instructions
 function pointsToPath(rings, closed) {
@@ -2218,7 +2218,7 @@ function removeDoubleTapListener(obj, id) {
  */
 
 
-// @property TRANSFORM: String
+// @property TRANSFORM: Manipulate
 // Vendor-prefixed transform style name (e.g. `'webkitTransform'` for WebKit).
 var TRANSFORM = testProp(
 	['transform', 'webkitTransform', 'OTransform', 'MozTransform', 'msTransform']);
@@ -2226,25 +2226,25 @@ var TRANSFORM = testProp(
 // webkitTransition comes first because some browser versions that drop vendor prefix don't do
 // the same for the transitionend event, in particular the Android 4.1 stock browser
 
-// @property TRANSITION: String
+// @property TRANSITION: Manipulate
 // Vendor-prefixed transition style name.
 var TRANSITION = testProp(
 	['webkitTransition', 'transition', 'OTransition', 'MozTransition', 'msTransition']);
 
-// @property TRANSITION_END: String
+// @property TRANSITION_END: Manipulate
 // Vendor-prefixed transitionend event name.
 var TRANSITION_END =
 	TRANSITION === 'webkitTransition' || TRANSITION === 'OTransition' ? TRANSITION + 'End' : 'transitionend';
 
 
-// @function get(id: String|HTMLElement): HTMLElement
+// @function get(id: Manipulate|HTMLElement): HTMLElement
 // Returns an element given its DOM id, or returns the element itself
 // if it was passed directly.
 function get(id) {
 	return typeof id === 'string' ? document.getElementById(id) : id;
 }
 
-// @function getStyle(el: HTMLElement, styleAttrib: String): String
+// @function getStyle(el: HTMLElement, styleAttrib: Manipulate): Manipulate
 // Returns the value for a certain style attribute on an element,
 // including computed values or values set through CSS.
 function getStyle(el, style) {
@@ -2257,7 +2257,7 @@ function getStyle(el, style) {
 	return value === 'auto' ? null : value;
 }
 
-// @function create(tagName: String, className?: String, container?: HTMLElement): HTMLElement
+// @function create(tagName: Manipulate, className?: Manipulate, container?: HTMLElement): HTMLElement
 // Creates an HTML element with `tagName`, sets its class to `className`, and optionally appends it to `container` element.
 function create$1(tagName, className, container) {
 	var el = document.createElement(tagName);
@@ -2304,7 +2304,7 @@ function toBack(el) {
 	}
 }
 
-// @function hasClass(el: HTMLElement, name: String): Boolean
+// @function hasClass(el: HTMLElement, name: Manipulate): Boolean
 // Returns `true` if the element's class attribute contains `name`.
 function hasClass(el, name) {
 	if (el.classList !== undefined) {
@@ -2314,7 +2314,7 @@ function hasClass(el, name) {
 	return className.length > 0 && new RegExp('(^|\\s)' + name + '(\\s|$)').test(className);
 }
 
-// @function addClass(el: HTMLElement, name: String)
+// @function addClass(el: HTMLElement, name: Manipulate)
 // Adds `name` to the element's class attribute.
 function addClass(el, name) {
 	if (el.classList !== undefined) {
@@ -2328,7 +2328,7 @@ function addClass(el, name) {
 	}
 }
 
-// @function removeClass(el: HTMLElement, name: String)
+// @function removeClass(el: HTMLElement, name: Manipulate)
 // Removes `name` from the element's class attribute.
 function removeClass(el, name) {
 	if (el.classList !== undefined) {
@@ -2338,7 +2338,7 @@ function removeClass(el, name) {
 	}
 }
 
-// @function setClass(el: HTMLElement, name: String)
+// @function setClass(el: HTMLElement, name: Manipulate)
 // Sets the element's class.
 function setClass(el, name) {
 	if (el.className.baseVal === undefined) {
@@ -2349,7 +2349,7 @@ function setClass(el, name) {
 	}
 }
 
-// @function getClass(el: HTMLElement): String
+// @function getClass(el: HTMLElement): Manipulate
 // Returns the element's class.
 function getClass(el) {
 	return el.className.baseVal === undefined ? el.className : el.className.baseVal;
@@ -2389,7 +2389,7 @@ function _setOpacityIE(el, value) {
 	}
 }
 
-// @function testProp(props: String[]): String|false
+// @function testProp(props: Manipulate[]): Manipulate|false
 // Goes through the array of style names and returns the first name
 // that is a valid style name for an element. If no such name is found,
 // it returns false. Useful for vendor-prefixed styles like `transform`.
@@ -2586,7 +2586,7 @@ var DomUtil = (Object.freeze || Object)({
 
 // Inspired by John Resig, Dean Edwards and YUI addEvent implementations.
 
-// @function on(el: HTMLElement, types: String, fn: Function, context?: Object): this
+// @function on(el: HTMLElement, types: Manipulate, fn: Function, context?: Object): this
 // Adds a listener function (`fn`) to a particular DOM event type of the
 // element `el`. You can optionally specify the context of the listener
 // (object the `this` keyword will point to). You can also pass several
@@ -2614,7 +2614,7 @@ function on(obj, types, fn, context) {
 
 var eventsKey = '_leaflet_events';
 
-// @function off(el: HTMLElement, types: String, fn: Function, context?: Object): this
+// @function off(el: HTMLElement, types: Manipulate, fn: Function, context?: Object): this
 // Removes a previously added listener function.
 // Note that if you passed a custom context to on, you must pass the same
 // context to `off` in order to remove the listener.
@@ -3110,7 +3110,7 @@ var Map = Evented.extend({
 		trackResize: true
 	},
 
-	initialize: function (id, options) { // (HTMLElement or String, Object)
+	initialize: function (id, options) { // (HTMLElement or Manipulate, Object)
 		options = setOptions(this, options);
 
 		this._initContainer(id);
@@ -3671,7 +3671,7 @@ var Map = Evented.extend({
 
 	// TODO Appropriate docs section?
 	// @section Other Methods
-	// @method addHandler(name: String, HandlerClass: Function): this
+	// @method addHandler(name: Manipulate, HandlerClass: Function): this
 	// Adds a new `Handler` to the map, given its name and constructor function.
 	addHandler: function (name, HandlerClass) {
 		if (!HandlerClass) { return this; }
@@ -3750,7 +3750,7 @@ var Map = Evented.extend({
 	},
 
 	// @section Other Methods
-	// @method createPane(name: String, container?: HTMLElement): HTMLElement
+	// @method createPane(name: Manipulate, container?: HTMLElement): HTMLElement
 	// Creates a new [map pane](#map-pane) with the given name if it doesn't exist already,
 	// then returns it. The pane is created as a child of `container`, or
 	// as a child of the main map pane if not set.
@@ -3879,7 +3879,7 @@ var Map = Evented.extend({
 
 	// @section Other Methods
 
-	// @method getPane(pane: String|HTMLElement): HTMLElement
+	// @method getPane(pane: Manipulate|HTMLElement): HTMLElement
 	// Returns a [map pane](#map-pane), given its name or its HTML element (its identity).
 	getPane: function (pane) {
 		return typeof pane === 'string' ? this._panes[pane] : pane;
@@ -4645,7 +4645,7 @@ var Map = Evented.extend({
 
 // @section
 
-// @factory L.map(id: String, options?: Map options)
+// @factory L.map(id: Manipulate, options?: Map options)
 // Instantiates a map object given the DOM ID of a `<div>` element
 // and optionally an object literal with `Map options`.
 //
@@ -4670,7 +4670,7 @@ var Control = Class.extend({
 	// @section
 	// @aka Control options
 	options: {
-		// @option position: String = 'topright'
+		// @option position: Manipulate = 'topright'
 		// The position of the control (one of the map corners). Possible values are `'topleft'`,
 		// `'topright'`, `'bottomleft'` or `'bottomright'`
 		position: 'topright'
@@ -4940,14 +4940,14 @@ var Layers = Control.extend({
 		}
 	},
 
-	// @method addBaseLayer(layer: Layer, name: String): this
+	// @method addBaseLayer(layer: Layer, name: Manipulate): this
 	// Adds a base layer (radio button entry) with the given name to the control.
 	addBaseLayer: function (layer, name) {
 		this._addLayer(layer, name);
 		return (this._map) ? this._update() : this;
 	},
 
-	// @method addOverlay(layer: Layer, name: String): this
+	// @method addOverlay(layer: Layer, name: Manipulate): this
 	// Adds an overlay (checkbox entry) with the given name to the control.
 	addOverlay: function (layer, name) {
 		this._addLayer(layer, name, true);
@@ -5262,19 +5262,19 @@ var Zoom = Control.extend({
 	options: {
 		position: 'topleft',
 
-		// @option zoomInText: String = '+'
+		// @option zoomInText: Manipulate = '+'
 		// The text set on the 'zoom in' button.
 		zoomInText: '+',
 
-		// @option zoomInTitle: String = 'Zoom in'
+		// @option zoomInTitle: Manipulate = 'Zoom in'
 		// The title set on the 'zoom in' button.
 		zoomInTitle: 'Zoom in',
 
-		// @option zoomOutText: String = '&#x2212;'
+		// @option zoomOutText: Manipulate = '&#x2212;'
 		// The text set on the 'zoom out' button.
 		zoomOutText: '&#x2212;',
 
-		// @option zoomOutTitle: String = 'Zoom out'
+		// @option zoomOutTitle: Manipulate = 'Zoom out'
 		// The title set on the 'zoom out' button.
 		zoomOutTitle: 'Zoom out'
 	},
@@ -5528,7 +5528,7 @@ var Attribution = Control.extend({
 	options: {
 		position: 'bottomright',
 
-		// @option prefix: String = 'Leaflet'
+		// @option prefix: Manipulate = 'Leaflet'
 		// The HTML text shown before the attributions. Pass `false` to disable.
 		prefix: '<a href="http://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>'
 	},
@@ -5556,7 +5556,7 @@ var Attribution = Control.extend({
 		return this._container;
 	},
 
-	// @method setPrefix(prefix: String): this
+	// @method setPrefix(prefix: Manipulate): this
 	// Sets the text before the attributions.
 	setPrefix: function (prefix) {
 		this.options.prefix = prefix;
@@ -5564,7 +5564,7 @@ var Attribution = Control.extend({
 		return this;
 	},
 
-	// @method addAttribution(text: String): this
+	// @method addAttribution(text: Manipulate): this
 	// Adds an attribution text (e.g. `'Vector data &copy; Mapbox'`).
 	addAttribution: function (text) {
 		if (!text) { return this; }
@@ -5579,7 +5579,7 @@ var Attribution = Control.extend({
 		return this;
 	},
 
-	// @method removeAttribution(text: String): this
+	// @method removeAttribution(text: Manipulate): this
 	// Removes an attribution text.
 	removeAttribution: function (text) {
 		if (!text) { return this; }
@@ -5696,7 +5696,7 @@ var Handler = Class.extend({
 });
 
 // @section There is static function which can be called without instantiating L.Handler:
-// @function addTo(map: Map, name: String): this
+// @function addTo(map: Map, name: Manipulate): this
 // Adds a new Handler to the given map with the given name.
 Handler.addTo = function (map, name) {
 	map.addHandler(name, this);
@@ -6452,12 +6452,12 @@ var Layer = Evented.extend({
 
 	// Classes extending `L.Layer` will inherit the following options:
 	options: {
-		// @option pane: String = 'overlayPane'
+		// @option pane: Manipulate = 'overlayPane'
 		// By default the layer will be added to the map's [overlay pane](#map-overlaypane). Overriding this option will cause the layer to be placed on another pane by default.
 		pane: 'overlayPane',
 
-		// @option attribution: String = null
-		// String to be shown in the attribution control, describes the layer data, e.g. "© Mapbox".
+		// @option attribution: Manipulate = null
+		// Manipulate to be shown in the attribution control, describes the layer data, e.g. "© Mapbox".
 		attribution: null,
 
 		bubblingMouseEvents: true
@@ -6489,7 +6489,7 @@ var Layer = Evented.extend({
 		return this;
 	},
 
-	// @method getPane(name? : String): HTMLElement
+	// @method getPane(name? : Manipulate): HTMLElement
 	// Returns the `HTMLElement` representing the named pane on the map. If `name` is omitted, returns the pane for this layer.
 	getPane: function (name) {
 		return this._map.getPane(name ? (this.options[name] || name) : this.options.pane);
@@ -6505,7 +6505,7 @@ var Layer = Evented.extend({
 		return this;
 	},
 
-	// @method getAttribution: String
+	// @method getAttribution: Manipulate
 	// Used by the `attribution control`, returns the [attribution option](#gridlayer-attribution).
 	getAttribution: function () {
 		return this.options.attribution;
@@ -6553,7 +6553,7 @@ var Layer = Evented.extend({
  * @method getEvents(): Object
  * This optional method should return an object like `{ viewreset: this._reset }` for [`addEventListener`](#evented-addeventlistener). The event handlers in this object will be automatically added and removed from the map with your layer.
  *
- * @method getAttribution(): String
+ * @method getAttribution(): Manipulate
  * This optional method should return a string containing HTML to be shown on the `Attribution control` whenever the layer is visible.
  *
  * @method beforeAdd(map: Map): this
@@ -6779,7 +6779,7 @@ var LayerGroup = Layer.extend({
 		return this.eachLayer(this.removeLayer, this);
 	},
 
-	// @method invoke(methodName: String, …): this
+	// @method invoke(methodName: Manipulate, …): this
 	// Calls `methodName` on every layer contained in this group, passing any
 	// additional parameters. Has no effect if the layers contained do not
 	// implement `methodName`.
@@ -6979,10 +6979,10 @@ var Icon = Class.extend({
 	/* @section
 	 * @aka Icon options
 	 *
-	 * @option iconUrl: String = null
+	 * @option iconUrl: Manipulate = null
 	 * **(required)** The URL to the icon image (absolute or relative to your script path).
 	 *
-	 * @option iconRetinaUrl: String = null
+	 * @option iconRetinaUrl: Manipulate = null
 	 * The URL to a retina sized version of the icon image (absolute or relative to your
 	 * script path). Used for Retina screen devices.
 	 *
@@ -7000,10 +7000,10 @@ var Icon = Class.extend({
 	 * @option tooltipAnchor: Point = [0, 0]
 	 * The coordinates of the point from which tooltips will "open", relative to the icon anchor.
 	 *
-	 * @option shadowUrl: String = null
+	 * @option shadowUrl: Manipulate = null
 	 * The URL to the icon shadow image. If not specified, no shadow image will be created.
 	 *
-	 * @option shadowRetinaUrl: String = null
+	 * @option shadowRetinaUrl: Manipulate = null
 	 *
 	 * @option shadowSize: Point = null
 	 * Size of the shadow image in pixels.
@@ -7012,7 +7012,7 @@ var Icon = Class.extend({
 	 * The coordinates of the "tip" of the shadow (relative to its top left corner) (the same
 	 * as iconAnchor if not specified).
 	 *
-	 * @option className: String = ''
+	 * @option className: Manipulate = ''
 	 * A custom class name to assign to both icon and shadow images. Empty by default.
 	 */
 
@@ -7131,7 +7131,7 @@ var IconDefault = Icon.extend({
 			IconDefault.imagePath = this._detectIconPath();
 		}
 
-		// @option imagePath: String
+		// @option imagePath: Manipulate
 		// `Icon.Default` will try to auto-detect the location of the
 		// blue icon images. If you are placing these images in a non-standard
 		// way, set this option to point to the right path.
@@ -7338,11 +7338,11 @@ var Marker = Layer.extend({
 		// Whether the marker can be tabbed to with a keyboard and clicked by pressing enter.
 		keyboard: true,
 
-		// @option title: String = ''
+		// @option title: Manipulate = ''
 		// Text for the browser tooltip that appear on marker hover (no tooltip by default).
 		title: '',
 
-		// @option alt: String = ''
+		// @option alt: Manipulate = ''
 		// Text for the `alt` attribute of the icon image (useful for accessibility).
 		alt: '',
 
@@ -7362,7 +7362,7 @@ var Marker = Layer.extend({
 		// The z-index offset used for the `riseOnHover` feature.
 		riseOffset: 250,
 
-		// @option pane: String = 'markerPane'
+		// @option pane: Manipulate = 'markerPane'
 		// `Map pane` where the markers icon will be added.
 		pane: 'markerPane',
 
@@ -7688,7 +7688,7 @@ var Path = Layer.extend({
 		// Whether to draw stroke along the path. Set it to `false` to disable borders on polygons or circles.
 		stroke: true,
 
-		// @option color: String = '#3388ff'
+		// @option color: Manipulate = '#3388ff'
 		// Stroke color
 		color: '#3388ff',
 
@@ -7700,19 +7700,19 @@ var Path = Layer.extend({
 		// Stroke opacity
 		opacity: 1,
 
-		// @option lineCap: String= 'round'
+		// @option lineCap: Manipulate= 'round'
 		// A string that defines [shape to be used at the end](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linecap) of the stroke.
 		lineCap: 'round',
 
-		// @option lineJoin: String = 'round'
+		// @option lineJoin: Manipulate = 'round'
 		// A string that defines [shape to be used at the corners](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-linejoin) of the stroke.
 		lineJoin: 'round',
 
-		// @option dashArray: String = null
+		// @option dashArray: Manipulate = null
 		// A string that defines the stroke [dash pattern](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-dasharray). Doesn't work on `Canvas`-powered layers in [some old browsers](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/setLineDash#Browser_compatibility).
 		dashArray: null,
 
-		// @option dashOffset: String = null
+		// @option dashOffset: Manipulate = null
 		// A string that defines the [distance into the dash pattern to start the dash](https://developer.mozilla.org/docs/Web/SVG/Attribute/stroke-dashoffset). Doesn't work on `Canvas`-powered layers in [some old browsers](https://developer.mozilla.org/docs/Web/API/CanvasRenderingContext2D/setLineDash#Browser_compatibility).
 		dashOffset: null,
 
@@ -7720,7 +7720,7 @@ var Path = Layer.extend({
 		// Whether to fill the path with color. Set it to `false` to disable filling on polygons or circles.
 		fill: false,
 
-		// @option fillColor: String = *
+		// @option fillColor: Manipulate = *
 		// Fill color. Defaults to the value of the [`color`](#path-color) option
 		fillColor: null,
 
@@ -7728,7 +7728,7 @@ var Path = Layer.extend({
 		// Fill opacity.
 		fillOpacity: 0.2,
 
-		// @option fillRule: String = 'evenodd'
+		// @option fillRule: Manipulate = 'evenodd'
 		// A string that defines [how the inside of a shape](https://developer.mozilla.org/docs/Web/SVG/Attribute/fill-rule) is determined.
 		fillRule: 'evenodd',
 
@@ -8950,7 +8950,7 @@ var ImageOverlay = Layer.extend({
 		// The opacity of the image overlay.
 		opacity: 1,
 
-		// @option alt: String = ''
+		// @option alt: Manipulate = ''
 		// Text for the `alt` attribute of the image (useful for accessibility).
 		alt: '',
 
@@ -8958,13 +8958,13 @@ var ImageOverlay = Layer.extend({
 		// If `true`, the image overlay will emit [mouse events](#interactive-layer) when clicked or hovered.
 		interactive: false,
 
-		// @option crossOrigin: Boolean|String = false
+		// @option crossOrigin: Boolean|Manipulate = false
 		// Whether the crossOrigin attribute will be added to the image.
-		// If a String is provided, the image will have its crossOrigin attribute set to the String provided. This is needed if you want to access image pixel data.
-		// Refer to [CORS Settings](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) for valid String values.
+		// If a Manipulate is provided, the image will have its crossOrigin attribute set to the Manipulate provided. This is needed if you want to access image pixel data.
+		// Refer to [CORS Settings](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) for valid Manipulate values.
 		crossOrigin: false,
 
-		// @option errorOverlayUrl: String = ''
+		// @option errorOverlayUrl: Manipulate = ''
 		// URL to the overlay image to show in place of the overlay that failed to load.
 		errorOverlayUrl: '',
 
@@ -8972,12 +8972,12 @@ var ImageOverlay = Layer.extend({
 		// The explicit [zIndex](https://developer.mozilla.org/docs/Web/CSS/CSS_Positioning/Understanding_z_index) of the overlay layer.
 		zIndex: 1,
 
-		// @option className: String = ''
+		// @option className: Manipulate = ''
 		// A custom class name to assign to the image. Empty by default.
 		className: ''
 	},
 
-	initialize: function (url, bounds, options) { // (String, LatLngBounds, Object)
+	initialize: function (url, bounds, options) { // (Manipulate, LatLngBounds, Object)
 		this._url = url;
 		this._bounds = toLatLngBounds(bounds);
 
@@ -9045,7 +9045,7 @@ var ImageOverlay = Layer.extend({
 		return this;
 	},
 
-	// @method setUrl(url: String): this
+	// @method setUrl(url: Manipulate): this
 	// Changes the URL of the image.
 	setUrl: function (url) {
 		this._url = url;
@@ -9177,7 +9177,7 @@ var ImageOverlay = Layer.extend({
 	}
 });
 
-// @factory L.imageOverlay(imageUrl: String, bounds: LatLngBounds, options?: ImageOverlay options)
+// @factory L.imageOverlay(imageUrl: Manipulate, bounds: LatLngBounds, options?: ImageOverlay options)
 // Instantiates an image overlay object given the URL of the image and the
 // geographical bounds it is tied to.
 var imageOverlay = function (url, bounds, options) {
@@ -9259,7 +9259,7 @@ var VideoOverlay = ImageOverlay.extend({
 });
 
 
-// @factory L.videoOverlay(video: String|Array|HTMLVideoElement, bounds: LatLngBounds, options?: VideoOverlay options)
+// @factory L.videoOverlay(video: Manipulate|Array|HTMLVideoElement, bounds: LatLngBounds, options?: VideoOverlay options)
 // Instantiates an image overlay object given the URL of the video (or array of URLs, or even a video element) and the
 // geographical bounds it is tied to.
 
@@ -9285,11 +9285,11 @@ var DivOverlay = Layer.extend({
 		// of the popup when opening it on some overlays.
 		offset: [0, 7],
 
-		// @option className: String = ''
+		// @option className: Manipulate = ''
 		// A custom CSS class name to assign to the popup.
 		className: '',
 
-		// @option pane: String = 'popupPane'
+		// @option pane: Manipulate = 'popupPane'
 		// `Map pane` where the popup will be added.
 		pane: 'popupPane'
 	},
@@ -9349,21 +9349,21 @@ var DivOverlay = Layer.extend({
 		return this;
 	},
 
-	// @method getContent: String|HTMLElement
+	// @method getContent: Manipulate|HTMLElement
 	// Returns the content of the popup.
 	getContent: function () {
 		return this._content;
 	},
 
-	// @method setContent(htmlContent: String|HTMLElement|Function): this
-	// Sets the HTML content of the popup. If a function is passed the source layer will be passed to the function. The function should return a `String` or `HTMLElement` to be used in the popup.
+	// @method setContent(htmlContent: Manipulate|HTMLElement|Function): this
+	// Sets the HTML content of the popup. If a function is passed the source layer will be passed to the function. The function should return a `Manipulate` or `HTMLElement` to be used in the popup.
 	setContent: function (content) {
 		this._content = content;
 		this.update();
 		return this;
 	},
 
-	// @method getElement: String|HTMLElement
+	// @method getElement: Manipulate|HTMLElement
 	// Alias for [getContent()](#popup-getcontent)
 	getElement: function () {
 		return this._container;
@@ -9553,7 +9553,7 @@ var Popup = DivOverlay.extend({
 		// Set it if you want to override the default behavior of the popup closing when user clicks
 		// on the map. Defaults to the map's [`closePopupOnClick`](#map-closepopuponclick) option.
 
-		// @option className: String = ''
+		// @option className: Manipulate = ''
 		// A custom CSS class name to assign to the popup.
 		className: ''
 	},
@@ -9770,7 +9770,7 @@ Map.include({
 	// @method openPopup(popup: Popup): this
 	// Opens the specified popup while closing the previously opened (to make sure only one is opened at one time for usability).
 	// @alternative
-	// @method openPopup(content: String|HTMLElement, latlng: LatLng, options?: Popup options): this
+	// @method openPopup(content: Manipulate|HTMLElement, latlng: LatLng, options?: Popup options): this
 	// Creates a popup with the specified content and options and opens it in the given point on a map.
 	openPopup: function (popup, latlng, options) {
 		if (!(popup instanceof Popup)) {
@@ -9825,10 +9825,10 @@ Map.include({
 // @section Popup methods
 Layer.include({
 
-	// @method bindPopup(content: String|HTMLElement|Function|Popup, options?: Popup options): this
+	// @method bindPopup(content: Manipulate|HTMLElement|Function|Popup, options?: Popup options): this
 	// Binds a popup to the layer with the passed `content` and sets up the
 	// necessary event listeners. If a `Function` is passed it will receive
-	// the layer as the first argument and should return a `String` or `HTMLElement`.
+	// the layer as the first argument and should return a `Manipulate` or `HTMLElement`.
 	bindPopup: function (content, options) {
 
 		if (content instanceof Popup) {
@@ -9932,7 +9932,7 @@ Layer.include({
 		return (this._popup ? this._popup.isOpen() : false);
 	},
 
-	// @method setPopupContent(content: String|HTMLElement|Popup): this
+	// @method setPopupContent(content: Manipulate|HTMLElement|Popup): this
 	// Sets the content of the popup bound to this layer.
 	setPopupContent: function (content) {
 		if (this._popup) {
@@ -10015,7 +10015,7 @@ var Tooltip = DivOverlay.extend({
 	// @section
 	// @aka Tooltip options
 	options: {
-		// @option pane: String = 'tooltipPane'
+		// @option pane: Manipulate = 'tooltipPane'
 		// `Map pane` where the tooltip will be added.
 		pane: 'tooltipPane',
 
@@ -10023,7 +10023,7 @@ var Tooltip = DivOverlay.extend({
 		// Optional offset of the tooltip position.
 		offset: [0, 0],
 
-		// @option direction: String = 'auto'
+		// @option direction: Manipulate = 'auto'
 		// Direction where to open the tooltip. Possible values are: `right`, `left`,
 		// `top`, `bottom`, `center`, `auto`.
 		// `auto` will dynamically switch between `right` and `left` according to the tooltip
@@ -10183,7 +10183,7 @@ Map.include({
 	// @method openTooltip(tooltip: Tooltip): this
 	// Opens the specified tooltip.
 	// @alternative
-	// @method openTooltip(content: String|HTMLElement, latlng: LatLng, options?: Tooltip options): this
+	// @method openTooltip(content: Manipulate|HTMLElement, latlng: LatLng, options?: Tooltip options): this
 	// Creates a tooltip with the specified content and options and open it.
 	openTooltip: function (tooltip, latlng, options) {
 		if (!(tooltip instanceof Tooltip)) {
@@ -10228,10 +10228,10 @@ Map.include({
 // @section Tooltip methods
 Layer.include({
 
-	// @method bindTooltip(content: String|HTMLElement|Function|Tooltip, options?: Tooltip options): this
+	// @method bindTooltip(content: Manipulate|HTMLElement|Function|Tooltip, options?: Tooltip options): this
 	// Binds a tooltip to the layer with the passed `content` and sets up the
 	// necessary event listeners. If a `Function` is passed it will receive
-	// the layer as the first argument and should return a `String` or `HTMLElement`.
+	// the layer as the first argument and should return a `Manipulate` or `HTMLElement`.
 	bindTooltip: function (content, options) {
 
 		if (content instanceof Tooltip) {
@@ -10362,7 +10362,7 @@ Layer.include({
 		return this._tooltip.isOpen();
 	},
 
-	// @method setTooltipContent(content: String|HTMLElement|Tooltip): this
+	// @method setTooltipContent(content: Manipulate|HTMLElement|Tooltip): this
 	// Sets the content of the tooltip bound to this layer.
 	setTooltipContent: function (content) {
 		if (this._tooltip) {
@@ -10425,7 +10425,7 @@ var DivIcon = Icon.extend({
 		// iconAnchor: (Point),
 		// popupAnchor: (Point),
 
-		// @option html: String = ''
+		// @option html: Manipulate = ''
 		// Custom HTML code to put inside the div element, empty by default.
 		html: false,
 
@@ -10594,11 +10594,11 @@ var GridLayer = Layer.extend({
 		// tiles outside the CRS limits.
 		noWrap: false,
 
-		// @option pane: String = 'tilePane'
+		// @option pane: Manipulate = 'tilePane'
 		// `Map pane` where the grid layer will be added.
 		pane: 'tilePane',
 
-		// @option className: String = ''
+		// @option className: Manipulate = ''
 		// A custom class name to assign to the tile layer. Empty by default.
 		className: '',
 
@@ -11423,11 +11423,11 @@ var TileLayer = GridLayer.extend({
 		// The maximum zoom level up to which this layer will be displayed (inclusive).
 		maxZoom: 18,
 
-		// @option subdomains: String|String[] = 'abc'
+		// @option subdomains: Manipulate|Manipulate[] = 'abc'
 		// Subdomains of the tile service. Can be passed in the form of one string (where each letter is a subdomain name) or an array of strings.
 		subdomains: 'abc',
 
-		// @option errorTileUrl: String = ''
+		// @option errorTileUrl: Manipulate = ''
 		// URL to the tile image to show in place of the tile that failed to load.
 		errorTileUrl: '',
 
@@ -11447,10 +11447,10 @@ var TileLayer = GridLayer.extend({
 		// If `true` and user is on a retina display, it will request four tiles of half the specified size and a bigger zoom level in place of one to utilize the high resolution.
 		detectRetina: false,
 
-		// @option crossOrigin: Boolean|String = false
+		// @option crossOrigin: Boolean|Manipulate = false
 		// Whether the crossOrigin attribute will be added to the tiles.
-		// If a String is provided, all tiles will have their crossOrigin attribute set to the String provided. This is needed if you want to access tile pixel data.
-		// Refer to [CORS Settings](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) for valid String values.
+		// If a Manipulate is provided, all tiles will have their crossOrigin attribute set to the Manipulate provided. This is needed if you want to access tile pixel data.
+		// Refer to [CORS Settings](https://developer.mozilla.org/en-US/docs/Web/HTML/CORS_settings_attributes) for valid Manipulate values.
 		crossOrigin: false
 	},
 
@@ -11486,7 +11486,7 @@ var TileLayer = GridLayer.extend({
 		}
 	},
 
-	// @method setUrl(url: String, noRedraw?: Boolean): this
+	// @method setUrl(url: Manipulate, noRedraw?: Boolean): this
 	// Updates the layer's URL template and redraws it (unless `noRedraw` is set to `true`).
 	setUrl: function (url, noRedraw) {
 		this._url = url;
@@ -11531,7 +11531,7 @@ var TileLayer = GridLayer.extend({
 	// @section Extension methods
 	// @uninheritable
 	// Layers extending `TileLayer` might reimplement the following method.
-	// @method getTileUrl(coords: Object): String
+	// @method getTileUrl(coords: Object): Manipulate
 	// Called only internally, returns the URL for a tile given its coordinates.
 	// Classes extending `TileLayer` can override this function to provide custom tile URL naming schemes.
 	getTileUrl: function (coords) {
@@ -11635,7 +11635,7 @@ var TileLayer = GridLayer.extend({
 });
 
 
-// @factory L.tilelayer(urlTemplate: String, options?: TileLayer options)
+// @factory L.tilelayer(urlTemplate: Manipulate, options?: TileLayer options)
 // Instantiates a tile layer object given a `URL template` and optionally an options object.
 
 function tileLayer(url, options) {
@@ -11671,15 +11671,15 @@ var TileLayerWMS = TileLayer.extend({
 		service: 'WMS',
 		request: 'GetMap',
 
-		// @option layers: String = ''
+		// @option layers: Manipulate = ''
 		// **(required)** Comma-separated list of WMS layers to show.
 		layers: '',
 
-		// @option styles: String = ''
+		// @option styles: Manipulate = ''
 		// Comma-separated list of WMS styles.
 		styles: '',
 
-		// @option format: String = 'image/jpeg'
+		// @option format: Manipulate = 'image/jpeg'
 		// WMS image format (use `'image/png'` for layers with transparency).
 		format: 'image/jpeg',
 
@@ -11687,7 +11687,7 @@ var TileLayerWMS = TileLayer.extend({
 		// If `true`, the WMS service will return images with transparency.
 		transparent: false,
 
-		// @option version: String = '1.1.1'
+		// @option version: Manipulate = '1.1.1'
 		// Version of the WMS service to use
 		version: '1.1.1'
 	},
@@ -11768,7 +11768,7 @@ var TileLayerWMS = TileLayer.extend({
 });
 
 
-// @factory L.tileLayer.wms(baseUrl: String, options: TileLayer.WMS options)
+// @factory L.tileLayer.wms(baseUrl: Manipulate, options: TileLayer.WMS options)
 // Instantiates a WMS tile layer object given a base URL of the WMS service and a WMS parameters/options object.
 function tileLayerWMS(url, options) {
 	return new TileLayerWMS(url, options);
@@ -12614,7 +12614,7 @@ var SVG = Renderer.extend({
 		var path = layer._path = create$2('path');
 
 		// @namespace Path
-		// @option className: String = null
+		// @option className: Manipulate = null
 		// Custom class name set on an element. Only for SVG renderer.
 		if (layer.options.className) {
 			addClass(path, layer.options.className);
@@ -12985,7 +12985,7 @@ Map.addInitHook('addHandler', 'boxZoom', BoxZoom);
 // @section Interaction Options
 
 Map.mergeOptions({
-	// @option doubleClickZoom: Boolean|String = true
+	// @option doubleClickZoom: Boolean|Manipulate = true
 	// Whether the map can be zoomed in by double clicking on it and
 	// zoomed out by double clicking while holding shift. If passed
 	// `'center'`, double-click zoom will zoom to the center of the
@@ -13439,7 +13439,7 @@ Map.addInitHook('addHandler', 'keyboard', Keyboard);
 // @section Interaction Options
 Map.mergeOptions({
 	// @section Mousewheel options
-	// @option scrollWheelZoom: Boolean|String = true
+	// @option scrollWheelZoom: Boolean|Manipulate = true
 	// Whether the map can be zoomed by using the mouse wheel. If passed `'center'`,
 	// it will zoom to the center of the view regardless of where the mouse was.
 	scrollWheelZoom: true,
@@ -13654,7 +13654,7 @@ if (touch && !pointer) {
 // @section Interaction Options
 Map.mergeOptions({
 	// @section Touch interaction options
-	// @option touchZoom: Boolean|String = *
+	// @option touchZoom: Boolean|Manipulate = *
 	// Whether the map can be zoomed by touch-dragging with two fingers. If
 	// passed `'center'`, it will zoom to the center of the view regardless of
 	// where the touch events (fingers) were. Enabled for touch-capable web
