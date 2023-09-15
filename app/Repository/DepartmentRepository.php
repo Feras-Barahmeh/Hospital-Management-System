@@ -71,7 +71,7 @@ class DepartmentRepository implements IDepartments
                 __('dashboard/departments.exist'),
                 $request->input('name')),
         ]);
-        
+
 
         if ($validator->fails()) {
             throw new ValidationException($validator);
