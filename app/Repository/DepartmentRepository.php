@@ -2,10 +2,10 @@
 
 namespace App\Repository;
 
+use App\Helpers\Manipulate;
 use App\Helpers\Session;
 use App\Interfaces\Repository\IDepartments;
-use App\Models\Departments\Department;
-use App\Helpers\Manipulate;
+use App\Models\Department;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;

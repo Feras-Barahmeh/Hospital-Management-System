@@ -1,13 +1,18 @@
 <?php
 
-namespace App\Models\Departments;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class DepartmentTranslation extends Model
+class DoctorTranslation extends Model
 {
     use HasFactory;
-    protected $fillable = ['name'];
+
     public $timestamps = false;
+
+    protected $fillable = [
+        'name',
+        'appointments',
+    ];
 }
