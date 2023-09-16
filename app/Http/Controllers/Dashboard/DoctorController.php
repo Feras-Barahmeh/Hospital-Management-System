@@ -1,21 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\Department;
+namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
-use App\Repository\DepartmentRepository;
+use App\Repository\DoctorRepository;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
-class DepartmentsController extends Controller
+class DoctorController extends Controller
 {
-    private DepartmentRepository $departmentRepository;
-    public function __construct(DepartmentRepository $departmentRepository)
+
+    private DoctorRepository $doctorRepository;
+
+    public function __construct(DoctorRepository $doctorRepository)
     {
-        $this->departmentRepository = $departmentRepository;
+        $this->doctorRepository = $doctorRepository;
     }
 
     /**
@@ -23,10 +24,9 @@ class DepartmentsController extends Controller
      */
     public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $departments = $this->departmentRepository->all();
-
-        return view('dashboard.admin.departments.index', [
-            'departments' => $departments,
+        $doctors = $this->doctorRepository->all();
+        return view('dashboard.admin.doctors.index', [
+            'doctors' => $doctors,
         ]);
     }
 
@@ -41,9 +41,9 @@ class DepartmentsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
-        return $this->departmentRepository->store($request);
+        //
     }
 
     /**
@@ -65,16 +65,16 @@ class DepartmentsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id): RedirectResponse
+    public function update(Request $request, string $id)
     {
-        return $this->departmentRepository->update($request);
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id): RedirectResponse
+    public function destroy(string $id)
     {
-        return $this->departmentRepository->destroy($id);
+        //
     }
 }

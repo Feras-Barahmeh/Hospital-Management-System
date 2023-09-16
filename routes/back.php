@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\Dashboard\DashboardController;
-use App\Http\Controllers\Department\DepartmentsController;
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Dashboard\DepartmentsController;
+use App\Http\Controllers\Dashboard\DoctorController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -60,6 +59,10 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewP
          */
         Route::resource('departments', DepartmentsController::class);
 
+        /**
+         * Doctors
+         */
+        Route::resource('doctors', DoctorController::class);
     });
 
     require __DIR__.'/auth.php';

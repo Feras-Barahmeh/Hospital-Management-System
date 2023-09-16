@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Department;
 use App\Models\Doctor;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
@@ -33,6 +34,7 @@ class DoctorFactory extends Factory
             'password'          => Hash::make('password'),
             'phone'             => $this->faker->phoneNumber,
             'price'             => $this->faker->randomElement([100,200,300,400,500]),
+            'department_id'     => Department::all()->random()->id,
 
             'appointments'      => $this->faker->randomElement([
                 'Saturday','Sunday','Monday','Tuesday','Wednesday','Thursday','Friday'

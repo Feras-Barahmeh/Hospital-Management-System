@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('password');
             $table->string('phone');
             $table->decimal('price');
+            $table->boolean('status')->default(1);
+            $table->foreignId('department_id')->references('id')->on('departments');
             $table->timestamps();
         });
     }
