@@ -7,15 +7,14 @@
     <link href="{{ asset('dashboard/plugins/datatable/css/jquery.dataTables.min.css')}}" rel="stylesheet">
     <link href="{{ asset('dashboard/plugins/datatable/css/responsive.dataTables.min.css')}}" rel="stylesheet">
     <link href="{{ asset('dashboard/plugins/select2/css/select2.min.css')}}" rel="stylesheet">
-
 @endpush
 
 @section('page-header')
-    <!-- breadcrumb -->
+    {{-- breadcrumb --}}
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto"> {{ trans('dashboard/departments.title') }}</h4>
+                <h4 class="content-title mb-0 my-auto"> {{ trans('dashboard/doctors.title') }}</h4>
             </div>
         </div>
         <div class="d-flex my-xl-auto right-content gap-10">
@@ -28,6 +27,7 @@
             <div class="pr-1 mb-3 mb-xl-0">
                 <button type="button" class="btn btn-warning  btn-icon mr-2"><i class="mdi mdi-refresh"></i></button>
             </div>
+
             <div class="mb-3 mb-xl-0">
                 <div class="btn-group dropdown">
                     <button type="button" class="btn btn-primary">14 Aug 2019</button>
@@ -46,56 +46,51 @@
     </div>
     <!-- breadcrumb -->
 @endsection
+
 @section('content')
     @include('dashboard.alerts.popup')
     @include('dashboard.alerts.errors')
     <!-- row opened -->
     <div class="row row-sm">
+        <!--div-->
         <div class="col-xl-12">
-            <div class="card">
+            <div class="card mg-b-20">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        {{-- start add department --}}
-                        <button type="button" class="btn btn-primary-gradient pl-10 pr-10 pt-1 pb-1 "
-                                data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            <span>
-                                {{ trans('dashboard/departments.add_department') }}
-                            </span>
-                        </button>
-
-                        @include('dashboard.admin.departments.add')
-                        {{-- End add department --}}
+                        {{-- start add doctor --}}
+                        <a href="{{ route('admin.doctors.create') }}"
+                           class="btn btn-primary-gradient pl-10 pr-10 pt-1 pb-1 ">
+                            {{ trans('dashboard/doctors.add_doctor') }}
+                        </a>
+                        {{-- End add doctor --}}
                     </div>
-
                 </div>
+
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table class="table text-md-nowrap" id="example1">
+                        <table id="example" class="table key-buttons text-md-nowrap" style="width: 100%;">
                             <thead>
                                 <tr>
                                     <th class="wd-15p border-bottom-0">#</th>
-                                    <th class="wd-15p border-bottom-0"> {{ trans('dashboard/departments.name') }}</th>
-                                    <th class="wd-20p border-bottom-0"> {{ trans('dashboard/departments.created_at') }}</th>
+                                    <th class="wd-15p border-bottom-0"> {{ trans('dashboard/doctors.name') }}</th>
+                                    <th class="wd-15p border-bottom-0"> {{ trans('dashboard/doctors.email') }}</th>
+                                    <th class="wd-15p border-bottom-0"> {{ trans('dashboard/doctors.phone') }}</th>
+                                    <th class="wd-15p border-bottom-0"> {{ trans('dashboard/doctors.price') }}</th>
+                                    <th class="wd-15p border-bottom-0"> {{ trans('dashboard/doctors.status') }}</th>
+                                    <th class="wd-15p border-bottom-0"> {{ trans('dashboard/doctors.department') }}</th>
+                                    <th class="wd-20p border-bottom-0"> {{ trans('dashboard/doctors.join_at') }}</th>
                                     <th class="wd-20p border-bottom-0"> {{ trans('common.operations') }}</th>
-
                                 </tr>
                             </thead>
                             <tbody>
-                                @each('dashboard.admin.departments.departments', $doctors, 'department')
+                                @each('dashboard.admin.doctors.doctors', $doctors, 'doctor')
                             </tbody>
-
-
                         </table>
                     </div>
                 </div>
             </div>
         </div>
         <!--/div-->
-
-
-
-
-
     </div>
     <!-- /row -->
     </div>
@@ -103,6 +98,7 @@
     </div>
     <!-- main-content closed -->
 @endsection
+
 @push('js')
     <!-- Internal Data tables -->
     <script src="{{ asset('dashboard/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
@@ -121,7 +117,7 @@
     <script src="{{ asset('dashboard/plugins/datatable/js/buttons.colVis.min.js')}}"></script>
     <script src="{{ asset('dashboard/plugins/datatable/js/dataTables.responsive.min.js')}}"></script>
     <script src="{{ asset('dashboard/plugins/datatable/js/responsive.bootstrap4.min.js')}}"></script>
-    <!--Internal  Datatable js -->
+    {{-- Internal  Datatable js --}}
     <script src="{{ asset('dashboard/js/table-data.js')}}"></script>
 
 @endpush

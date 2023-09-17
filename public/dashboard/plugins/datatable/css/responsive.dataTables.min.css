@@ -10,8 +10,10 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child, table.
 	cursor: pointer
 }
 table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>th:first-child:before {
-	top: 9px;
-	left: 4px;
+	/*top: 9px;*/
+	/*left: 4px;*/
+    top: 50%;
+    transform: translateY(-50%);
 	height: 14px;
 	width: 14px;
 	display: block;
@@ -27,6 +29,9 @@ table.dataTable.dtr-inline.collapsed>tbody>tr[role="row"]>td:first-child:before,
 	line-height: 14px;
 	content: '+';
 	background-color: #31b131
+}
+.table td {
+    vertical-align: inherit !important;
 }
 table.dataTable.dtr-inline.collapsed>tbody>tr.parent>td:first-child:before, table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th:first-child:before {
 	content: '-';

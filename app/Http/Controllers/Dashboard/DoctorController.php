@@ -7,7 +7,9 @@ use App\Repository\DoctorRepository;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class DoctorController extends Controller
 {
@@ -24,26 +26,25 @@ class DoctorController extends Controller
      */
     public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $doctors = $this->doctorRepository->all();
-        return view('dashboard.admin.doctors.index', [
-            'doctors' => $doctors,
-        ]);
+        return $this->doctorRepository->index();
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View|Factory|Application|\Illuminate\Contracts\Foundation\Application
     {
-        //
+        return $this->doctorRepository->create();
     }
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @throws ValidationException
      */
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
+        return $this->doctorRepository->store($request);
     }
 
     /**

@@ -13,11 +13,129 @@ option {
 }
 .show-password-hint {
     position: absolute;
-    right: 5px;
-    top: 40px;
+    /*right: 5px;*/
+    /*top: 40px;*/
+    right: 20px;
+    top: 50%;
+    transform: translateY(5px);
     cursor: pointer;
     transition: color .3s ease-in;
 }
 .show-password-hint:hover {
     color: #a5a0b1;
+}
+table .dot-label {
+    left: -15px !important;
+    top: 8px !important;
+}
+.table.dataTable {
+    white-space: nowrap !important;
+}
+.live-img-output {
+    border-radius:50%;
+    width: 150px;
+    height: 150px;
+}
+/**
+ * change image
+ */
+.live-img {
+
+}
+.live-img .live-img-container{
+
+}
+canvas {
+    display: block;
+    margin: 1em auto;
+    border: 1px solid #ccc;
+    z-index: 20;
+    position: inherit;
+    background-color:#272838;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.modal-body {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    align-self: flex-start;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+    flex-wrap: wrap;
+}
+
+.modal-header{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+}
+
+.upload-input {
+    display: inline-block;
+    width: 100%;
+    padding: 120px 0 0 0;
+    height: 100px;
+    overflow: hidden;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    background: url('https://cdn1.iconfinder.com/data/icons/hawcons/32/698394-icon-130-cloud-upload-512.png') center center no-repeat #e4e4e4;
+    border-radius: 20px;
+    background-size: 60px 60px;
+    background-color: #272838;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+}
+
+.upload-input:hover {
+    background-color: #272838;
+    box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.7);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+.zoomBtnIn {
+    background-color: #1f1d2b;
+    border:none;
+    color: white;
+    border-radius: 5px;
+    padding: 6px 12px;
+}
+
+.zoomBtnIn:hover {
+    background-color: #272838;
+}
+
+.zoomBtnOut {
+    background-color: #1f1d2b;
+    border:none;
+    color: white;
+    border-radius: 5px;
+    padding: 6px 12px;
+}
+
+.zoomBtnOut:hover {
+    background-color: #272838;
+}
+
+.fitBtn {
+    background-color: #1f1d2b;
+    border:none;
+    color: white;
+    border-radius: 5px;
+    padding: 6px 12px;
+}
+
+.fitBtn:hover {
+    background-color: #272838;
+}
+
+#recordImage{
+    display:none;
 }

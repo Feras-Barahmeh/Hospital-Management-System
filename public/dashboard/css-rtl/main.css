@@ -21,3 +21,10 @@ option {
 .show-password-hint:hover {
     color: #a5a0b1;
 }
+table .dot-label {
+    left: 12px !important;
+    top: 8px !important;
+}
+.table.dataTable {
+    white-space: nowrap !important;
+}

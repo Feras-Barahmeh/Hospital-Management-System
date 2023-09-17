@@ -3,11 +3,12 @@
         <button aria-label="Close" class="close" data-dismiss="alert" type="button">
             <span aria-hidden="true">&times;</span>
         </button>
-        <strong>errors</strong>
-        <div class="">
-            @foreach ($errors->all() as $error)
-                <span class="text-danger">{{ $error }}</span>
-            @endforeach
-        </div>
+        <strong>
+            <div class="">
+                @foreach ($errors->all() as $error)
+                    <div class="text-danger">{{ $error }}</div>
+                @endforeach
+            </div>
+        </strong>
     </div>
 @endif

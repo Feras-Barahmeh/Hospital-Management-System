@@ -9,6 +9,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class DepartmentsController extends Controller
 {
@@ -40,6 +41,8 @@ class DepartmentsController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @throws ValidationException
      */
     public function store(Request $request): RedirectResponse
     {
@@ -64,6 +67,8 @@ class DepartmentsController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @throws ValidationException
      */
     public function update(Request $request, string $id): RedirectResponse
     {
