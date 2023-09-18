@@ -13,8 +13,16 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call([
+            /**
+             * Static
+             */
             UserSeeder::class,
             AdminSeeder::class,
+            AppointmentSeeder::class,
+
+            /**
+             * Has Factory
+             */
             DepartmentSeeder::class,
             DoctorSeeder::class,
             ImageSeeder::class,

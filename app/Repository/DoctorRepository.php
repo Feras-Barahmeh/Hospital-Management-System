@@ -6,6 +6,7 @@ use App\Helpers\Enums\Disks;
 use App\Helpers\Manipulate;
 use App\Helpers\Session;
 use App\Interfaces\Repository\IDoctors;
+use App\Models\Appointment;
 use App\Models\Department;
 use App\Models\Doctor;
 use App\Traits\Messages;
@@ -24,22 +25,7 @@ use Illuminate\Validation\ValidationException;
 class DoctorRepository implements IDoctors
 {
     use Upload, Messages;
-    /**
-     * Set a success message for a department and store it in the session.
-     *
-     * @param Department $department The department to which the message pertains.
-     * @param string $nameMessage The key for the message text in the 'dashboard/departments' language file.
-     * @param string $title The title for the success message (default: 'well_done').
-     *
-     * @return void
-     */
-    private function setMessageSuccess(Department $department, string $nameMessage, string $title='well_done'): void
-    {
-        Session::flashArray('success-popup', [
-            'title' => trans('common.'.$title),
-            'text' => Manipulate::format(__('dashboard/departments.'.$nameMessage), $department->name),
-        ]);
-    }
+
 
     /**
      * Display a listing of the resource.
@@ -60,7 +46,8 @@ class DoctorRepository implements IDoctors
     {
         $departments = Department::all();
         return view('dashboard.admin.doctors.add', [
-            'departments' => $departments,
+            'departments'   => $departments,
+            'appointments'          => Appointment::all(),
         ]);
     }
     /**
@@ -70,7 +57,7 @@ class DoctorRepository implements IDoctors
      *
      * @return array An associative array with data from the request.
      */
-    private function fillProperty($request): array
+    private function fillProperty(Request $request): array
     {
         return [
             'email'         => $request->email,
