@@ -17,6 +17,7 @@ return [
     'add_department'        => 'Add department',
     'created_at'            => 'Created at',
     'name_department'       => 'Name Department ',
+    'description'          => 'Description',
 
 
     /**

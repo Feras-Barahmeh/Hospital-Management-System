@@ -1,6 +1,7 @@
 <tr>
     <td>{{ $department->id }}</td>
     <td>{{ $department->name }}</td>
+    <td>{{ Str::limit($department->description, 25) }}</td>
     <td>{{ $department->created_at }}</td>
     <td class="text-center">
         <a class="modal-effect btn btn-sm btn-info"

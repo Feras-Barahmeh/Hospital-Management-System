@@ -75,6 +75,7 @@
                                 <tr>
                                     <th class="wd-15p border-bottom-0">#</th>
                                     <th class="wd-15p border-bottom-0"> {{ trans('dashboard/departments.name') }}</th>
+                                    <th class="wd-15p border-bottom-0"> {{ trans('dashboard/departments.description') }}</th>
                                     <th class="wd-20p border-bottom-0"> {{ trans('dashboard/departments.created_at') }}</th>
                                     <th class="wd-20p border-bottom-0"> {{ trans('common.operations') }}</th>
 

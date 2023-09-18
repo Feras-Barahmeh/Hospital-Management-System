@@ -13,11 +13,13 @@ class Department extends Model implements TranslatableContract
     use HasFactory, Translatable;
 
     protected $fillable =[
-        'name'
+        'name',
+        'description',
     ];
 
     public array $translatedAttributes = [
-        'name'
+        'name',
+        'description',
     ];
 
     /**

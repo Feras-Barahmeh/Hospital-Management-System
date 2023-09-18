@@ -45,6 +45,7 @@ class DepartmentFactory extends Factory
                 "Pulmonology Department",
                 "Nephrology Department",
             ]),
+            'description' => $this->faker->paragraph,
         ];
     }
 }

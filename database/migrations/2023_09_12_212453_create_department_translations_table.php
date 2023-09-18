@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigInteger('department_id')->unsigned();
             $table->unique(['department_id', 'locale']);
             $table->string('name');
+            $table->longText('description');
 
             $table->foreign('department_id')
                 ->references('id')
