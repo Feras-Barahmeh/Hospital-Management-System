@@ -13,11 +13,12 @@ return [
     |
     */
 
-    'main'=>'الرئيسة',
-    'index'=>'الرئيسية',
-    'sections'=>'الاقسام',
-    'general'=>'عامة',
-    'departments'=>'الاقسام',
-    'show_all'=>'عرض الكل',
+    'main'          =>'الرئيسة',
+    'index'         =>'الرئيسية',
+    'sections'      =>'الاقسام',
+    'general'       =>'عامة',
+    'departments'   =>'الاقسام',
+    'doctors'       =>'الدكاترة',
+    'show_all'      =>'عرض الكل',
 
 ];

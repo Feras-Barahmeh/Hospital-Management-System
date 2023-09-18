@@ -8,14 +8,13 @@ use App\Helpers\Session;
 use App\Interfaces\Repository\IDoctors;
 use App\Models\Department;
 use App\Models\Doctor;
+use App\Traits\Messages;
 use App\Traits\Upload;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
-use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -24,7 +23,7 @@ use Illuminate\Validation\ValidationException;
 
 class DoctorRepository implements IDoctors
 {
-    use Upload;
+    use Upload, Messages;
     /**
      * Set a success message for a department and store it in the session.
      *
@@ -39,25 +38,6 @@ class DoctorRepository implements IDoctors
         Session::flashArray('success-popup', [
             'title' => trans('common.'.$title),
             'text' => Manipulate::format(__('dashboard/departments.'.$nameMessage), $department->name),
-        ]);
-    }
-    /**
-     * Set a success message for a department and store it in the session.
-     *
-     * @param Department|string $department The department to which the message pertains.
-     * @param string $nameMessage The key for the message text in the 'dashboard/departments' language file.
-     * @param string $title The title for the success message (default: 'well_done').
-     *
-     * @return void
-     */
-    private function setMessageFail(Department|string $department, string $nameMessage, string $title='oops'): void
-    {
-        Session::flashArray('fail-popup', [
-            'title' => trans('common.'.$title),
-            'text' => Manipulate::format(
-                __('dashboard/departments.'.$nameMessage),
-                    is_string($department) ? $department : $department->name
-            ),
         ]);
     }
 
@@ -83,7 +63,26 @@ class DoctorRepository implements IDoctors
             'departments' => $departments,
         ]);
     }
-
+    /**
+     * Fill an array with data from a request object.
+     *
+     * @param Request $request The request object containing the data.
+     *
+     * @return array An associative array with data from the request.
+     */
+    private function fillProperty($request): array
+    {
+        return [
+            'email'         => $request->email,
+            'password'      => Hash::make($request->password),
+            'status'        => $request->status,
+            'department_id' => $request->department,
+            'price'         => $request->price,
+            'phone'         => $request->phone,
+            'name'          => $request->name,
+            'appointments'  => implode(',', $request->appointments),
+        ];
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -109,24 +108,11 @@ class DoctorRepository implements IDoctors
             throw new ValidationException($validate);
         }
 
-
-        $doctor = Doctor::create([
-            'email' => $request->email,
-            'password' => Hash::make($request->password),
-            'status' => $request->status,
-            'department_id' => $request->department,
-            'price' => $request->price,
-            'phone' => $request->phone,
-            'name' => $request->name,
-            'appointments' => implode(',', $request->appointments),
-        ]);
+        $doctor = Doctor::create($this->fillProperty($request));
 
         self::sort($request, 'photo', 'doctors', Disks::BUI->value, $doctor->id, Doctor::class);
 
-        Session::flashArray('success-popup', [
-            'title' => 'Success',
-            'text' => 'Congregate you have new doctor ('.$doctor->name.')',
-        ]);
+        self::popupSuccess('doctors', 'success_add', $doctor->name);
 
         return Redirect::route('admin.doctors.create');
     }

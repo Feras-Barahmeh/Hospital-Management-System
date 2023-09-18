@@ -20,6 +20,17 @@ return [
     'operations'        => 'العمليات',
     'are_you_sure'      => 'هل أنت متأكد!',
     'well_done'         => 'عمل رائع!',
-    'oops'              => 'عذرًا!',
+    'oops'              => 'عفوًا',
+    'show'              => 'عرض',
 
+    /**
+     * General
+     */
+    'name'              => 'الاسم',
+    'email'             => 'البريد الإلكتروني',
+    'password'          => 'كلمة المرور',
+    'password_confirm'  => 'تأكيد كلمة المرور',
+    'join_at'           => 'انضم في',
+    'upload'            => 'تحميل',
+    'chose'            => 'اختر',
 ];

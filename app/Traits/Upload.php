@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use App\Helpers\Enums\Disks;
 use App\Helpers\Manipulate;
+use App\Helpers\Session;
 use App\Models\Image;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;

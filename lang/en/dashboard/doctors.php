@@ -13,23 +13,23 @@ return [
 
     'title'                 => 'Doctors',
     'doctor'            => 'Doctor',
-    'name'                  => 'Name',
     'add_doctor'        => 'Add doctor',
-    'join_at'            => 'Join at',
-    'name_doctor'       => 'Name Doctor ',
-    'email'       => 'Email',
+    'name_doctor'       => 'Name Doctor',
     'phone'       => 'Phone',
     'price'       => 'Price',
     'status'       => 'Status',
     'department'       => 'Department',
     'enabled'       => 'Enabled',
     'not_enabled'       => 'Not enabled',
+    'appointments'       => 'Appointments',
+    'select_appointments'       => 'Select Appointments',
 
 
     /**
      * Add Doctor
      */
 
+    'title_head_create'            => 'Admin | Doctors | Create',
     'success_add'           => '%s added successfully ',
 
     /**

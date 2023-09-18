@@ -39,13 +39,8 @@ table .dot-label {
 /**
  * change image
  */
-.live-img {
 
-}
-.live-img .live-img-container{
-
-}
-canvas {
+.modal-content canvas {
     display: block;
     margin: 1em auto;
     border: 1px solid #ccc;
@@ -91,6 +86,7 @@ canvas {
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease 0s;
     cursor: pointer;
+    position: relative;
 }
 
 .upload-input:hover {
@@ -99,43 +95,56 @@ canvas {
     color: #fff;
     transform: translateY(-7px);
 }
+.upload-input::after {
+    content: attr(title);
+    position: absolute;
+    width: fit-content;
+    display: block;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    margin-bottom: 5px;
+    text-transform: capitalize;
+}
+.multiple-select {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+}
 
-.zoomBtnIn {
-    background-color: #1f1d2b;
-    border:none;
-    color: white;
+.multiple-select summary {
+    padding: 5px 10px;
+    background-color: inherit;
     border-radius: 5px;
-    padding: 6px 12px;
+    border: 1px solid rgba(226, 232, 245, 0.1);
 }
 
-.zoomBtnIn:hover {
-    background-color: #272838;
-}
-
-.zoomBtnOut {
-    background-color: #1f1d2b;
-    border:none;
-    color: white;
+.multiple-select-dropdown {
+    position: absolute;
+    margin-top: 2px;
+    min-width: 100%;
+    background-color: #ddd;
     border-radius: 5px;
-    padding: 6px 12px;
+    z-index: 1;
+    border: 1px solid #ddd;
 }
 
-.zoomBtnOut:hover {
-    background-color: #272838;
+.multiple-select label {
+    margin: 0;
+    display: block;
 }
 
-.fitBtn {
-    background-color: #1f1d2b;
-    border:none;
-    color: white;
-    border-radius: 5px;
-    padding: 6px 12px;
+.multiple-select label > input + .content {
+    padding: 5px 10px;
+    display: block;
+    cursor: pointer;
+    background-color: #232e48;
 }
 
-.fitBtn:hover {
-    background-color: #272838;
+.multiple-select label + label {
+    border-top: 1px solid #bbb;
 }
 
-#recordImage{
-    display:none;
+.multiple-select label > input:checked + .content {
+    background-color: #bbb;
 }
