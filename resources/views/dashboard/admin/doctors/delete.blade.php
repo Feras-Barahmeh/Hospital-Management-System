@@ -13,7 +13,6 @@
                 {{ method_field('delete') }}
                 @csrf
                 <div class="modal-body">
-                    <input type="hidden" name="id" value="{{ $doctor->id }}">
                     <h5>{{'are you sure'}}</h5>
                 </div>
                 <div class="modal-footer">

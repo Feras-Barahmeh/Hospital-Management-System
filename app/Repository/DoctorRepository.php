@@ -116,7 +116,20 @@ class DoctorRepository implements IDoctors
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function destroy($id): RedirectResponse
     {
+
+        $doctor = Doctor::find($id);
+        if (isset($doctor->image)) {
+            self::delete(Disks::BUI->value, $doctor->image);
+        }
+        $name = $doctor->name;
+        $doctor = $doctor->delete();
+        if ($doctor) {
+            self::popupSuccess('doctors', 'success_delete', $name);
+        }
+
+        unset($doctor);
+        return Redirect::route('admin.doctors.index');
     }
 }

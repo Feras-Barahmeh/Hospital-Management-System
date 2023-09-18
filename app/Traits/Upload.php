@@ -7,13 +7,16 @@ use App\Helpers\Manipulate;
 use App\Helpers\Session;
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
 
 trait Upload
 {
+    use ImageOperation;
     /**
      * Check if a file with the given input name exists in the request.
      *
@@ -112,16 +115,27 @@ trait Upload
         if ($inputName) {
             $nameFile = self::generateFileName($request, $inputName);
 
-            $img = $img ?? new Image();
-            $encryptName = Hash::make($nameFile);
-            $img->url = $nameFolder.DIRECTORY_SEPARATOR. $encryptName;
-            $img->imageable_id = $id;
-            $img->imageable_type = $type;
-            $img->save();
+            self::inviteAssociatedRecord( $nameFolder.DIRECTORY_SEPARATOR. $nameFile, $id, $type);
 
-            return $request->file($inputName)->storeAs($nameFolder, $encryptName, $disk);
+            return $request->file($inputName)->storeAs($nameFolder, $nameFile, $disk);
         }
 
         return false;
+    }
+    /**
+     * Delete an image file from the specified disk and kick out the associated record.
+     *
+     * This method deletes the image file stored on the specified disk and then kicks out the associated record
+     * from the database. It returns true if the deletion and record kick-out were successful; otherwise, it returns false.
+     *
+     * @param string $disk  The name of the disk where the image file is stored.
+     * @param object $image The object representing the image to be deleted.
+     *
+     * @return bool True if the image file was successfully deleted and the record was kicked out; false otherwise.
+     */
+    public static function delete(string $disk, object $image): bool
+    {
+        File::delete(Storage::disk($disk)->path($image->url));
+        return self::kickOutAssociatedRecord($image->id);
     }
 }
