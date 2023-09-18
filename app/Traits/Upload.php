@@ -7,6 +7,7 @@ use App\Helpers\Manipulate;
 use App\Helpers\Session;
 use App\Models\Image;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
@@ -112,12 +113,13 @@ trait Upload
             $nameFile = self::generateFileName($request, $inputName);
 
             $img = $img ?? new Image();
-            $img->url = $nameFolder.DIRECTORY_SEPARATOR.$nameFile;
+            $encryptName = Hash::make($nameFile);
+            $img->url = $nameFolder.DIRECTORY_SEPARATOR. $encryptName;
             $img->imageable_id = $id;
             $img->imageable_type = $type;
             $img->save();
 
-            return $request->file($inputName)->store($nameFolder, $disk);
+            return $request->file($inputName)->storeAs($nameFolder, $encryptName, $disk);
         }
 
         return false;

@@ -60,7 +60,7 @@
                         {{-- start add doctor --}}
                         <a href="{{ route('admin.doctors.create') }}"
                            class="btn btn-primary-gradient pl-10 pr-10 pt-1 pb-1 ">
-                            {{ trans('dashboard/doctors.add_doctor') }}
+                            {{ __('dashboard/doctors.add_doctor') }}
                         </a>
                         {{-- End add doctor --}}
                     </div>
@@ -72,14 +72,15 @@
                             <thead>
                                 <tr>
                                     <th class="wd-15p border-bottom-0">#</th>
-                                    <th class="wd-15p border-bottom-0"> {{ trans('dashboard/doctors.name') }}</th>
-                                    <th class="wd-15p border-bottom-0"> {{ trans('dashboard/doctors.email') }}</th>
-                                    <th class="wd-15p border-bottom-0"> {{ trans('dashboard/doctors.phone') }}</th>
-                                    <th class="wd-15p border-bottom-0"> {{ trans('dashboard/doctors.price') }}</th>
-                                    <th class="wd-15p border-bottom-0"> {{ trans('dashboard/doctors.status') }}</th>
-                                    <th class="wd-15p border-bottom-0"> {{ trans('dashboard/doctors.department') }}</th>
-                                    <th class="wd-20p border-bottom-0"> {{ trans('dashboard/doctors.join_at') }}</th>
-                                    <th class="wd-20p border-bottom-0"> {{ trans('common.operations') }}</th>
+                                    <th class="wd-15p border-bottom-0">{{ __('common.img') }}</th>
+                                    <th class="wd-15p border-bottom-0"> {{ __('common.name') }}</th>
+                                    <th class="wd-15p border-bottom-0"> {{ __('common.email') }}</th>
+                                    <th class="wd-15p border-bottom-0"> {{ __('dashboard/doctors.phone') }}</th>
+                                    <th class="wd-15p border-bottom-0"> {{ __('dashboard/doctors.price') }}</th>
+                                    <th class="wd-15p border-bottom-0"> {{ __('dashboard/doctors.status') }}</th>
+                                    <th class="wd-15p border-bottom-0"> {{ __('dashboard/doctors.department') }}</th>
+                                    <th class="wd-20p border-bottom-0"> {{ __('common.join_at') }}</th>
+                                    <th class="wd-20p border-bottom-0"> {{ __('common.operations') }}</th>
                                 </tr>
                             </thead>
                             <tbody>

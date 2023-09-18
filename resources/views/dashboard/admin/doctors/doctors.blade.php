@@ -1,5 +1,8 @@
 <tr>
     <td>{{ $doctor->id }}</td>
+    <td class="text-center">
+        {!! Blade::img($doctor, 'doctor_default.jpg') !!}
+    </td>
     <td>{{ $doctor->name }}</td>
     <td>{{ $doctor->email }}</td>
     <td>{{ $doctor->phone }}</td>

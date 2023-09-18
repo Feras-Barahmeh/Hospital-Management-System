@@ -47,7 +47,7 @@ class DoctorRepository implements IDoctors
         $departments = Department::all();
         return view('dashboard.admin.doctors.add', [
             'departments'   => $departments,
-            'appointments'          => Appointment::all(),
+            'appointments'  => Appointment::all(),
         ]);
     }
     /**

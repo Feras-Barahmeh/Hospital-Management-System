@@ -32,5 +32,6 @@ return [
     'password_confirm'  => 'تأكيد كلمة المرور',
     'join_at'           => 'انضم في',
     'upload'            => 'تحميل',
-    'chose'            => 'اختر',
+    'chose'             => 'اختر',
+    'img'               => 'الصورة',
 ];

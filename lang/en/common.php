@@ -32,5 +32,6 @@ return [
     'password_confirm'  => 'Confirm Password',
     'join_at'           => 'Join at',
     'upload'            => 'Upload',
-    'chose'            => 'Chose',
+    'chose'             => 'Chose',
+    'img'               => 'Image',
 ];
