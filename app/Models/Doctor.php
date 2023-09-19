@@ -23,7 +23,6 @@ class Doctor extends Model
         'email',
         'password',
         'phone',
-        'price',
         'appointments',
         'email_verified_at',
         'department_id',

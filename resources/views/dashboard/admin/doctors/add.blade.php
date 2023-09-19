@@ -75,7 +75,7 @@
                                     <div class="main-form-group">
                                         <label class="form-label" for="name">{{ __('common.name') }}</label>
                                         <input class="form-control" name="name" value="{{ old('name') }}" id="name"
-                                               placeholder="{{ __('dashboard/doctors.name_doctor') }}" type="text">
+                                               placeholder="{{ __('dashboard/doctors.name_doctor') }}" type="text" autofocus>
                                     </div>
                                 </div>
                             </div>
@@ -125,13 +125,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6 mg-t-20 mg-md-t-0">
-                                    <div class="main-form-group">
-                                        <label class="form-label" for="price">{{ __('dashboard/doctors.price') }}</label>
-                                        <input class="form-control" id="price" value="{{ old('price') }}" name="price"
-                                               placeholder="{{ __('dashboard/doctors.price')  }}" type="number">
-                                    </div>
-                                </div>
+
 
                                 <div class="col-md-6 mg-t-20 mg-md-t-0">
                                     <div class="main-form-group">

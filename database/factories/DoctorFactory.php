@@ -33,7 +33,6 @@ class DoctorFactory extends Factory
             'email_verified_at' => now(),
             'password'          => Hash::make('password'),
             'phone'             => $this->faker->phoneNumber,
-            'price'             => $this->faker->randomElement([100,200,300,400,500]),
             'department_id'     => Department::all()->random()->id,
 
             'appointments'      => $this->faker->randomElement([
