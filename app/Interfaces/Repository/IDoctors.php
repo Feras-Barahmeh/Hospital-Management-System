@@ -11,4 +11,5 @@ interface IDoctors
     public function store(Request $request);
     public function update(Request $request);
     public function destroy($id);
+    public function purge(Request $request);
 }

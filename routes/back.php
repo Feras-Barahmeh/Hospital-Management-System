@@ -63,6 +63,7 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewP
          * Doctors
          */
         Route::resource('doctors', DoctorController::class);
+        Route::delete('purge', [DoctorController::class, 'purge'])->name('purge');
     });
 
     require __DIR__.'/auth.php';

@@ -8,7 +8,9 @@
 }
 
 select,
-option {
+option,
+input[type="radio"],
+input[type="checkbox"] {
     cursor: pointer;
 }
 .panel-form {

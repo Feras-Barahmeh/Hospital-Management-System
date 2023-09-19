@@ -78,4 +78,9 @@ class DoctorController extends Controller
     {
         return $this->doctorRepository->destroy($id);
     }
+
+    public function purge(Request $request): RedirectResponse
+    {
+        return $this->doctorRepository->purge($request);
+    }
 }

@@ -42,7 +42,8 @@ return [
      * Delete Doctor
      */
     'delete_doctor'         => 'Delete Doctor ',
-    'success_delete'            => '%s doctor deleted successfully',
+    'success_delete'        => 'Doctor deleted successfully',
+    'purge'                 => 'The success of the process of getting rid of %s doctors',
 
     /**
      * Errors

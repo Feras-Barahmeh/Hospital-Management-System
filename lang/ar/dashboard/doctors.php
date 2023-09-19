@@ -44,7 +44,8 @@ return [
      * Delete Doctor
      */
     'delete_doctor'        => 'حذف الطبيب ',
-    'success_delete'       => 'تم حذف %s الطبيب بنجاح',
+    'success_delete'       => 'تم حذف الطبيب بنجاح',
+    'purge'                => 'تم التخلص من %s بنجاح',
 
     /**
      * Errors

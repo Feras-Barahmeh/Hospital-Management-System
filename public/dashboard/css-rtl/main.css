@@ -1,5 +1,15 @@
+/**
+ * Image
+ */
+.table-img {
+    width: 40px;
+    border-radius: 50%;
+    height: 40px;
+}
 select,
-option {
+option,
+input[type="radio"],
+input[type="checkbox"] {
     cursor: pointer;
 }
 .panel-form {

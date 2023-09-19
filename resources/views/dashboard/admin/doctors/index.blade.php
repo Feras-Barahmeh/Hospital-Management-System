@@ -56,13 +56,20 @@
         <div class="col-xl-12">
             <div class="card mg-b-20">
                 <div class="card-header pb-0">
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex gap-10">
                         {{-- start add doctor --}}
                         <a href="{{ route('admin.doctors.create') }}"
-                           class="btn btn-primary-gradient pl-10 pr-10 pt-1 pb-1 ">
+                           class="btn btn-outline-primary ">
                             {{ __('dashboard/doctors.add_doctor') }}
                         </a>
                         {{-- End add doctor --}}
+                        {{-- delete selected btn --}}
+
+                        <button type="button" class="btn btn-outline-danger" disabled id="BtnDeleteSelected"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            Delete selected doctors
+                        </button>
+                        {{-- end delete selected btn --}}
                     </div>
                 </div>
 
@@ -72,6 +79,12 @@
                             <thead>
                                 <tr>
                                     <th class="wd-15p border-bottom-0">#</th>
+
+                                    <th class="text-center " check-all-th>
+                                        <div class="form-check">
+                                            <label for="select-slide-table">select</label>
+                                        </div>
+                                    </th>
                                     <th class="wd-15p border-bottom-0">{{ __('common.img') }}</th>
                                     <th class="wd-15p border-bottom-0"> {{ __('common.name') }}</th>
                                     <th class="wd-15p border-bottom-0"> {{ __('common.email') }}</th>
@@ -86,6 +99,7 @@
                             <tbody>
                                 @each('dashboard.admin.doctors.doctors', $doctors, 'doctor')
                             </tbody>
+                            @include('dashboard.admin.doctors.purge')
                         </table>
                     </div>
                 </div>
@@ -120,6 +134,9 @@
     <script src="{{ asset('dashboard/plugins/datatable/js/responsive.bootstrap4.min.js')}}"></script>
     {{-- Internal  Datatable js --}}
     <script src="{{ asset('dashboard/js/table-data.js')}}"></script>
+
+    {{-- doctors --}}
+    <script src="{{ asset('dashboard/js/doctors/main.js')}}"></script>
 
 @endpush
 

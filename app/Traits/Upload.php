@@ -133,7 +133,7 @@ trait Upload
      *
      * @return bool True if the image file was successfully deleted and the record was kicked out; false otherwise.
      */
-    public static function delete(string $disk, object $image): bool
+    public static function rubOut(string $disk, object $image): bool
     {
         File::delete(Storage::disk($disk)->path($image->url));
         return self::kickOutAssociatedRecord($image->id);

@@ -16,6 +16,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
@@ -118,18 +119,24 @@ class DoctorRepository implements IDoctors
      */
     public function destroy($id): RedirectResponse
     {
-
-        $doctor = Doctor::find($id);
-        if (isset($doctor->image)) {
-            self::delete(Disks::BUI->value, $doctor->image);
-        }
-        $name = $doctor->name;
-        $doctor = $doctor->delete();
-        if ($doctor) {
-            self::popupSuccess('doctors', 'success_delete', $name);
-        }
-
+        $doctor = Doctor::rid($id);
+        self::popupSuccess('doctors', 'success_delete');
         unset($doctor);
+        return Redirect::route('admin.doctors.index');
+    }
+
+    /**
+     * Purge (delete permanently) selected doctor records along with associated images.
+     */
+    public function purge(Request $request): RedirectResponse
+    {
+        $ids = explode(',', $request->input('selected-values'));
+
+        foreach ($ids as $id) {
+            Doctor::rid($id);
+        }
+
+        self::popupSuccess('doctors', 'purge', count($ids));
         return Redirect::route('admin.doctors.index');
     }
 }

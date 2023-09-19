@@ -1,6 +1,14 @@
 <tr>
     <td>{{ $doctor->id }}</td>
     <td class="text-center">
+        <label>
+            <input class="form-check-input"
+                   record-selected
+                   name="row-select-slide[]"
+                   type="checkbox" value="{{ $doctor->id }}" >
+        </label>
+    </td>
+    <td class="text-center">
         {!! Blade::img($doctor, 'doctor_default.jpg') !!}
     </td>
     <td>{{ $doctor->name }}</td>

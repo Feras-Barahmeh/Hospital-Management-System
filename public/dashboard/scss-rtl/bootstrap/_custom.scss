@@ -220,6 +220,7 @@ input {
   &[type="radio"], &[type="checkbox"] {
     box-sizing: border-box;
     padding: 0;
+    cursor: pointer;
   }
 
   &[type="date"], &[type="time"], &[type="datetime-local"], &[type="month"] {
