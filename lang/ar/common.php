@@ -17,7 +17,6 @@ return [
     'save'              => 'حفظ',
     'save_change'       => 'حفظ التغيير',
     'add'               => 'إضافة',
-    'operations'        => 'العمليات',
     'are_you_sure'      => 'هل أنت متأكد!',
     'well_done'         => 'عمل رائع!',
     'oops'              => 'عفوًا',
@@ -34,4 +33,13 @@ return [
     'upload'            => 'تحميل',
     'chose'             => 'اختر',
     'img'               => 'الصورة',
+
+    /**
+     * Operations
+     */
+    'operations'    => 'العمليات',
+    'delete_info'   => 'حذف المعلومات',
+    'edit_info'     => 'تعديل المعلومات',
+    'change_pass'   => 'تغيير كلمة المرور',
+    'change_status' => 'تغيير الحالة',
 ];

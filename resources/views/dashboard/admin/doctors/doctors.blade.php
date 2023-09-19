@@ -22,21 +22,49 @@
         </div>
     </td>
     <td>{{ $doctor->department->name }}</td>
-    <td>{{ $doctor->created_at->diffForHumans() }}</td>
-    <td class="text-center">
-        <a class="modal-effect btn btn-sm btn-info"
-           href="#edit{{$doctor->id}}"
-           data-effect="effect-scale"
-           data-toggle="modal">
-            <i class="las la-pen"></i>
-        </a>
 
-        <a class="modal-effect btn btn-sm btn-danger"
-           data-effect="effect-scale"
-           href="#delete{{$doctor->id}}"
-           data-toggle="modal" >
-            <i class="las la-trash"></i>
-        </a>
+
+    <td>{{ $doctor->created_at->diffForHumans() }}</td>
+
+    {{-- Operations --}}
+    <td class="text-center">
+        <div class="dropdown">
+            <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-outline-primary btn-sm" data-toggle="dropdown" type="button">
+                <i class="fas fa-caret-down mr-1"></i>
+                <span> {{ __('common.operations') }} </span>
+            </button>
+            <div class="dropdown-menu tx-13">
+
+                {{-- edit --}}
+                <a href="#edit{{$doctor->id}}" class="dropdown-item modal-effect btn btn-sm btn-info"
+                   data-effect="effect-scale" data-toggle="modal" >
+                    <i style="color: #0ba360" class="text-success ti-user"></i>&nbsp;
+                    &nbsp;
+                    {{ __('common.edit_info') }}
+                </a>
+
+                {{-- change password --}}
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete{{$doctor->id}}">
+                    <i   class="text-primary ti-key"></i>&nbsp;&nbsp;
+                    {{ __('common.change_pass') }}
+                </a>
+                {{-- change status --}}
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete{{$doctor->id}}">
+                    <i   class="text-warning ti-back-right"></i>&nbsp;&nbsp;
+                    {{ __('common.change_status') }}
+                </a>
+
+                {{-- delete --}}
+                <a class="dropdown-item modal-effect btn btn-sm btn-danger"
+                   href="#delete{{$doctor->id}}" data-toggle="modal" data-target="#delete{{$doctor->id}}">
+                    <i   class="text-danger  ti-trash"></i>
+                    &nbsp;&nbsp;
+                    {{ __('common.delete_info') }}
+                </a>
+            </div>
+        </div>
+
+
 
     </td>
 </tr>

@@ -17,7 +17,6 @@ return [
     'save'              => 'Save',
     'save_change'       => 'Save Change',
     'add'               => 'Add',
-    'operations'        => 'Operations',
     'are_you_sure'      => 'Are You Sure !',
     'well_done'         => 'Well done !',
     'oops'              => 'Oops',
@@ -34,4 +33,13 @@ return [
     'upload'            => 'Upload',
     'chose'             => 'Chose',
     'img'               => 'Image',
+
+    /**
+     * Operations
+     */
+    'operations'        => 'Operations',
+    'delete_info'       => 'Delete Information',
+    'edit_info'         => 'Edit Information',
+    'change_pass'       => 'Change password',
+    'change_status'     => 'Change Status',
 ];

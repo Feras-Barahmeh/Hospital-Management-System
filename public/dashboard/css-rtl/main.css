@@ -57,7 +57,7 @@ table .dot-label {
 }
 
 .modal-body {
-    margin-top: 50px;
+    /*margin-top: 50px;*/
     display: flex;
     flex-direction: row;
     text-align: center;
