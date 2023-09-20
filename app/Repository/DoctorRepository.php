@@ -51,25 +51,7 @@ class DoctorRepository implements IDoctors
             'appointments'  => Appointment::all(),
         ]);
     }
-    /**
-     * Fill an array with data from a request object.
-     *
-     * @param Request $request The request object containing the data.
-     *
-     * @return array An associative array with data from the request.
-     */
-    private function fillProperty(Request $request): array
-    {
-        return [
-            'email'         => $request->email,
-            'password'      => Hash::make($request->password),
-            'status'        => $request->status,
-            'department_id' => $request->department,
-            'phone'         => $request->phone,
-            'name'          => $request->name,
-            'appointments'  => implode(',', $request->appointments),
-        ];
-    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -85,7 +67,7 @@ class DoctorRepository implements IDoctors
             'email'             => 'required|email|unique:doctors',
             'phone'             => 'required|numeric',
             'status'            => 'required|boolean',
-            'department'        => 'required|numeric',
+            'department_id'     => 'required|numeric',
             'appointments'      => 'required',
             'photo'             => 'required',
         ]);
@@ -93,8 +75,9 @@ class DoctorRepository implements IDoctors
         if ($validate->fails()) {
             throw new ValidationException($validate);
         }
-
-        $doctor = Doctor::create($this->fillProperty($request));
+        $inputs = $request->except('Confirm_Password');
+        $inputs['appointments'] = implode(',', $inputs['appointments']);
+        $doctor = Doctor::create($inputs);
 
         self::sort($request, 'photo', 'doctors', Disks::BUI->value, $doctor->id, Doctor::class);
 

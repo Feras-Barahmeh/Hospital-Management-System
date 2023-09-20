@@ -17,8 +17,8 @@ return [
     'add_department'        => 'إضافة قسم',
     'created_at'            => 'تم الإنشاء في',
     'name_department'       => 'اسم القسم',
-    'description'          => 'الوصف',
-
+    'description'           => 'الوصف',
+    'leave_description'     => 'اترك وصف للقسم',
     /**
      * Add Department
      */

@@ -45,9 +45,7 @@ class DepartmentRepository implements IDepartments
             throw new ValidationException($validator);
         }
 
-        $department = Department::create([
-                'name' => $request->input('name'),
-        ]);
+        $department = Department::create($request->all());
         self::popupSuccess('departments', 'success_add', $department->name);
 
 
@@ -73,9 +71,7 @@ class DepartmentRepository implements IDepartments
         }
 
         $department = Department::find($request->id);
-        $department->update([
-            'name' => $request->name,
-        ]);
+        $department->update($request->except(['id']));
         self::popupSuccess('departments', 'success_update', $department->name);
 
         unset($department);

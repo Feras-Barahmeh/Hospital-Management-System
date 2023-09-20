@@ -6,7 +6,7 @@
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">{{ __('dashboard/doctors.delete_doctor') }}</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">×</span>
                 </button>
             </div>
 
@@ -14,7 +14,10 @@
                 {{ method_field('delete') }}
                 @csrf
                 <div class="modal-body mt-0">
-                    <h5>{{ __('common.are_you_sure') }}</h5>
+                    <h5>
+                        {{ __('common.are_you_sure_delete') }}
+                        <strong class="text-danger d-inline-block">{{ $doctor->name }}</strong>
+                    </h5>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary pl-10 pr-10 pt-1 pb-1" data-dismiss="modal">{{trans('common.close')}}</button>

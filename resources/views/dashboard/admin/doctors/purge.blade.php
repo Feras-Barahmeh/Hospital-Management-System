@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header d-flex justify-content-between">
                 <h5 class="modal-title" id="exampleModalLabel">{{ __('dashboard/doctors.delete_doctor') }}</h5>
-                <button type="button" class="btn-close bg-transparent " data-bs-dismiss="modal" aria-label="Close">
+                <button type="button" class="btn-close border-0" data-bs-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
 

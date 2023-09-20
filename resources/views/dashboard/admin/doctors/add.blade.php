@@ -130,11 +130,11 @@
                                 <div class="col-md-6 mg-t-20 mg-md-t-0">
                                     <div class="main-form-group">
                                         <label class="form-label" for="department">{{ __('dashboard/doctors.department') }}</label>
-                                        <select class="form-control select2" name="department" id="department">
+                                        <select class="form-control select2" name="department_id" id="department">
                                             <option disabled selected>{{ __('common.chose') }}</option>
 
                                             @foreach($departments as $department)
-                                                <option value="{{$department->id}}" @selected(old('department') == $department->id)>
+                                                <option value="{{$department->id}}" @selected(old('department_id') == $department->id)>
                                                     {{ $department->name }}
                                                 </option>
                                             @endforeach

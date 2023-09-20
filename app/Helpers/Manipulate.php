@@ -11,12 +11,13 @@ class Manipulate
      * vsprintf to replace placeholders in the format string with the provided
      * parameters.
      *
-     * @param string $str The format string containing placeholders.
-     * @param array  $params An associative array of parameters to replace placeholders.
+     * @param string        $str The format string containing placeholders.
+     * @param string|array $params An associative array of parameters to replace placeholders.
      * @return string The formatted string with placeholders replaced.
      */
-    public static function format(string $str, array $params): string
+    public static function format(string $str, string|array $params): string
     {
+        $params = is_array($params) ? $params : [$params];
         return vsprintf($str, $params);
     }
 }
