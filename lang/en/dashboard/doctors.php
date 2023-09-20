@@ -48,6 +48,11 @@ return [
     'purge'                 => 'The success of the process of getting rid of %s doctors',
 
     /**
+     * Password
+     */
+    'reset_pass_success' => "Success Reset password",
+
+    /**
      * Errors
      */
     'exist'         => '%s doctor already exist',

@@ -171,4 +171,31 @@ class DoctorRepository implements IDoctors
         self::popupSuccess('doctors', 'purge', count($ids));
         return Redirect::route('admin.doctors.index');
     }
+
+    /**
+     * Reset password doctor by admin
+     *
+     * @throws ValidationException
+     */
+    public function resetPassword(Request $request): RedirectResponse
+    {
+        $validated = Validator::make($request->all(), [
+             'new_password' => 'required|min:8',
+             'confirm_password' => 'same:new_password',
+        ]);
+
+        if ($validated->fails()) {
+            throw new ValidationException($validated);
+        }
+
+        $doctor = Doctor::find($request->input('id'));
+
+        $doctor->update([
+            'password' => Hash::make($request->input('password')),
+        ]);
+
+        self::successNotification('doctors', 'reset_pass_success');
+        return Redirect::route('admin.doctors.index');
+
+    }
 }

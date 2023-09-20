@@ -43,7 +43,8 @@
                 </a>
 
                 {{-- change password --}}
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete{{$doctor->id}}">
+                <a class="dropdown-item modal-effect btn btn-sm btn-danger"
+                   href="#changepassword{{ $doctor->id }}" data-toggle="modal" data-target="#changepassword{{$doctor->id}}">
                     <i   class="text-primary ti-key"></i>&nbsp;&nbsp;
                     {{ __('common.change_pass') }}
                 </a>
@@ -63,9 +64,7 @@
             </div>
         </div>
 
-
-
     </td>
 </tr>
-{{--@include('dashboard.admin.doctors.edit')--}}
-{{--@include('dashboard.admin.doctors.delete')--}}
+@include('dashboard.admin.doctors.change-password')
+@include('dashboard.admin.doctors.delete')

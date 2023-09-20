@@ -13,6 +13,7 @@
                 @csrf
                 <div class="modal-body mt-0">
                     <h5>{{ __('common.are_you_sure') }}</h5>
+                    {{-- value this input come from js --}}
                     <input type="hidden" name="selected-values" id="SelectedValues">
                 </div>
                 <div class="modal-footer">

@@ -43,4 +43,12 @@ return [
     'edit_info'         => 'Edit Information',
     'change_pass'       => 'Change password',
     'change_status'     => 'Change Status',
+    'new_pass'          => 'New Password',
+    'confirm_new_pass'  => 'Confirm New Password',
+
+    /**
+     * Messages
+     */
+    'success'   => 'Success',
+    'fail'      => 'Fail',
 ];

@@ -38,9 +38,19 @@ return [
     /**
      * Operations
      */
-    'operations'    => 'العمليات',
-    'delete_info'   => 'حذف المعلومات',
-    'edit_info'     => 'تعديل المعلومات',
-    'change_pass'   => 'تغيير كلمة المرور',
-    'change_status' => 'تغيير الحالة',
+    'operations'        => 'العمليات',
+    'delete_info'       => 'حذف المعلومات',
+    'edit_info'         => 'تعديل المعلومات',
+    'change_pass'       => 'تغيير كلمة المرور',
+    'change_status'     => 'تغيير الحالة',
+    'new_pass'          => 'كلمة المرور الجديدة',
+    'confirm_new_pass'  => 'تأكيد كلمة المرور الجديدة',
+
+
+    /**
+     * Messages
+     */
+    'success'   => 'نجاح',
+    'fail'      => 'فشل',
+
 ];

@@ -58,7 +58,7 @@ class DoctorController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id): View|Factory|Application|\Illuminate\Contracts\Foundation\Application
     {
         return $this->doctorRepository->edit($id);
     }
@@ -82,5 +82,13 @@ class DoctorController extends Controller
     public function purge(Request $request): RedirectResponse
     {
         return $this->doctorRepository->purge($request);
+    }
+
+    /**
+     * Change Password
+     */
+    public function resetPassword(Request $request): RedirectResponse
+    {
+        return $this->doctorRepository->resetPassword($request);
     }
 }

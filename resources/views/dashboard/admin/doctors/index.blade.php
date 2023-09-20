@@ -50,6 +50,7 @@
 @section('content')
     @include('dashboard.alerts.popup')
     @include('dashboard.alerts.errors')
+    @include('dashboard.alerts.notification')
     <!-- row opened -->
     <div class="row row-sm">
         <!--div-->
@@ -112,6 +113,7 @@
     <!-- Container closed -->
     </div>
     <!-- main-content closed -->
+
 @endsection
 
 @push('js')

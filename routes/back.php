@@ -63,7 +63,15 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewP
          * Doctors
          */
         Route::resource('doctors', DoctorController::class);
-        Route::delete('purge', [DoctorController::class, 'purge'])->name('purge');
+
+        Route::delete('purge', [DoctorController::class, 'purge'])
+            ->name('purge');
+
+        Route::prefix('doctors')->name('doctors.')->controller(DoctorController::class)->group(function () {
+
+            Route::post('reset-password', 'resetPassword')->name('reset-password');
+        });
+
     });
 
     require __DIR__.'/auth.php';
