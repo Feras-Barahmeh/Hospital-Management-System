@@ -14,4 +14,5 @@ interface IDoctors
     public function destroy($id);
     public function purge(Request $request);
     public function resetPassword(Request $request);
+    public function toggleStatus(Request $request);
 }

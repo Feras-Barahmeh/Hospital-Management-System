@@ -16,12 +16,16 @@ return [
     'close'                 => 'إغلاق',
     'save'                  => 'حفظ',
     'save_change'           => 'حفظ التغيير',
+    'change'                => 'تغيير',
     'add'                   => 'إضافة',
     'are_you_sure'          => 'هل أنت متأكد!',
     'are_you_sure_delete'   => 'هل انت متأكد من عملية حذف الدكتور ',
-    'well_done'         => 'عمل رائع!',
-    'oops'              => 'عفوًا',
-    'show'              => 'عرض',
+    'well_done'             => 'عمل رائع!',
+    'oops'                  => 'عفوًا',
+    'show'                  => 'عرض',
+    'for'                   => 'ل',
+    'not_enabled'           => 'غير مفعّل',
+    'appointments'          => 'المواعيد',
 
     /**
      * General

@@ -91,4 +91,11 @@ class DoctorController extends Controller
     {
         return $this->doctorRepository->resetPassword($request);
     }
+    /**
+     * Toggle status doctor
+     */
+    public function toggleStatus(Request $request): RedirectResponse
+    {
+        return $this->doctorRepository->toggleStatus($request);
+    }
 }

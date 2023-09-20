@@ -191,11 +191,24 @@ class DoctorRepository implements IDoctors
         $doctor = Doctor::find($request->input('id'));
 
         $doctor->update([
-            'password' => Hash::make($request->input('password')),
+            'password' => Hash::make($request->input('new_password')),
         ]);
 
         self::successNotification('doctors', 'reset_pass_success');
         return Redirect::route('admin.doctors.index');
 
+    }
+
+    /**
+     * Toggle status doctor
+     */
+    public function toggleStatus(Request $request): RedirectResponse
+    {
+        $doctor = Doctor::find($request->input('id'));
+
+        $doctor->status = ! $doctor->status;
+        $doctor->save();
+        self::successNotification('doctors', 'toggle_status');
+        return Redirect::route('admin.doctors.index');
     }
 }

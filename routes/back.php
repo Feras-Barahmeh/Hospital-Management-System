@@ -70,6 +70,7 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewP
         Route::prefix('doctors')->name('doctors.')->controller(DoctorController::class)->group(function () {
 
             Route::post('reset-password', 'resetPassword')->name('reset-password');
+            Route::post('toggle-status', 'toggleStatus')->name('toggle-status');
         });
 
     });
