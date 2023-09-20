@@ -52,7 +52,7 @@
                 @foreach($department->doctors as $doctor)
                     <div class="col-12 col-sm-6 col-lg-6 col-xl-4">
                         <div class="card card-purple">
-                            <div class="card-header">
+                            <div class="border-bottom p-3">
                                 <h5 class="card-title mb-0 pb-0">{{ $doctor->name }}</h5>
                             </div>
                             <div class="card-body text-purple">

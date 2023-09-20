@@ -46,7 +46,8 @@
                     <div class="pl-0">
                         <div class="main-profile-overview">
                             <div class="main-img-user profile-user">
-                                <img alt="" src="{{ asset('dashboard/img/faces/6.jpg')}}"><a class="fas fa-camera profile-edit" href="JavaScript:void(0);"></a>
+                                {!! Blade::img( $doctor, 'doctor_default.jpg', class:'fas fa-camera profile-edit') !!}
+                                <a class="fas fa-camera profile-edit" href="JavaScript:void(0);"></a>
                             </div>
                             <div class="d-flex justify-content-between mg-b-20">
                                 <div>

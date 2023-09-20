@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Sep 16, 2023 at 08:03 PM
+-- Generation Time: Sep 21, 2023 at 12:31 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -43,7 +43,72 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$UzqiQ7Hgat6hV2UrsJxLhOPTF7p83Qg1jXHKO14XoA0tWqvlNQaLG', NULL, NULL, NULL);
+(1, 'admin', 'admin@gmail.com', NULL, '$2y$10$x/nscidIBXWqoxskBzFryOUj7GVdiLTTretT./Gu3dzwVtM14lKeW', NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `appointments`
+--
+
+CREATE TABLE `appointments` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `appointments`
+--
+
+INSERT INTO `appointments` (`id`, `created_at`, `updated_at`) VALUES
+(1, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(2, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(3, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(4, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(5, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(6, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(7, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(8, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(9, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(10, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(11, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(12, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(13, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(14, '2023-09-20 11:56:41', '2023-09-20 11:56:41');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `appointment_translations`
+--
+
+CREATE TABLE `appointment_translations` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `locale` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `appointment_id` bigint(20) UNSIGNED NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `appointment_translations`
+--
+
+INSERT INTO `appointment_translations` (`id`, `locale`, `name`, `appointment_id`) VALUES
+(1, 'en', 'Sunday', 1),
+(2, 'en', 'Monday', 2),
+(3, 'en', 'Tuesday', 3),
+(4, 'en', 'Wednesday', 4),
+(5, 'en', 'Thursday', 5),
+(6, 'en', 'Friday', 6),
+(7, 'en', 'Saturday', 7),
+(8, 'ar', 'الأحد', 8),
+(9, 'ar', 'الاثنين', 9),
+(10, 'ar', 'الثلاثاء', 10),
+(11, 'ar', 'الأربعاء', 11),
+(12, 'ar', 'الخميس', 12),
+(13, 'ar', 'الجمعة', 13),
+(14, 'ar', 'السبت', 14);
 
 -- --------------------------------------------------------
 
@@ -62,7 +127,25 @@ CREATE TABLE `departments` (
 --
 
 INSERT INTO `departments` (`id`, `created_at`, `updated_at`) VALUES
-(1, '2023-09-16 15:03:00', '2023-09-16 15:03:00');
+(1, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(2, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(3, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(4, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(5, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(6, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(7, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(8, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(9, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(10, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(11, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(12, '2023-09-20 11:56:41', '2023-09-20 11:56:41'),
+(13, '2023-09-20 11:56:42', '2023-09-20 11:56:42'),
+(14, '2023-09-20 11:56:42', '2023-09-20 11:56:42'),
+(15, '2023-09-20 11:56:42', '2023-09-20 11:56:42'),
+(16, '2023-09-20 11:56:42', '2023-09-20 11:56:42'),
+(17, '2023-09-20 11:56:42', '2023-09-20 11:56:42'),
+(18, '2023-09-20 11:56:42', '2023-09-20 11:56:42'),
+(19, '2023-09-20 11:56:42', '2023-09-20 11:56:42');
 
 -- --------------------------------------------------------
 
@@ -74,15 +157,34 @@ CREATE TABLE `department_translations` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `locale` varchar(255) NOT NULL,
   `department_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL
+  `name` varchar(255) NOT NULL,
+  `description` longtext NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `department_translations`
 --
 
-INSERT INTO `department_translations` (`id`, `locale`, `department_id`, `name`) VALUES
-(1, 'en', 1, 'Surgery');
+INSERT INTO `department_translations` (`id`, `locale`, `department_id`, `name`, `description`) VALUES
+(1, 'en', 1, 'Emergency Department (ED)', 'Sint qui voluptas possimus doloribus quibusdam fugiat et nulla. Reprehenderit quo quam illum. Aliquam velit ullam quos qui illo rerum veritatis.'),
+(2, 'en', 2, 'Nephrology Department', 'Ducimus aut et sunt. Quis sunt hic et sed. Perspiciatis dicta unde quisquam nam quis et. Et quis impedit nam quia.'),
+(3, 'en', 3, 'Gastroenterology Department', 'Consequatur molestiae incidunt natus et cupiditate provident recusandae. Incidunt non est sunt et ad. Consequatur quaerat dolore ut laboriosam veniam. Dignissimos omnis id aut eius unde.'),
+(4, 'en', 4, 'Dermatology Department', 'Quaerat temporibus molestias consequatur quia voluptatem ut inventore. Reprehenderit ducimus et deserunt veniam.'),
+(5, 'en', 5, 'Pulmonology Department', 'Dolores facilis sint beatae ut qui vitae quisquam. Ullam molestias doloremque mollitia optio fugiat quam itaque quae. Porro quisquam sunt qui id et sint.'),
+(6, 'en', 6, 'Intensive Care Unit (ICU)', 'Et veniam modi aut unde. Qui officiis quod velit sed minus nesciunt magnam. Et veniam ullam beatae consectetur sunt libero sapiente. Et quasi tenetur vero at enim quos.'),
+(7, 'en', 7, 'Radiology Department', 'Voluptas sit optio ut. Quas aperiam maxime pariatur dolores quia. Ut in est eaque quia.'),
+(8, 'en', 8, 'Neurology Department', 'Odit quis deserunt nihil numquam ex. Quod vel expedita odio sit in. Adipisci commodi a id in a unde beatae.'),
+(9, 'en', 9, 'Anesthesiology Department', 'Et quam omnis adipisci labore nostrum. Numquam asperiores sapiente ad a.'),
+(10, 'en', 10, 'Surgery Department', 'Dolores delectus est commodi cum laboriosam at earum. Sequi et repellendus totam qui quis quas ab. Voluptas nihil a quasi perspiciatis quos aut.'),
+(11, 'en', 11, 'Obstetrics and Gynecology Department (OB/GYN)', 'Temporibus quia porro voluptates qui. Esse non assumenda rem dolor quos sed. Laboriosam dolorem maxime dicta perferendis aspernatur.'),
+(12, 'en', 12, 'Pediatrics Department', 'Aut sit consequatur deserunt excepturi iste. Ex reprehenderit laborum qui deleniti et doloremque. Vitae cum minus velit ducimus distinctio omnis. Pariatur eius blanditiis enim exercitationem.'),
+(13, 'en', 13, 'Internal Medicine Department', 'Rerum odit id in repellendus non accusamus temporibus. At omnis corrupti libero deserunt. Laboriosam eaque vel rerum officiis quis. Et vero omnis nobis.'),
+(14, 'en', 14, 'ENT (Ear, Nose, and Throat) Department', 'Excepturi perferendis similique ad quas. Fugit fuga maiores voluptates et. Inventore nam laborum autem ab voluptates ex voluptas. Veritatis ipsum laboriosam aspernatur in aperiam.'),
+(15, 'en', 15, 'Cardiology Department', 'Id soluta deleniti odit dolores sit et rem. Dolor provident voluptatem officiis ea nesciunt quis. Quia saepe illo eum suscipit. Blanditiis non consequuntur necessitatibus aspernatur ipsum corporis et. Et quod sed vel et ratione eius iusto.'),
+(16, 'en', 16, 'Psychiatry Department', 'Eius natus voluptatem atque exercitationem qui. Ea facilis quidem omnis fugit eum deleniti iste. Expedita voluptatem quas eaque. Quos id tempora est explicabo est aut ut.'),
+(17, 'en', 17, 'Oncology Department', 'Odit ducimus voluptas tempore rem cupiditate minus cum. Et porro quia reiciendis et aut ipsum. Et libero harum quia alias.'),
+(18, 'en', 18, 'Urology Department', 'Quia eaque architecto doloremque nihil aut excepturi deleniti omnis. Aliquid nihil consectetur aut corporis voluptatem voluptatem. Maxime placeat ex assumenda quia aut.'),
+(19, 'en', 19, 'Orthopedics Department', 'Fugiat expedita et corrupti autem iure eligendi repellendus. Omnis laudantium et natus rerum. Possimus eos perspiciatis aut at velit. Eos sed consectetur doloremque quia qui earum.');
 
 -- --------------------------------------------------------
 
@@ -96,7 +198,8 @@ CREATE TABLE `doctors` (
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
-  `price` decimal(8,2) NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1,
+  `department_id` bigint(20) UNSIGNED NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -105,47 +208,44 @@ CREATE TABLE `doctors` (
 -- Dumping data for table `doctors`
 --
 
-INSERT INTO `doctors` (`id`, `email`, `email_verified_at`, `password`, `phone`, `price`, `created_at`, `updated_at`) VALUES
-(1, 'eliza70@example.com', '2023-09-16 12:38:49', '$2y$10$m4hym5wKdx1r6lAMrybhb.CkB3SLPBio8jYI9uCZKEPayosBeT.zG', '+1-458-322-8798', 200.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(2, 'leola.hickle@example.org', '2023-09-16 12:38:49', '$2y$10$YJQik.NhAiZU8n9zT6rEXeQoErWELJuLxE5bZswKU/YzUWyY54gTu', '+1-681-725-9415', 400.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(3, 'yoshiko42@example.net', '2023-09-16 12:38:49', '$2y$10$2XBLCxpK6Jvrw4iRukNZquNAgPeE6AwJbwsL/J9AamaVuGJNtJ4KC', '+15599578421', 300.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(4, 'shanna.schinner@example.net', '2023-09-16 12:38:49', '$2y$10$uKpRZ67GwPvKaVS98bkuoel6sQlI0OP5.RT5.CnVbDY.uxHekooGW', '+1 (860) 498-7028', 100.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(5, 'ansel93@example.com', '2023-09-16 12:38:49', '$2y$10$Lr/dSvwtG4oy2C3I0ypJQuS4cSTEDAlatEMxmY5CKIf7/i9DjAP7i', '(256) 943-0616', 200.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(6, 'ckunze@example.com', '2023-09-16 12:38:49', '$2y$10$/tzn/i3c4UyTAOMVf9GlWuxNCRPE/HfGHFvTILwH/xlfd1X4g1gFi', '1-254-505-5277', 500.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(7, 'isai.boehm@example.net', '2023-09-16 12:38:49', '$2y$10$34YWwXulobRdowonwNA.guzMvhl3BR/0KSg/6DtZMObdtrQQ/LFZ.', '1-217-794-4089', 300.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(8, 'sylvia13@example.com', '2023-09-16 12:38:49', '$2y$10$mJKjluHgxMI8mO7VdZ16euEwoK18q9MTKvAljmr4d2VfkZh3XaKhe', '878-422-8320', 200.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(9, 'andreanne.hammes@example.net', '2023-09-16 12:38:49', '$2y$10$08tesXvdE.0Imna7c3caEO5P9wQewU9YjlOYgtPLto9FVqqYth3la', '+15396024226', 300.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(10, 'bborer@example.org', '2023-09-16 12:38:50', '$2y$10$7EfmRbmNr3uWa0eFS1ASgOPt.oRQt03Ldr0LcKqOtJs54zFEyE3j.', '386.954.0179', 400.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(11, 'justyn.mraz@example.com', '2023-09-16 12:38:50', '$2y$10$e.Xf2QD5OS4n8SjAim9sVe6JVVX6wFkG7B3gIK973axEuqJBG7ZLC', '1-682-682-3389', 100.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(12, 'donnelly.lester@example.org', '2023-09-16 12:38:50', '$2y$10$oNVONKPTF9txCh1JqCtPRewtbFGrWZ3ryEEnTTp1DDhxGGPWzJSwC', '+1-712-276-6470', 100.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(13, 'wyman.erich@example.net', '2023-09-16 12:38:50', '$2y$10$lmdjmE0QUxxOwvYgqhzZhu0Vc9xfIjeJ6Zrkwlayrp/FHTyuqkBmW', '+1-540-705-8786', 300.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(14, 'bernard.kessler@example.net', '2023-09-16 12:38:50', '$2y$10$UQoan21KT4KC4O2H8txX3eC2ZlJeFjWtb.eA4MTT5bgf03ehd9iwu', '940.348.3791', 100.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(15, 'geraldine45@example.org', '2023-09-16 12:38:50', '$2y$10$VHGl1HzuPSTbFx/6e9HPjO8CK5G1OFZmSkDKzJBwPzqXj9bmcqvnG', '+1-281-971-1429', 200.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(16, 'oreilly.zack@example.net', '2023-09-16 12:38:50', '$2y$10$UP1PdAhXmuemX8Npj4cC.OG6QT/E56ioz3tGqhAIOpsCFGvDMArsa', '+14353695615', 200.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(17, 'andrew.veum@example.net', '2023-09-16 12:38:50', '$2y$10$sd5.Qz3Xz6kBIEtlJDhpBeZLB5alKstzuHqXOItZuXSyxky4Glxoe', '1-870-650-9957', 500.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(18, 'dorthy14@example.com', '2023-09-16 12:38:50', '$2y$10$ophYz0/l.Tz5ybNfAnMcBO1jAHWW0Nw0dIu9l81/uNn2GfOocEmWS', '959.753.3525', 500.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(19, 'henriette.howe@example.com', '2023-09-16 12:38:50', '$2y$10$U5b.N4Fb.wtZsb4pFuDTGO768fEifZO01tkUNa4QEiUtUQRrG5eri', '281-603-7015', 400.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(20, 'hayley59@example.net', '2023-09-16 12:38:50', '$2y$10$J/liNZeeygiy1OQmgo/z0OAtXVxAg7FtZJFx3WvQ315FZ5HlNQpty', '206-426-8574', 300.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(21, 'abbey.keeling@example.com', '2023-09-16 12:38:50', '$2y$10$4xHBuxKpokiEIwwTomUcQuyBCa6gSNW6vLAPHAPR2Z.HkSwVy2eIO', '+1.517.544.1537', 100.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(22, 'oreilly.samantha@example.org', '2023-09-16 12:38:50', '$2y$10$gE8bE2FxGnmvDh8xPOvdieBtDRS2REvxm/hu7npRZD/WXBjbjlEC6', '+1.931.431.0260', 200.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(23, 'sydnee.hayes@example.org', '2023-09-16 12:38:50', '$2y$10$EOiNfDLtfPTPPu6mZ0RiSeV.s3qbqGtMBSOMm8RuEC5tbs64AsS8S', '1-651-537-5337', 500.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(24, 'annalise42@example.org', '2023-09-16 12:38:50', '$2y$10$lhuZUh7FP6uqVMwB..ruL./D9GZmVJcHnaJV77i1pnyxkdIYy./g2', '+1 (838) 382-3438', 100.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(25, 'alyson24@example.org', '2023-09-16 12:38:50', '$2y$10$IZJ1xKf9cX7I0N9MH2OaDu8n9JnrGJDCkainUk7AEV9JnGBfjT5/S', '+1.872.331.0624', 400.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(26, 'hsenger@example.org', '2023-09-16 12:38:50', '$2y$10$7hCopHcBRs/PHZHS4HZKaOK5ZePX6IDqBIgaa8ajwUnyHj7mJ3NYa', '(980) 642-3701', 200.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(27, 'okoch@example.com', '2023-09-16 12:38:50', '$2y$10$EuYe6X3wNQSLKXNGfYbBluE4ijNF6p3dFzdM.jQ/1DwXPoMCaIox2', '1-858-979-4258', 400.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(28, 'helen.cassin@example.net', '2023-09-16 12:38:50', '$2y$10$gElJqqcvye4aKP6EsGvlFO/8Aypug05OiPdQxUKZ8UWDcF3/IPGTa', '+1.475.371.5018', 300.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(29, 'donnelly.erika@example.org', '2023-09-16 12:38:51', '$2y$10$mU3PwgFAxB7Al3HzFgkpL.UGUgNUalLvNriqX69aLNgXVGBhuXiCe', '321.449.6231', 500.00, '2023-09-16 12:38:51', '2023-09-16 12:38:51'),
-(30, 'imelda42@example.org', '2023-09-16 12:38:51', '$2y$10$zYIMw6RYYga3YfrIe3ubXO0kHXxlsKkmMeXBqK7khB7TbHZAFylcm', '+15405903113', 500.00, '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(31, 'douglas.domenica@example.net', '2023-09-16 12:38:51', '$2y$10$VyG9Qdy6GzfFST8eQk7R9O3I5rhUpE4XHHKYJ7i0Zx6i3wchP8bha', '323.680.1376', 400.00, '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(32, 'mervin.green@example.com', '2023-09-16 12:38:51', '$2y$10$ye1GzepwlRokQIHsH6Wq8.xsfJzkTu8TW8CkW2BiJcyNtADD5tw3y', '678.598.2701', 100.00, '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(33, 'wisoky.cordia@example.com', '2023-09-16 12:38:51', '$2y$10$KNAnE7T8Q6h0GAkeMPVFJudAj8LbzFPOnTCDxX17g3jph7pu3DWqq', '+1 (978) 531-6689', 500.00, '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(34, 'mack05@example.org', '2023-09-16 12:38:51', '$2y$10$52BqL2Mi/1qUHw8XgEU/g.9eZvM.zrztedyRaCf1OrEntBvcwYLoG', '(641) 896-9219', 100.00, '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(35, 'charity95@example.com', '2023-09-16 12:38:51', '$2y$10$tFUzuisoAf476R0XpRo5AemGKiTciHUSzMr13BY/JSSy/oIor0ek.', '+1-312-731-7277', 500.00, '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(36, 'willy.miller@example.org', '2023-09-16 12:38:51', '$2y$10$nBIUlh5eOQ9DMpSG2a06re63NVSN1dGaz7pOTKWZVuAUnWkRT.WDy', '(862) 558-5465', 400.00, '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(37, 'zelma.torphy@example.org', '2023-09-16 12:38:51', '$2y$10$qA3Ug/L8P0FmG6zghwYYg.Ii/hSlQjwvVUl0p2i2a6XQn8XLs.B5W', '+1 (248) 670-1289', 300.00, '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(38, 'danika07@example.com', '2023-09-16 12:38:51', '$2y$10$TBDBrGHoNHfZG9idsfomQ.Mcf6w/.Ui/fRvGdnmXXpSPZ8cmkcsi6', '(737) 601-6401', 500.00, '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(39, 'michel30@example.com', '2023-09-16 12:38:51', '$2y$10$vLcrfP.12mo9YW4EmEMgfOmmIMiRM0HMBOFF1lbPOm2fP87tkPh8u', '+1 (541) 352-8508', 100.00, '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(40, 'arvel22@example.net', '2023-09-16 12:38:51', '$2y$10$1/yfWE9iHLvsmc40LrVMqeI9uSxkllh0LfF9zrYsuJ/wquVOEwISu', '1-541-966-4229', 200.00, '2023-09-16 12:38:52', '2023-09-16 12:38:52');
+INSERT INTO `doctors` (`id`, `email`, `email_verified_at`, `password`, `phone`, `status`, `department_id`, `created_at`, `updated_at`) VALUES
+(7, 'sigurd73@example.org', '2023-09-20 11:56:42', '$doctor$doctor', '+1.219.925.7092', 0, 6, '2023-09-20 11:56:44', '2023-09-20 16:42:11'),
+(8, 'watsica.neoma@example.com', '2023-09-20 11:56:42', '$2y$10$.JkohP5rMq7PhB.qA.OcyuFKTtJFFUY67Bvj1BQ60uc7AA74oORhW', '(626) 327-2429', 1, 13, '2023-09-20 11:56:44', '2023-09-20 16:07:20'),
+(9, 'moshe17@example.com', '2023-09-20 11:56:42', '$2y$10$1wv7tTL1pA/qKUKk/jlwKeZNGLTjYV5B8JKSZqFPXlvKuv8ejbNoS', '301-298-3384', 1, 10, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(10, 'phyllis.lubowitz@example.net', '2023-09-20 11:56:42', '$2y$10$Ii5MvY3UEjv8./gnUNH8pe78mKNcBBJmBo155AL9cB8agUoaloHyS', '248.963.2284', 1, 13, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(11, 'george.damore@example.org', '2023-09-20 11:56:42', '$2y$10$jP.sGChsJgn/kgOb8ajTfe0zvyPtuplyoR/EXC1KUuJXrbJl992RS', '1-848-467-0249', 1, 9, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(12, 'lavina.cole@example.org', '2023-09-20 11:56:42', '$2y$10$PWC6HLDA6Cem6SI0z08r4OgvyisnQY4FyxCsP25ATBpZ/Vh7rSUX.', '727.393.5307', 1, 15, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(13, 'imonahan@example.org', '2023-09-20 11:56:42', '$2y$10$wyf.tsWRDS1jBkuU2NY6ieJ7O.0STVdee5PBAtpjnJv8HMFe8gohC', '979-680-2563', 1, 9, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(14, 'shanelle92@example.net', '2023-09-20 11:56:42', '$2y$10$9clMEBvqTNBPknFlRJjNRuEaXpmGldkqaa47ZRQ4AGlAx0HUnU7Sy', '228-882-6986', 1, 9, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(15, 'ahill@example.net', '2023-09-20 11:56:42', '$2y$10$E161puDu/IR9lrSZJYKPM.0Xa0hVeu7N1IIwqvo6QDNO9rn8WQP56', '228.206.9012', 1, 11, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(16, 'tomasa27@example.net', '2023-09-20 11:56:42', '$2y$10$564Ua4F87yIURoSMB9jOpuyaxuj2ZTXW5a4P3MTkWh8y/qA.gEScK', '214.446.3436', 1, 17, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(17, 'torphy.abraham@example.org', '2023-09-20 11:56:42', '$2y$10$1SrAOi3V.az.DG3MkYyQFug.Ru6Hy6TBrOClf2oItbd9YQn2UbVcC', '1-202-414-9211', 1, 5, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(18, 'madilyn.koelpin@example.net', '2023-09-20 11:56:43', '$2y$10$pH.gQjG84duEDh9E9oND6u5UiAy8PM9mGj8km1uyxLefa34L/M03u', '+1 (838) 237-7405', 1, 18, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(19, 'larue90@example.org', '2023-09-20 11:56:43', '$2y$10$.R.e1LEAGW0ZDc0zXo4AKe49PbUK16IGXz9HAKrL3S2zEB27OXEAG', '+1 (361) 942-6554', 1, 3, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(20, 'coby.wilkinson@example.com', '2023-09-20 11:56:43', '$2y$10$v6QpgRx4q3pSICbFLBAQPeP0svUSnee6e0HwC6vfoPXhjpMUNo8Ue', '+18205699683', 1, 3, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(21, 'bconnelly@example.org', '2023-09-20 11:56:43', '$2y$10$rbSGVOv.glpc/SGo6KALvuVy9qhAcYmAch1DFCmhKTXAe8UY5lgAG', '360.390.7618', 1, 14, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(22, 'claude51@example.com', '2023-09-20 11:56:43', '$2y$10$MTYIzNnAzL147Ucs11woBO794ZsWf2dd8SzOus2YuhszXEkq.UlrW', '+1-920-645-5281', 1, 14, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(23, 'bradly45@example.com', '2023-09-20 11:56:43', '$2y$10$aV2PaFhfvQn47ignj4jezO79lTWCEj3KcQVKa75qiLsBBXzYVkxCq', '(985) 812-4151', 1, 5, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(24, 'stephen.kshlerin@example.org', '2023-09-20 11:56:43', '$2y$10$uZdApBzyokKZcRN1N7WY1ueMvyhxEvjIxZXX9zczGgpw/2l6HkcwK', '(629) 319-3762', 1, 14, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(25, 'soledad.reinger@example.org', '2023-09-20 11:56:43', '$2y$10$RCDqPdlAPTAaXH.abiz80OgZ6JRxxcdirHy73u1e9tzfq13mU414i', '1-938-430-9779', 1, 19, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(26, 'amos22@example.com', '2023-09-20 11:56:43', '$2y$10$rMF02/RiHeQr9dbI43hrLuWH5ZLT1l0N7bUnkbqJhCZh7.vivuoBu', '678.895.6023', 1, 7, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(27, 'cameron61@example.org', '2023-09-20 11:56:43', '$2y$10$feEdKgKJ5xSGmPoq.i/CWOmYejQJf35wzUXCJ9b47Lw0sJ2kjMuNC', '+1-321-374-4582', 1, 4, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(28, 'franecki.daphne@example.org', '2023-09-20 11:56:43', '$2y$10$LH0ATlZsnb79y9/X8Xn8m./5yO2ZXYql8AeKHZV/rjD95RplD9CZW', '+1.248.854.5108', 1, 17, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(29, 'morar.jaquan@example.net', '2023-09-20 11:56:43', '$2y$10$8aAq8JjTZBPWuvQO5ijN7egg9FZI4ThdFcsIgg24BQT4jF5m2ri4m', '443-785-6365', 1, 1, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(30, 'tre35@example.com', '2023-09-20 11:56:43', '$2y$10$kDCmcPkXe40aLbRwLU2eHOWrueizQvZ4UJfonu2pnbScbCGIpohLy', '1-941-435-2256', 1, 9, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(31, 'westley.bartoletti@example.net', '2023-09-20 11:56:43', '$2y$10$8k8Zft9Y45moBKxsgwqZt.vvV0Y1HRJpfJInEBY.LO4zKQ6PBTA.q', '1-574-227-1740', 1, 13, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(32, 'lelah65@example.org', '2023-09-20 11:56:43', '$2y$10$MmtqtZsNJjmU.cPmx.gwH.lHQMXx20CDqXVfMQfewEzn3rX9Jl8s6', '+1 (417) 512-7793', 1, 3, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(33, 'qconnelly@example.net', '2023-09-20 11:56:43', '$2y$10$Sx67xtW0hAjDu9J5MIqCbuymuSJtf2Aggvi7miXX4PmykkI1Dwe.K', '(903) 678-5789', 1, 15, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(34, 'jedediah78@example.net', '2023-09-20 11:56:43', '$2y$10$GdEFSXHhujydLviEm4NUb.d5PzJtE/sojQDMgzLjyuJc9e.KdXgfS', '+1-770-883-5126', 1, 18, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(35, 'retta41@example.net', '2023-09-20 11:56:43', '$2y$10$Kfm6sZX1O506mP9YpumbIebEtn6nF7m7ev0VYXKp88NszbAD.WE8y', '562.605.6291', 1, 2, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(36, 'kemmer.giovanny@example.org', '2023-09-20 11:56:43', '$2y$10$zHVEInOiXPwUhy3jRvFdteXRqh1lxH1KXiep3eAl1WWqckYNjG9ry', '(585) 416-0509', 1, 3, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(37, 'russel.peter@example.net', '2023-09-20 11:56:44', '$2y$10$XG21D7qGGO8.uRl9rnKAQ.8QSAceBd0tVSrqEBV0V7nb6Z2zsYUWm', '425.655.7127', 1, 2, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(38, 'emann@example.net', '2023-09-20 11:56:44', '$2y$10$F8FPlq2/4zFbAfAwh4U80ehkoOpFS6/vZhf4EH6I0jZokqJa.YhOG', '+1-262-971-0004', 1, 16, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(39, 'xmorar@example.com', '2023-09-20 11:56:44', '$2y$10$sjibzuSK7OPYRGH7piE2HuRIMEW.qDLfZWn1vifkp6Op723r.4ccC', '1-361-816-2242', 1, 16, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(40, 'arvid18@example.org', '2023-09-20 11:56:44', '$2y$10$n7N7gwWuozKRxivwYxrb9.kA86LsVCl5p1lUGxnyb8sxuXz6QFwWW', '(479) 354-2842', 1, 7, '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(41, 'FerasFadi@gmail.com', NULL, '$2y$10$T1nUeXXNsCJqbkQjeMSWr.ZDhbKaJd.1Ky8BV5k0yoyJCCtKsSJ8G', '0785102996', 1, 16, '2023-09-20 11:57:45', '2023-09-20 11:57:45'),
+(42, 'MajdFadi@gmail.com', NULL, '$2y$10$JebBkeaIKD1zVAD6qjkWmuFqiFC/hLhNTO3lRhYsIbYs4k5ye4PbS', '0785102996', 1, 19, '2023-09-20 11:59:33', '2023-09-20 15:40:09'),
+(43, 'BelalBarahmhe@gmail.com', NULL, '$2y$10$7diIWwyDBGMFSW2oTAfAQORr9a7D8Ap6r/p.XNOfl5eIo4tLu5CCm', '0785102996', 0, 19, '2023-09-20 19:18:53', '2023-09-20 19:19:34');
 
 -- --------------------------------------------------------
 
@@ -166,46 +266,43 @@ CREATE TABLE `doctor_translations` (
 --
 
 INSERT INTO `doctor_translations` (`id`, `locale`, `doctor_id`, `name`, `appointments`) VALUES
-(1, 'en', 1, 'Francesco Johns', 'Monday'),
-(2, 'en', 2, 'Vanessa Crona', 'Monday'),
-(3, 'en', 3, 'Mrs. Linda Volkman', 'Thursday'),
-(4, 'en', 4, 'Jadon Stamm', 'Monday'),
-(5, 'en', 5, 'Dr. Brook White DDS', 'Friday'),
-(6, 'en', 6, 'Antonina Upton', 'Monday'),
-(7, 'en', 7, 'Broderick Glover', 'Sunday'),
-(8, 'en', 8, 'Angelica Fay', 'Sunday'),
-(9, 'en', 9, 'Prof. Kory Kovacek Jr.', 'Wednesday'),
-(10, 'en', 10, 'Philip Macejkovic', 'Tuesday'),
-(11, 'en', 11, 'Erick Auer II', 'Wednesday'),
-(12, 'en', 12, 'Emery Koss III', 'Friday'),
-(13, 'en', 13, 'Miss Meggie McCullough I', 'Tuesday'),
-(14, 'en', 14, 'Johnathan Daniel', 'Friday'),
-(15, 'en', 15, 'Eloisa Schimmel DVM', 'Thursday'),
-(16, 'en', 16, 'Chaya Wilkinson', 'Tuesday'),
-(17, 'en', 17, 'Ima Botsford', 'Monday'),
-(18, 'en', 18, 'Renee Beier', 'Friday'),
-(19, 'en', 19, 'Prof. Eliseo Moore V', 'Wednesday'),
-(20, 'en', 20, 'Prof. Loyal Prosacco V', 'Tuesday'),
-(21, 'en', 21, 'Ottilie Gorczany Jr.', 'Saturday'),
-(22, 'en', 22, 'Prof. Kristofer Kautzer', 'Monday'),
-(23, 'en', 23, 'Gerson Bernhard MD', 'Monday'),
-(24, 'en', 24, 'Chase Reichel', 'Sunday'),
-(25, 'en', 25, 'Noble Stroman', 'Friday'),
-(26, 'en', 26, 'Ed Stiedemann', 'Monday'),
-(27, 'en', 27, 'Cathy Kuhn', 'Wednesday'),
-(28, 'en', 28, 'Dr. Odessa McKenzie Sr.', 'Thursday'),
-(29, 'en', 29, 'Prof. Kellen Haag', 'Thursday'),
-(30, 'en', 30, 'Willa Roberts', 'Wednesday'),
-(31, 'en', 31, 'Ayla Klocko', 'Saturday'),
-(32, 'en', 32, 'Mrs. Lola Rath', 'Saturday'),
-(33, 'en', 33, 'Herbert Nienow', 'Monday'),
-(34, 'en', 34, 'Kassandra Quigley', 'Thursday'),
-(35, 'en', 35, 'Noe Willms MD', 'Monday'),
-(36, 'en', 36, 'Prof. Verner Towne', 'Sunday'),
-(37, 'en', 37, 'Stone Beier', 'Saturday'),
-(38, 'en', 38, 'Myrtie Conroy', 'Wednesday'),
-(39, 'en', 39, 'Dr. Aletha Pagac DDS', 'Monday'),
-(40, 'en', 40, 'Malinda Ward V', 'Tuesday');
+(7, 'en', 7, 'Cornelius Morar', 'Tuesday'),
+(8, 'en', 8, 'Ambrose Schmidt DDS', 'Tuesday'),
+(9, 'en', 9, 'Abbey Carter', 'Monday'),
+(10, 'en', 10, 'Miss Jada Nicolas DVM', 'Thursday'),
+(11, 'en', 11, 'Ubaldo Bernhard', 'Thursday'),
+(12, 'en', 12, 'Buster Brakus', 'Wednesday'),
+(13, 'en', 13, 'Lambert Nader V', 'Friday'),
+(14, 'en', 14, 'Mr. Maxwell McGlynn V', 'Friday'),
+(15, 'en', 15, 'Dustin Daniel', 'Tuesday'),
+(16, 'en', 16, 'Murphy Wyman', 'Sunday'),
+(17, 'en', 17, 'Dr. Moriah Graham', 'Wednesday'),
+(18, 'en', 18, 'Wendell Smitham', 'Tuesday'),
+(19, 'en', 19, 'Dalton Schultz III', 'Friday'),
+(20, 'en', 20, 'Dr. Gaylord Kunze Jr.', 'Monday'),
+(21, 'en', 21, 'Ceasar Breitenberg Sr.', 'Wednesday'),
+(22, 'en', 22, 'Ms. Maudie Spinka', 'Saturday'),
+(23, 'en', 23, 'Jerome Jacobi', 'Wednesday'),
+(24, 'en', 24, 'Jada Schimmel', 'Friday'),
+(25, 'en', 25, 'Kacie Pagac', 'Saturday'),
+(26, 'en', 26, 'Winfield Mohr', 'Thursday'),
+(27, 'en', 27, 'Roma O\'Connell', 'Tuesday'),
+(28, 'en', 28, 'Mr. Wilfredo Fisher IV', 'Friday'),
+(29, 'en', 29, 'Mrs. Lessie Pagac', 'Monday'),
+(30, 'en', 30, 'Bethel Murazik', 'Wednesday'),
+(31, 'en', 31, 'Gordon Kohler', 'Thursday'),
+(32, 'en', 32, 'Mafalda King', 'Monday'),
+(33, 'en', 33, 'Mrs. Adella Sauer IV', 'Friday'),
+(34, 'en', 34, 'Grayson Schinner', 'Saturday'),
+(35, 'en', 35, 'Jamal Pfannerstill V', 'Saturday'),
+(36, 'en', 36, 'Velda Stanton', 'Thursday'),
+(37, 'en', 37, 'Royce Cormier', 'Monday'),
+(38, 'en', 38, 'Prof. Hobart Lowe PhD', 'Wednesday'),
+(39, 'en', 39, 'Zoey Runolfsdottir Sr.', 'Friday'),
+(40, 'en', 40, 'Ara Smitham', 'Saturday'),
+(41, 'en', 41, 'FerasFadi', 'Monday,Wednesday'),
+(42, 'en', 42, 'MajdFadiMustafa', 'Monday,Thursday'),
+(43, 'en', 43, 'Belal Barahmhe', 'Monday,Thursday');
 
 -- --------------------------------------------------------
 
@@ -243,46 +340,46 @@ CREATE TABLE `images` (
 --
 
 INSERT INTO `images` (`id`, `url`, `imageable_id`, `imageable_type`, `created_at`, `updated_at`) VALUES
-(1, '1.png', 30, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(2, '3.png', 7, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(3, '1.png', 28, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(4, '2.png', 12, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(5, '2.png', 17, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(6, '1.png', 23, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(7, '4.png', 38, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(8, '1.png', 36, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(9, '4.png', 26, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(10, '2.png', 19, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(11, '2.png', 19, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(12, '4.png', 31, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(13, '4.png', 31, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(14, '4.png', 13, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(15, '4.png', 6, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(16, '3.png', 5, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(17, '2.png', 1, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(18, '4.png', 34, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(19, '4.png', 39, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(20, '2.png', 25, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(21, '3.png', 25, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(22, '2.png', 37, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(23, '1.png', 10, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(24, '4.png', 24, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(25, '4.png', 13, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(26, '4.png', 31, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(27, '1.png', 38, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(28, '4.png', 10, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(29, '3.png', 30, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(30, '1.png', 27, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(31, '4.png', 40, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(32, '3.png', 4, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(33, '4.png', 28, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(34, '1.png', 33, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(35, '4.png', 34, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(36, '4.png', 15, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(37, '4.png', 31, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(38, '3.png', 37, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(39, '1.png', 37, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52'),
-(40, '1.png', 35, 'App\\Models\\Doctor', '2023-09-16 12:38:52', '2023-09-16 12:38:52');
+(1, '3.png', 35, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(2, '4.png', 39, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(3, '3.png', 28, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(4, '4.png', 9, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(5, '1.png', 28, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(6, '3.png', 10, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(7, '1.png', 8, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(8, '3.png', 16, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(9, '3.png', 16, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(10, '3.png', 17, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(11, '4.png', 36, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(12, '4.png', 23, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(13, '2.png', 36, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(14, '1.png', 39, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(15, '3.png', 32, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(16, '2.png', 29, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(17, '3.png', 36, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(18, '4.png', 38, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(19, '2.png', 15, 'App\\Models\\Doctor', '2023-09-20 11:56:44', '2023-09-20 11:56:44'),
+(21, '1.png', 18, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(22, '4.png', 38, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(23, '4.png', 34, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(25, '2.png', 32, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(26, '3.png', 25, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(27, '1.png', 33, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(28, '4.png', 15, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(29, '2.png', 12, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(30, '3.png', 31, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(31, '2.png', 28, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(32, '1.png', 28, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(33, '4.png', 10, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(34, '3.png', 38, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(35, '1.png', 2, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(36, '1.png', 31, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(37, '2.png', 35, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(38, '2.png', 3, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(39, '3.png', 33, 'App\\Models\\Doctor', '2023-09-20 11:56:45', '2023-09-20 11:56:45'),
+(47, 'doctors/ferasfadi.png', 41, 'App\\Models\\Doctor', '2023-09-20 12:00:31', '2023-09-20 12:00:31'),
+(48, 'doctors/majdfadi.png', 42, 'App\\Models\\Doctor', '2023-09-20 12:00:48', '2023-09-20 12:00:48'),
+(49, 'doctors/testbug.png', 43, 'App\\Models\\Doctor', '2023-09-20 19:18:53', '2023-09-20 19:18:53');
 
 -- --------------------------------------------------------
 
@@ -310,7 +407,9 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2023_09_12_212453_create_department_translations_table', 1),
 (8, '2023_09_16_093326_create_doctors_table', 1),
 (9, '2023_09_16_093551_create_doctor_translations_table', 1),
-(10, '2023_09_16_140526_create_images_table', 1);
+(10, '2023_09_16_140526_create_images_table', 1),
+(11, '2023_09_18_155335_create_appointments_table', 1),
+(12, '2023_09_18_155440_create_appointment_translations_table', 1);
 
 -- --------------------------------------------------------
 
@@ -365,7 +464,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'user', 'user@gmail.com', NULL, '$2y$10$1oVfgwFm3Ij3zwXsBlJcWeCzcOwombwPyhHVwj9Ouw0Kdb2yUFiG2', NULL, NULL, NULL);
+(1, 'user', 'user@gmail.com', NULL, '$2y$10$4BvM.ZGqOVPzWdimZBeh8uzvqyW2m5Xj8Y7PqjLh06fey1rcqpvBq', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -377,6 +476,20 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 ALTER TABLE `admins`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `admins_email_unique` (`email`);
+
+--
+-- Indexes for table `appointments`
+--
+ALTER TABLE `appointments`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `appointment_translations`
+--
+ALTER TABLE `appointment_translations`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `appointment_translations_appointment_id_locale_unique` (`appointment_id`,`locale`),
+  ADD KEY `appointment_translations_locale_index` (`locale`);
 
 --
 -- Indexes for table `departments`
@@ -397,7 +510,8 @@ ALTER TABLE `department_translations`
 --
 ALTER TABLE `doctors`
   ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `doctors_email_unique` (`email`);
+  ADD UNIQUE KEY `doctors_email_unique` (`email`),
+  ADD KEY `doctors_department_id_foreign` (`department_id`);
 
 --
 -- Indexes for table `doctor_translations`
@@ -458,28 +572,40 @@ ALTER TABLE `admins`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `appointments`
+--
+ALTER TABLE `appointments`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
+-- AUTO_INCREMENT for table `appointment_translations`
+--
+ALTER TABLE `appointment_translations`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `department_translations`
 --
 ALTER TABLE `department_translations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `doctors`
 --
 ALTER TABLE `doctors`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `doctor_translations`
 --
 ALTER TABLE `doctor_translations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -491,13 +617,13 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `images`
 --
 ALTER TABLE `images`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=50;
 
 --
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -516,10 +642,22 @@ ALTER TABLE `users`
 --
 
 --
+-- Constraints for table `appointment_translations`
+--
+ALTER TABLE `appointment_translations`
+  ADD CONSTRAINT `appointment_translations_appointment_id_foreign` FOREIGN KEY (`appointment_id`) REFERENCES `appointments` (`id`) ON DELETE CASCADE;
+
+--
 -- Constraints for table `department_translations`
 --
 ALTER TABLE `department_translations`
   ADD CONSTRAINT `department_translations_department_id_foreign` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `doctors`
+--
+ALTER TABLE `doctors`
+  ADD CONSTRAINT `doctors_department_id_foreign` FOREIGN KEY (`department_id`) REFERENCES `departments` (`id`);
 
 --
 -- Constraints for table `doctor_translations`
