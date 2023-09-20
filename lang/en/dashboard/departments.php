@@ -40,6 +40,12 @@ return [
     'success_delete'            => '%s department deleted successfully',
 
     /**
+     * Department Page
+     */
+    'doctors_in_department' => 'Doctors in <span class="text-white">%s</span>',
+    'medical_history'       => 'Medical history',
+
+    /**
      * Errors
      */
     'exist'         => '%s department already exist',

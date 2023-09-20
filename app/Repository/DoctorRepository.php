@@ -92,6 +92,20 @@ class DoctorRepository implements IDoctors
 
         return Redirect::route('admin.doctors.create');
     }
+
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        $doctor = Doctor::find($id);
+        return view($this->director. 'doctor', [
+            'doctor' => $doctor,
+        ]);
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      */

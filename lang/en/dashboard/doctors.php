@@ -55,6 +55,12 @@ return [
     'reset_pass_success' => "Success Reset password",
 
     /**
+     * profile
+     */
+
+
+
+    /**
      * Errors
      */
     'exist'         => '%s doctor already exist',

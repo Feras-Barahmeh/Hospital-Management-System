@@ -42,13 +42,15 @@
 
             <div class="row">
                 <div class="col-12">
-                    <h3 class="sub-title text-info">Doctors in This Departmetn</h3>
+                    <h6 class="sub-title text-dark">
+                        {!! Manipulate::format(__('dashboard/departments.doctors_in_department'), $department->name) !!}
+                    </h6>
                 </div>
             </div>
             <div class="row">
 
                 @foreach($department->doctors as $doctor)
-                    <div class="col-12 col-sm-6 col-lg-6 col-xl-3">
+                    <div class="col-12 col-sm-6 col-lg-6 col-xl-4">
                         <div class="card card-purple">
                             <div class="card-header">
                                 <h5 class="card-title mb-0 pb-0">{{ $doctor->name }}</h5>
@@ -59,8 +61,14 @@
                                 </div>
 
                             </div>
-                            <div class="card-footer">
-                                <a href="">Describe Doctor</a>
+                            <div class="card-footer d-flex justify-content-between">
+                                <a href="{{ route('admin.doctors.show', $doctor->id) }}" class="text-white">
+                                    {{ __('dashboard/departments.medical_history') }}
+                                </a>
+                                <a href="{{ route('admin.doctors.edit', $doctor->id) }}" class="badge badge-info p-1 ">
+                                    {{ __('common.edit_info') }}
+                                </a>
+
                             </div>
                         </div>
                     </div>

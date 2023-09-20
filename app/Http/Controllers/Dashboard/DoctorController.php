@@ -52,7 +52,7 @@ class DoctorController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return $this->doctorRepository->show($id);
     }
 
     /**

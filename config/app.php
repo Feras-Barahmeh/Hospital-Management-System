@@ -183,7 +183,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-         'Blade' => App\Helpers\Blade::class,
+         'Blade'        => App\Helpers\Blade::class,
+         'Manipulate'   => App\Helpers\Manipulate::class,
     ])->toArray(),
 
 ];
