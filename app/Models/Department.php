@@ -6,6 +6,7 @@ use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Department extends Model implements TranslatableContract
@@ -27,8 +28,8 @@ class Department extends Model implements TranslatableContract
      *
      * @return HasOne
      */
-    public function doctors(): HasOne
+    public function doctors(): HasMany
     {
-        return $this->hasOne(Doctor::class);
+        return $this->hasMany(Doctor::class);
     }
 }

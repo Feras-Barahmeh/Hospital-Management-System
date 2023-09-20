@@ -9,6 +9,7 @@ interface IDepartments
     public function all();
 
     public function store(Request $request);
+    public function show(string $id);
 
     public function update(Request $request);
 

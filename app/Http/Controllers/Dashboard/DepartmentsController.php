@@ -24,11 +24,7 @@ class DepartmentsController extends Controller
      */
     public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $departments = $this->departmentRepository->all();
-
-        return view('dashboard.admin.departments.index', [
-            'departments' => $departments,
-        ]);
+        return $this->departmentRepository->all();
     }
 
     /**
@@ -54,7 +50,7 @@ class DepartmentsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        return $this->departmentRepository->show($id);
     }
 
     /**

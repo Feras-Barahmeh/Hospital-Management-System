@@ -6,8 +6,12 @@ use App\Helpers\Manipulate;
 use App\Helpers\Session;
 use App\Interfaces\Repository\IDepartments;
 use App\Models\Department;
+use App\Models\Doctor;
 use App\Traits\Messages;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
@@ -19,11 +23,15 @@ class DepartmentRepository implements IDepartments
 {
     use Messages;
 
+    private string $director = 'dashboard.admin.departments.';
 
 
-    public function all(): Collection
+    public function all(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
-        return Department::orderBy('id', 'desc')->get();
+        $departments = Department::orderBy('id', 'desc')->get();
+        return view($this->director.'index', [
+            'departments' => $departments,
+        ]);
     }
 
     /**
@@ -78,6 +86,13 @@ class DepartmentRepository implements IDepartments
         return Redirect::route('admin.departments.index');
     }
 
+    public function show(string $id)
+    {
+        $department = Department::find($id) ;
+        return view($this->director.'department', [
+            'department' => $department,
+        ]);
+    }
 
     public function destroy($id): RedirectResponse
     {

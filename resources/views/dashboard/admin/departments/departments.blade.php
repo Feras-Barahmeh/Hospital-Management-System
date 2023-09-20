@@ -1,6 +1,10 @@
 <tr>
     <td>{{ $department->id }}</td>
-    <td>{{ $department->name }}</td>
+    <td>
+        <a href="{{ route('admin.departments.show', $department->id) }}" class="text-white">
+            {{ $department->name }}
+        </a>
+    </td>
     <td>{{ Str::limit($department->description, 25) }}</td>
     <td>{{ $department->created_at }}</td>
     <td class="text-center">
