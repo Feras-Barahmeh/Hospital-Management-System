@@ -36,10 +36,9 @@
             <div class="dropdown-menu tx-13">
 
                 {{-- edit --}}
-                <a href="#edit{{$doctor->id}}" class="dropdown-item modal-effect btn btn-sm btn-info"
-                   data-effect="effect-scale" data-toggle="modal" >
+                <a href="{{ route('admin.doctors.edit', $doctor->id) }}"
+                   class="dropdown-item modal-effect btn btn-sm btn-info ">
                     <i style="color: #0ba360" class="text-success ti-user"></i>&nbsp;
-                    &nbsp;
                     {{ __('common.edit_info') }}
                 </a>
 
@@ -68,5 +67,5 @@
 
     </td>
 </tr>
-@include('dashboard.admin.doctors.edit')
-@include('dashboard.admin.doctors.delete')
+{{--@include('dashboard.admin.doctors.edit')--}}
+{{--@include('dashboard.admin.doctors.delete')--}}

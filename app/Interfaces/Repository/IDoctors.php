@@ -9,7 +9,8 @@ interface IDoctors
     public function index();
     public function create();
     public function store(Request $request);
-    public function update(Request $request);
+    public function edit(string $id);
+    public function update(Request $request, string $id);
     public function destroy($id);
     public function purge(Request $request);
 }

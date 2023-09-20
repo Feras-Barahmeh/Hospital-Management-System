@@ -20,23 +20,23 @@ class AppointmentSeeder extends Seeder
 
         $days = [
             'en' => [
-                ['name'    => 'Sunday'],
-                ['name'    => 'Monday'],
-                ['name'   => 'Tuesday'],
-                ['name'   => 'Wednesday'],
-                ['name'   => 'Thursday'],
-                ['name'    => 'Friday'],
-                ['name'  => 'Saturday'],
+                ['name' => 'Sunday'],
+                ['name' => 'Monday'],
+                ['name' => 'Tuesday'],
+                ['name' => 'Wednesday'],
+                ['name' => 'Thursday'],
+                ['name' => 'Friday'],
+                ['name' => 'Saturday'],
             ],
 
             'ar' => [
-                ['name'    => 'الأحد'],
-                ['name'    => 'الاثنين'],
-                ['name'   => 'الثلاثاء'],
+                ['name' => 'الأحد'],
+                ['name' => 'الاثنين'],
+                ['name' => 'الثلاثاء'],
                 ['name' => 'الأربعاء'],
-                ['name'  => 'الخميس'],
-                ['name'    => 'الجمعة'],
-                ['name'  => 'السبت'],
+                ['name' => 'الخميس'],
+                ['name' => 'الجمعة'],
+                ['name' => 'السبت'],
             ],
         ];
 

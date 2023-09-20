@@ -37,8 +37,10 @@ return [
     /**
      * Edit Doctor
      */
-    'edit_doctor'          => 'تحرير الطبيب ',
-    'success_update'       => 'تم تحديث %s الطبيب بنجاح',
+    'edit_doctor'       => 'تحرير الطبيب ',
+    'title_head_edit'   => 'المشرف | الأطباء | تعديل',
+    'success_update'    => 'تم تحديث %s الطبيب بنجاح',
+    'the_chosen'        => 'الايام المختارة',
 
     /**
      * Delete Doctor

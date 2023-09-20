@@ -36,7 +36,9 @@ return [
      * Edit Doctor
      */
     'edit_doctor'       => 'Edit Doctor ',
-    'success_update'        => '%s doctor updated successfully',
+    'title_head_edit'   => 'Admin | Doctors | Edit',
+    'success_update'    => '%s doctor updated successfully',
+    'the_chosen'        => 'The chosen',
 
     /**
      * Delete Doctor

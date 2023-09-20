@@ -60,7 +60,7 @@ class DoctorController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return $this->doctorRepository->edit($id);
     }
 
     /**
@@ -68,7 +68,7 @@ class DoctorController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        return $this->doctorRepository->update($request, $id);
     }
 
     /**
