@@ -3,8 +3,6 @@
 namespace App\Repository;
 
 use App\Helpers\Enums\Disks;
-use App\Helpers\Manipulate;
-use App\Helpers\Session;
 use App\Interfaces\Repository\IDoctors;
 use App\Models\Appointment;
 use App\Models\Department;
@@ -16,11 +14,9 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Testing\Fluent\Concerns\Has;
 use Illuminate\Validation\ValidationException;
 
 
@@ -90,14 +86,14 @@ class DoctorRepository implements IDoctors
 
         self::popupSuccess('doctors', 'success_add', $doctor->name);
 
-        return Redirect::route('admin.doctors.create');
+        return Redirect::route('admin.doctors.index');
     }
 
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         $doctor = Doctor::find($id);
         return view($this->director. 'doctor', [

@@ -45,4 +45,6 @@
     <link href="{{asset('dashboard/plugins/jqvmap/jqvmap.min.css')}}" rel="stylesheet">
     @stack('css_en')
 @endif
-@stack('css')
+{{-- fontaswwom --}}
+<link href="{{ asset('dashboard/fontawesome-free/css/all.css')}}" rel="stylesheet">
+]@stack('css')

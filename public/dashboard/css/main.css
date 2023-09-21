@@ -175,3 +175,10 @@ table .dot-label {
 .sub-title {
     margin-bottom: 30px;
 }
+/**
+ * modal label
+ */
+.modal-label {
+    width: 100%;
+    text-align: left;
+}

@@ -13,12 +13,18 @@ return [
     |
     */
 
-    'main'          =>'Main',
-    'index'         =>'Home',
-    'sections'      =>'Sections',
-    'general'       =>'General',
-    'departments'   =>'Departments',
-    'doctors'       =>'Doctors',
-    'show_all'      =>'Show all',
+    'main'                  =>'Main',
+    'index'                 =>'Home',
+    'sections'              =>'Sections',
+    'general'               =>'General',
+    'departments'           =>'Departments',
+    'doctors'               =>'Doctors',
+    'show_all'              =>'Show all',
+    'assistants'            =>'Assistants',
+    'assistance'            =>'Assistance',
+    'packages'              =>'Packages',
+    'insurance_companies'   =>'Insurance companies',
+    'first_aid'             =>'First aid',
+    'ambulance_calls'       =>'Ambulance calls',
 
 ];

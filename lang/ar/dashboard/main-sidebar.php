@@ -13,12 +13,17 @@ return [
     |
     */
 
-    'main'          =>'الرئيسة',
-    'index'         =>'الرئيسية',
-    'sections'      =>'الاقسام',
-    'general'       =>'عامة',
-    'departments'   =>'الاقسام',
-    'doctors'       =>'الدكاترة',
-    'show_all'      =>'عرض الكل',
-
+    'main'                  =>'الرئيسة',
+    'index'                 =>'الرئيسية',
+    'sections'              =>'الاقسام',
+    'general'               =>'عامة',
+    'departments'           =>'الاقسام',
+    'doctors'               =>'الدكاترة',
+    'show_all'              =>'عرض الكل',
+    'assistants'            => 'الخدمات',
+    'assistance'            => 'مساعدة',
+    'packages'              => 'حزم',
+    'insurance_companies'   => 'شركات التأمين',
+    'first_aid'             => 'إسعافات أولية',
+    'ambulance_calls'       => 'مكالمات الإسعاف',
 ];

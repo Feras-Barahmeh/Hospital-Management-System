@@ -26,6 +26,7 @@ return [
     'for'                   => 'ل',
     'not_enabled'           => 'غير مفعّل',
     'appointments'          => 'المواعيد',
+    'toggle'                => 'تبديل',
 
     /**
      * General

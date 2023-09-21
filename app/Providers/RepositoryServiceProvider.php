@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Interfaces\Repository\IAssistants;
 use App\Interfaces\Repository\IDepartments;
 use App\Interfaces\Repository\IDoctors;
+use App\Repository\AssistantRepository;
 use App\Repository\DepartmentRepository;
 use App\Repository\DoctorRepository;
 use Illuminate\Support\ServiceProvider;
@@ -17,6 +19,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(IDepartments::class, DepartmentRepository::class);
         $this->app->bind(IDoctors::class, DoctorRepository::class);
+        $this->app->bind(IAssistants::class, AssistantRepository::class);
     }
 
     /**

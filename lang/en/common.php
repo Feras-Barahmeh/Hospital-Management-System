@@ -38,6 +38,7 @@ return [
     'upload'            => 'Upload',
     'chose'             => 'Chose',
     'img'               => 'Image',
+    'toggle'            => 'Toggle',
 
     /**
      * Operations
