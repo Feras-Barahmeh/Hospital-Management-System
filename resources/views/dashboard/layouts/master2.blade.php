@@ -10,7 +10,7 @@
 		@include('dashboard.layouts.head')
 	</head>
 
-	<body class="main-body dark-theme">
+	<body class="main-body "> {{-- dark-theme --}}
 		<!-- Loader -->
 		<div id="global-loader">
 			<img src="{{asset('dashboard/img/loader.svg')}}" class="loader-img" alt="Loader">

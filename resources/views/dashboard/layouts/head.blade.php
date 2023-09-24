@@ -47,4 +47,4 @@
 @endif
 {{-- fontaswwom --}}
 <link href="{{ asset('dashboard/fontawesome-free/css/all.css')}}" rel="stylesheet">
-]@stack('css')
+@stack('css')
