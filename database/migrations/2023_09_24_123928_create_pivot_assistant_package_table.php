@@ -11,7 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pivot_assistant_package', function (Blueprint $table) {
+          // pivot_
+        Schema::create('assistant_package', function (Blueprint $table) {
             $table->id();
 
             $table->foreignId('package_id')
