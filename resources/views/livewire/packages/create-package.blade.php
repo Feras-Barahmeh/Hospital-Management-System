@@ -22,8 +22,6 @@
             @endif
 
             {{-- errors --}}
-
-
             <div class="row">
                   <div class="input-group mb-1">
                         <span class="input-group-text" id="addon-wrapping">
@@ -47,12 +45,11 @@
                                aria-label="description"
                                aria-describedby="addon-wrapping">
                   </div>
-
-
             </div>
 
+
             <div class="row clearfix">
-                  <div class="col-9 col-md-9 pl-0 pr-0">
+                <div class="col-9 col-md-9 pl-0 pr-0">
                         <table class="table table-bordered table-hover" id="tab_logic">
                               <thead>
                               <tr>
@@ -79,6 +76,7 @@
                   </div>
 
                   <div class="col-3 col-md-3">
+
                         <table class="table table-bordered table-hover" id="tab_logic_total">
                               <tbody>
                               <tr>
