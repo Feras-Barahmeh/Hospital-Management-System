@@ -84,6 +84,8 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewP
             });
 
 
+
+
         });
 
         require __DIR__ . '/auth.php';

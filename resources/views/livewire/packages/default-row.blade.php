@@ -11,9 +11,11 @@
                               {{ __('dashboard/packages.chosen_services') }}
                         </option>
                         @foreach($assistants as $assistant)
-                              <option value="{{ $assistant->id }}">
-                                    {{ $assistant->name }}
-                              </option>
+                                @if($assistant->name)
+                                          <option value="{{ $assistant->id }}">
+                                                  {{ $assistant->name }}
+                                          </option>
+                                @endif
                         @endforeach
                   </select>
             </label>
