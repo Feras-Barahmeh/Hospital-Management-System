@@ -17,12 +17,17 @@ return [
         'name_package' => 'Name Package',
         'note_package' => 'Note Package',
         'price' => 'Price',
+        'note' => 'Note',
+        'status' => 'status',
         'qty' => 'Qty',
         'service' => 'Service',
         'total' => 'Total',
+        'total_with_out_discount' => 'Total without discount',
+        'total_with_discount' => 'Total with discount',
         'discount_amount' => 'Discount Amount',
         'tax' => 'Tax',
         'out_of_the_door' => 'Out Of The Door',
+        'to_packages' => 'To Packages',
         'chosen_services' => 'Choose Service',
 
 

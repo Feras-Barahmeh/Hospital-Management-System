@@ -35,6 +35,7 @@ return [
     'password'          => 'Password',
     'password_confirm'  => 'Confirm Password',
     'join_at'           => 'Join at',
+    'created_at'           => 'Created at',
     'upload'            => 'Upload',
     'chose'             => 'Chose',
     'img'               => 'Image',
@@ -56,4 +57,5 @@ return [
      */
     'success'   => 'Success',
     'fail'      => 'Fail',
+    'without_noting'      => 'No notes',
 ];

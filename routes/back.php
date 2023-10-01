@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\AssistantsController;
 use App\Http\Controllers\Dashboard\DepartmentsController;
 use App\Http\Controllers\Dashboard\DoctorController;
+use App\Http\Controllers\Dashboard\PackagesController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -92,10 +93,14 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewP
                         });
 
 
+                        /**
+                         * Packages
+                         */
+                        Route::resource('packages', PackagesController::class);
 
-                        Route::get('packages', function () {
-                                return view('livewire.packages.packages');
-                        })->name('packages');
+//                        Route::get('packages', function () {
+//                                return view('livewire.packages.packages');
+//                        })->name('packages');
 
 
                 });

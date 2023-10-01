@@ -18,6 +18,7 @@ return new class extends Migration
             $table->decimal('discount_amount');
             $table->float('tax', 4);
             $table->decimal('out_the_door_price')->comment('amount with price');
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
 

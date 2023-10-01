@@ -314,7 +314,7 @@ class CreatePackage extends Component
                         }
                         self::popupSuccess('packages', 'success_add', $this->namePackage);
                         $this->unloadPackage();
-                        return Redirect::route('admin.packages');
+                        return Redirect::route('admin.packages.index');
                 }
 
         }
