@@ -1,4 +1,4 @@
-<div class="card ">
+<div class="card w-100" >
         <div class="card-header">
                 <a href="{{ route('admin.packages.index') }}" class="btn btn-outline-primary ">
                         {{ __('dashboard/packages.to_packages') }}
@@ -26,7 +26,7 @@
 
         <div class="card-body">
 
-                <form wire:submit.prevent="saveAndUnloadPackage()">
+                <form wire:submit.prevent="saveAndUnloadPackage()" class="w-100">
 
 
                         <div class="row">
@@ -38,7 +38,7 @@
                                         <input type="text" class="form-control"
                                                wire:Keyup="setNamePackage($event.target.value)"
                                                wire:model="namePackage "
-                                               placeholder="Enter name package" aria-label="package_name"
+                                               placeholder="{{ __('dashboard/packages.enter_name_package') }}" aria-label="package_name"
                                                autofocus
                                                aria-describedby="addon-wrapping">
                                         <span class="input-group-text"

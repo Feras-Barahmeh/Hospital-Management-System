@@ -7,7 +7,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto"> {{ trans('dashboard/assistants.title') }}</h4>
+                <h4 class="content-title mb-0 my-auto"> {{ trans('dashboard/assistants.title_head') }}</h4>
             </div>
         </div>
         <div class="d-flex my-xl-auto right-content gap-10">
@@ -76,7 +76,8 @@
                                     <th class="wd-15p border-bottom-0"> {{ __('dashboard/assistants.price_assistant') }}</th>
                                     <th class="wd-15p border-bottom-0"> {{ __('dashboard/assistants.note') }}</th>
                                     <th class="wd-15p border-bottom-0"> {{ __('dashboard/assistants.status') }}</th>
-                                    <th class="wd-20p border-bottom-0"> {{ __('dashboard/assistants.created_at') }}</th>
+                                    <th class="wd-20p border-bottom-0"> {{ __('common.created_since') }}</th>
+                                    <th class="wd-20p border-bottom-0"> {{ __('common.updated_since') }}</th>
                                     <th class="wd-20p border-bottom-0"> {{ __('common.operations') }}</th>
                                 </tr>
                             </thead>

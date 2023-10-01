@@ -31,6 +31,7 @@ return [
         'chosen_services' => 'Choose Service',
         'no_assistant' => 'At least has one assistant',
         'num_assistants' => 'number services',
+        'title_head' => 'Admin | Packages',
 
 
         /**
@@ -38,6 +39,7 @@ return [
          */
 
         'title_head_create' => 'Admin | Packages | Create',
+        'enter_name_package' => 'Enter name package',
 
 
         /**

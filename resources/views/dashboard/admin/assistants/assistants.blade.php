@@ -8,18 +8,28 @@
                         @if($assistant->note)
                                 {{ Str::limit($assistant->note, 25) }}
                         @else
-                                <span class="text-info">{{ __('dashboard/assistants.without_noting') }}</span>
+                                <span class="badge badge-info">{{ __('dashboard/assistants.without_noting') }}</span>
                         @endif
                 </td>
 
-                <td class="position-relative">
+                <td class="position-relative d-flex justify-content-center">
                         <div class="dot-label bg-{{$assistant->status ? 'success':'danger'}} ml-1"></div>
                         <div class="">
-                                {{$assistant->status ? trans('dashboard/assistants.enabled') : trans('dashboard/assistants.not_enabled')}}
+                                @if($assistant->status)
+                                        <span class="badge badge-success">
+                                                {{  __('dashboard/assistants.enabled') }}
+                                        </span>
+                                @else
+                                        <span class="badge badge-danger">
+                                                {{  __('dashboard/assistants.not_enabled') }}
+                                        </span>
+                                @endif
+
                         </div>
                 </td>
 
                 <td>{{ $assistant->created_at->diffForHumans() }}</td>
+                <td>{{ $assistant->updated_at->diffForHumans() }}</td>
 
                 {{-- Operations --}}
                 <td class="text-center">

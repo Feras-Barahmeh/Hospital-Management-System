@@ -25,6 +25,7 @@ return [
     'enabled'               => 'Enabled',
     'not_enabled'           => 'Not enabled',
     'hint_toggle_status'    => 'Toggle status to ',
+    'title_head'    => 'Admin | Assistants ',
 
 
     /**

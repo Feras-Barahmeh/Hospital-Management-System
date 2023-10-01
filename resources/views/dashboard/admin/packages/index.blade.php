@@ -7,7 +7,7 @@
         <div class="breadcrumb-header justify-content-between">
                 <div class="my-auto">
                         <div class="d-flex">
-                                <h4 class="content-title mb-0 my-auto"> {{ __('dashboard/packages.title_head_create') }}</h4>
+                                <h4 class="content-title mb-0 my-auto"> {{ __('dashboard/packages.title_head') }}</h4>
                         </div>
                 </div>
                 <div class="d-flex my-xl-auto right-content gap-10">
@@ -64,7 +64,7 @@
                                 </div>
 
                                 <div class="card-body">
-                                        <div class="table-responsive">
+                                        <div class=""> {{-- table-responsive --}}
                                                 <table id="example" class="table key-buttons text-md-nowrap" style="width: 100%;">
                                                         <thead>
                                                         <tr>

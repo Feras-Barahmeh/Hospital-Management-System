@@ -14,7 +14,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto"> {{ trans('dashboard/doctors.title') }}</h4>
+                <h4 class="content-title mb-0 my-auto"> {{ trans('dashboard/doctors.title_head') }}</h4>
             </div>
         </div>
         <div class="d-flex my-xl-auto right-content gap-10">
@@ -75,7 +75,7 @@
                 </div>
 
                 <div class="card-body">
-                    <div class="table-responsive">
+                    <div class="">
                         <table id="example" class="table key-buttons text-md-nowrap" style="width: 100%;">
                             <thead>
                                 <tr>
@@ -93,7 +93,7 @@
                                     <th class="wd-15p border-bottom-0"> {{ __('dashboard/doctors.price') }}</th>
                                     <th class="wd-15p border-bottom-0"> {{ __('dashboard/doctors.status') }}</th>
                                     <th class="wd-15p border-bottom-0"> {{ __('dashboard/doctors.department') }}</th>
-                                    <th class="wd-20p border-bottom-0"> {{ __('common.join_at') }}</th>
+                                    <th class="wd-20p border-bottom-0"> {{ __('common.join_since') }}</th>
                                     <th class="wd-20p border-bottom-0"> {{ __('common.operations') }}</th>
                                 </tr>
                             </thead>
