@@ -16,16 +16,26 @@
                 <td>{{ $package->discount_amount }}</td>
                 <td>{{ $package->tax }}</td>
                 <td>{{ $package->out_the_door_price }}</td>
+                <td>{{ $package->assistants->count() }}</td>
 
 
-                <td class="position-relative">
+                <td class="position-relative d-flex justify-content-center">
                         <div class="dot-label bg-{{$package->status ? 'success':'danger'}} ml-1"></div>
                         <div class="">
-                                {{$package->status ? __('dashboard/assistants.enabled') :__('dashboard/assistants.not_enabled')}}
+                                @if($package->status)
+                                        <span class="badge badge-success">
+                                                {{ __('dashboard/assistants.enabled')  }}
+                                        </span>
+                                @else
+                                        <span class="badge badge-danger">
+                                                {{ __('dashboard/assistants.not_enabled')  }}
+                                        </span>
+                                @endif
                         </div>
                 </td>
 
                 <td>{{ $package->created_at->diffForHumans() }}</td>
+                <td>{{ $package->updated_at->diffForHumans() }}</td>
 
                 {{-- Operations --}}
                 <td class="text-center">
@@ -37,11 +47,10 @@
                                 <div class="dropdown-menu tx-13">
 
                                         {{-- edit --}}
-                                        <a href="#edit{{ $package->id }}"
-                                           data-toggle="modal" data-target="#edit{{ $package->id }}"
+                                        <a href="{{ route('admin.packages.edit',  $package->id) }}"
                                            class="dropdown-item">
                                                 <i style="color: #0ba360" class="text-success ti-user"></i>&nbsp;
-                                                {{ __('common.edit_info') }}
+                                                {{ __('common.edit') }}
                                         </a>
 
                                         {{-- change status --}}
@@ -56,7 +65,7 @@
                                            href="#delete{{$package->id}}" data-toggle="modal" data-target="#delete{{$package->id}}">
                                                 <i class="text-danger ti-trash"></i>
                                                 &nbsp;&nbsp;
-                                                {{ __('common.delete_info') }}
+                                                {{ __('common.delete') }}
                                         </a>
                                 </div>
                         </div>
@@ -64,3 +73,6 @@
                 </td>
         </tr>
 @endif
+
+@include('dashboard.admin.packages.delete')
+@include('dashboard.admin.packages.toggle-status')

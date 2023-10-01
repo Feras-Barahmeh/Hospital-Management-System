@@ -14,6 +14,7 @@ return [
     */
 
     'main'                  =>'Main',
+    'dashboard'         =>'Dashboard',
     'index'                 =>'Home',
     'sections'              =>'Sections',
     'general'               =>'General',

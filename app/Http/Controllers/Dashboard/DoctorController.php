@@ -50,7 +50,7 @@ class DoctorController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $id): View|Factory|Application|\Illuminate\Contracts\Foundation\Application
     {
         return $this->doctorRepository->show($id);
     }

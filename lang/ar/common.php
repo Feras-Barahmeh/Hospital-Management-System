@@ -37,6 +37,7 @@ return [
         'password_confirm' => 'تأكيد كلمة المرور',
         'join_at' => 'انضم في',
         'created_at'           => 'انشئ في',
+        'updated_at'           => 'عدل في',
         'upload' => 'تحميل',
         'chose' => 'اختر',
         'img' => 'الصورة',

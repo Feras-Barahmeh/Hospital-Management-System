@@ -25,6 +25,7 @@ return new class extends Migration
                 ->on('assistants')
                 ->onDelete('cascade');
 
+            $table->integer('qty')->unsigned();
             $table->timestamps();
         });
     }

@@ -76,8 +76,10 @@
                                                                 <th class="wd-15p border-bottom-0"> {{ __('dashboard/packages.discount_amount') }}</th>
                                                                 <th class="wd-15p border-bottom-0"> {{ __('dashboard/packages.tax') }}</th>
                                                                 <th class="wd-15p border-bottom-0"> {{ __('dashboard/packages.out_of_the_door') }}</th>
+                                                                <th class="wd-15p border-bottom-0"> {{ __('dashboard/packages.num_assistants') }}</th>
                                                                 <th class="wd-15p border-bottom-0"> {{ __('dashboard/packages.status') }}</th>
-                                                                <th class="wd-20p border-bottom-0"> {{ __('common.created_at') }}</th>
+                                                                <th class="wd-20p border-bottom-0"> {{ __('common.created_since') }}</th>
+                                                                <th class="wd-20p border-bottom-0"> {{ __('common.updated_since') }}</th>
                                                                 <th class="wd-20p border-bottom-0"> {{ __('common.operations') }}</th>
                                                         </tr>
                                                         </thead>

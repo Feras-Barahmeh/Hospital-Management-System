@@ -9,20 +9,21 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Package extends Model
 {
-      use HasFactory, Translatable;
+        use HasFactory, Translatable;
 
-      public array $translatedAttributes = ['package_name', 'description'];
+        public array $translatedAttributes = ['package_name', 'description'];
 
-      public $fillable = [
-            'total_before_discount',
-            'total_after_discount',
-            'discount_amount',
-            'tax',
-            'out_the_door_price'
-      ];
+        public $fillable = [
+                'total_before_discount',
+                'total_after_discount',
+                'discount_amount',
+                'tax',
+                'out_the_door_price',
+                'qty',
+        ];
 
-      public function package(): BelongsToMany
-      {
-            return $this->belongsToMany(Assistant::class);
-      }
+        public function assistants(): BelongsToMany
+        {
+                return $this->belongsToMany(Assistant::class)->withPivot('qty');
+        }
 }

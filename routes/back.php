@@ -97,10 +97,10 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewP
                          * Packages
                          */
                         Route::resource('packages', PackagesController::class);
+                        Route::prefix('packages')->name('packages.')->controller(PackagesController::class)->group(function () {
+                                Route::post('toggle-status', 'toggleStatus')->name('toggle-status');
+                        });
 
-//                        Route::get('packages', function () {
-//                                return view('livewire.packages.packages');
-//                        })->name('packages');
 
 
                 });
