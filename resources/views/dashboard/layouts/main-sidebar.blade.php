@@ -90,8 +90,8 @@
                     <li><a class="slide-item" href="{{ route('admin.assistants.index') }}">{{ __('dashboard/main-sidebar.assistance') }}</a></li>
                     <li><a class="slide-item" href="{{ route('admin.packages.index')}}">{{ __('dashboard/main-sidebar.packages') }}</a></li>
                     <li><a class="slide-item" href="{{ route('admin.insurances.index')}}">{{ __('dashboard/main-sidebar.insurance_companies') }}</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . $page='calendar') }}">{{ __('dashboard/main-sidebar.first_aid') }}</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . $page='contacts') }}">{{ __('dashboard/main-sidebar.ambulance_calls') }}</a></li>
+                        <li><a class="slide-item" href="{{ route('admin.ambulances.index') }}">{{ __('dashboard/main-sidebar.ambulance_calls') }}</a></li>
+                        <li><a class="slide-item" href="{{ url('/' . $page='calendar') }}">{{ __('dashboard/main-sidebar.first_aid') }}</a></li>
                 </ul>
             </li>
 

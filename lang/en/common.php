@@ -47,6 +47,7 @@ return [
         'converted_status' => 'Converted status',
         'hint_toggle_status' => 'Toggle status to ',
         'status' => 'Status',
+        'back' => 'Back',
 
         /**
          * Operations

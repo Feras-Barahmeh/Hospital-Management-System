@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Dashboard\AmbulancesController;
 use App\Http\Controllers\Dashboard\AssistantsController;
 use App\Http\Controllers\Dashboard\DepartmentsController;
 use App\Http\Controllers\Dashboard\DoctorController;
@@ -108,6 +109,15 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewP
                         Route::resource('insurances', InsurancesController::class);
                         Route::prefix('insurances')->name('insurances.')->controller(InsurancesController::class)->group(function () {
                                 Route::put('toggle-status/{id}', 'toggleStatus')->name('toggle-status');
+                        });
+
+                        /**
+                         * Ambulance
+                         */
+
+                        Route::resource('ambulances', AmbulancesController::class);
+                        Route::prefix('ambulances')->name('ambulances.')->controller(AmbulancesController::class)->group(function () {
+                                Route::put('toggle-available/{id}', 'toggleAvailable')->name('toggle-available');
                         });
 
 
