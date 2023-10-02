@@ -3,6 +3,7 @@
 use App\Http\Controllers\Dashboard\AssistantsController;
 use App\Http\Controllers\Dashboard\DepartmentsController;
 use App\Http\Controllers\Dashboard\DoctorController;
+use App\Http\Controllers\Dashboard\InsurancesController;
 use App\Http\Controllers\Dashboard\PackagesController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
@@ -101,6 +102,13 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewP
                                 Route::post('toggle-status', 'toggleStatus')->name('toggle-status');
                         });
 
+                        /**
+                         * Insurance companies
+                         */
+                        Route::resource('insurances', InsurancesController::class);
+                        Route::prefix('insurances')->name('insurances.')->controller(InsurancesController::class)->group(function () {
+                                Route::put('toggle-status/{id}', 'toggleStatus')->name('toggle-status');
+                        });
 
 
                 });

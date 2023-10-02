@@ -5,7 +5,7 @@
     <div class="breadcrumb-header justify-content-between">
         <div class="my-auto">
             <div class="d-flex">
-                <h4 class="content-title mb-0 my-auto"> {{ $department->name }}</h4>
+                <h4 class="content-title mb-0 my-auto text-dark"> {{ $department->name }}</h4>
             </div>
         </div>
         <div class="d-flex my-xl-auto right-content gap-10">

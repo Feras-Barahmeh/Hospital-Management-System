@@ -1,7 +1,7 @@
 <tr>
     <td>{{ $department->id }}</td>
     <td>
-        <a href="{{ route('admin.departments.show', $department->id) }}" class="text-white">
+        <a href="{{ route('admin.departments.show', $department->id) }}" class="text-dark">
             {{ $department->name }}
         </a>
     </td>

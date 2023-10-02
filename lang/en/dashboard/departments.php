@@ -42,7 +42,7 @@ return [
     /**
      * Department Page
      */
-    'doctors_in_department' => 'Doctors in <span class="text-white">%s</span>',
+    'doctors_in_department' => 'Doctors in <span class="text-dark">%s</span>',
     'medical_history'       => 'Medical history',
 
     /**

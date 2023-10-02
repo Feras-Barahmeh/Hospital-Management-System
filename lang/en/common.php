@@ -44,6 +44,9 @@ return [
         'chose' => 'Chose',
         'img' => 'Image',
         'toggle' => 'Toggle',
+        'converted_status' => 'Converted status',
+        'hint_toggle_status' => 'Toggle status to ',
+        'status' => 'Status',
 
         /**
          * Operations
