@@ -6,6 +6,7 @@ use App\Http\Controllers\Dashboard\DepartmentsController;
 use App\Http\Controllers\Dashboard\DoctorController;
 use App\Http\Controllers\Dashboard\InsurancesController;
 use App\Http\Controllers\Dashboard\PackagesController;
+use App\Http\Controllers\Dashboard\PatientsController;
 use Illuminate\Support\Facades\Route;
 use Livewire\Livewire;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -120,6 +121,10 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewP
                                 Route::put('toggle-available/{id}', 'toggleAvailable')->name('toggle-available');
                         });
 
+                        /**
+                         * Patients
+                         */
+                        Route::resource('patients', PatientsController::class);
 
                 });
 

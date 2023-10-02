@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             AdminSeeder::class,
             AppointmentSeeder::class,
             AssistantSeed::class,
+            BloodTypeSeeder::class,
 
             /**
              * Has Factory

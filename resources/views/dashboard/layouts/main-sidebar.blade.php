@@ -91,7 +91,6 @@
                     <li><a class="slide-item" href="{{ route('admin.packages.index')}}">{{ __('dashboard/main-sidebar.packages') }}</a></li>
                     <li><a class="slide-item" href="{{ route('admin.insurances.index')}}">{{ __('dashboard/main-sidebar.insurance_companies') }}</a></li>
                         <li><a class="slide-item" href="{{ route('admin.ambulances.index') }}">{{ __('dashboard/main-sidebar.ambulance_calls') }}</a></li>
-                        <li><a class="slide-item" href="{{ url('/' . $page='calendar') }}">{{ __('dashboard/main-sidebar.first_aid') }}</a></li>
                 </ul>
             </li>
 
@@ -103,10 +102,10 @@
                         <path
                             d="M19.37 12.8l-7.38 5.74-7.37-5.73L3 14.07l9 7 9-7zM12 2L3 9l1.63 1.27L12 16l7.36-5.73L21 9l-9-7zm0 11.47L6.26 9 12 4.53 17.74 9 12 13.47z"/>
                     </svg>
-                    <span class="side-menu__label">Elements</span><i class="angle fe fe-chevron-down"></i></a>
+                    <span class="side-menu__label">{{ __('dashboard/main-sidebar.patients') }}</span><i class="angle fe fe-chevron-down"></i></a>
                 <ul class="slide-menu">
-                    <li><a class="slide-item" href="{{ url('/' . $page='alerts') }}">Alerts</a></li>
-                    <li><a class="slide-item" href="{{ url('/' . $page='avatar') }}">Avatar</a></li>
+                    <li><a class="slide-item" href="{{ route('admin.patients.index')  }}">{{ __('dashboard/main-sidebar.show_all') }}</a></li>
+                    <li><a class="slide-item" href="{{ route('admin.patients.create') }}">{{ __('dashboard/main-sidebar.add_patient') }}</a></li>
                     <li><a class="slide-item" href="{{ url('/' . $page='breadcrumbs') }}">Breadcrumbs</a></li>
                     <li><a class="slide-item" href="{{ url('/' . $page='buttons') }}">Buttons</a></li>
                     <li><a class="slide-item" href="{{ url('/' . $page='badge') }}">Badge</a></li>
