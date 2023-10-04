@@ -11,7 +11,9 @@ use App\Models\Patient;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class AssistantInvoicesRepository implements DatabaseInvoicesInterface
 {
@@ -58,9 +60,14 @@ class AssistantInvoicesRepository implements DatabaseInvoicesInterface
         /**
          * @inheritDoc
          */
-        public function edit(string $id)
+        public function edit(string $id): View|\Illuminate\Foundation\Application|Factory|Application
         {
-                // TODO: Implement edit() method.
+                return view('dashboard.admin.invoices.edit', [
+                        'invoice' => AssistantInvoices::findOrFail($id),
+                        'patients' => Patient::all(),
+                        'doctors' => Doctor::all(),
+                        'assistants' => Assistant::all(),
+                ]);
         }
 
         /**
@@ -74,8 +81,18 @@ class AssistantInvoicesRepository implements DatabaseInvoicesInterface
         /**
          * @inheritDoc
          */
-        public function destroy(string $id)
+        public function destroy(string $id): RedirectResponse
         {
-                // TODO: Implement destroy() method.
+
+                $invoice = AssistantInvoices::findOrFail($id);
+                $id = $invoice->id ?? '';
+
+                if ($invoice && $invoice->delete()) {
+                        self::showSuccessPopup('invoices', 'success_delete', ['id' => $id]);
+                        return Redirect::route('admin.invoices-assistants.index');
+                }
+
+                self::showPopupFail('invoices', 'failed', ['id' => $id]);
+                return Redirect::back();
         }
 }

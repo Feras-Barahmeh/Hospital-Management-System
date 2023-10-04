@@ -1,6 +1,5 @@
 <tr>
         <td>{{ $invoice->id }}</td>
-
         <td>{{ $invoice->invoice_date}}</td>
         <td>{{ $invoice->patients->name_patient }}</td>
         <td>{{ $invoice->doctors->name }}</td>
@@ -25,7 +24,7 @@
                         <div class="dropdown-menu tx-13">
 
                                 {{-- edit --}}
-                                <a href="{{ route('admin.ambulances.edit',  $invoice->id) }}"
+                                <a href="{{ route('admin.invoices-assistants.edit',  $invoice->id) }}"
                                    class="dropdown-item">
                                         <i style="color: #0ba360" class="text-success ti-user"></i>&nbsp;
                                         {{ __('common.edit') }}
@@ -43,3 +42,4 @@
                 </div>
         </td>
 </tr>
+@include('dashboard.admin.invoices.delete')

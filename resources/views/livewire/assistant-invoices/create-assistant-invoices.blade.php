@@ -6,6 +6,18 @@
                            class="btn btn-primary mt-3 mb-0 pl-lg-4 pr-lg-4 pt-1 pb-1 ">
                                 <span>{{ __('common.back') }}</span>
                         </a>
+
+                        {{-- errors --}}
+                        @if ($errors->any())
+                                <div class="alert alert-danger mt-2 box-shadow">
+                                        <ul class="mb-1 ">
+                                                @foreach ($errors->all() as $error)
+                                                        <li>{{ $error }}</li>
+                                                @endforeach
+                                        </ul>
+                                </div>
+                        @endif
+                        {{-- end errors --}}
                 </div>
 
                 <div class="card-body">

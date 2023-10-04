@@ -7,6 +7,7 @@ use App\Repository\AssistantInvoicesRepository;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class AssistantInvoicesController extends Controller
@@ -53,9 +54,9 @@ class AssistantInvoicesController extends Controller
         /**
          * Show the form for editing the specified resource.
          */
-        public function edit(string $id)
+        public function edit(string $id): \Illuminate\Foundation\Application|Factory|View|Application
         {
-                //
+                return $this->assistantInvoicesRepository->edit($id);
         }
 
         /**
@@ -69,8 +70,8 @@ class AssistantInvoicesController extends Controller
         /**
          * Remove the specified resource from storage.
          */
-        public function destroy(string $id)
+        public function destroy(string $id): RedirectResponse
         {
-                //
+                return $this->assistantInvoicesRepository->destroy($id);
         }
 }

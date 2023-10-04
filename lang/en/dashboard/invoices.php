@@ -57,6 +57,7 @@ return [
         'fail_add' => 'Fail added invoice with number :id',
         'fail_edit' => 'Fail edit invoice with number :id',
         'fail_delete' => 'Fail delete invoice with number :id',
+        'delete_assistant_invoice' => 'Are you sure want delete invoice with has id <span class="text-danger">:id</span>',
 
 
 

@@ -4,13 +4,10 @@ namespace App\Http\Controllers\TraitsController;
 
 use App\Helpers\Enums\PaymentTypes;
 use App\Models\Assistant;
-use App\Models\AssistantInvoices;
-use App\Models\Department;
 use App\Models\Doctor;
 use App\Models\Patient;
 use App\Traits\Messages;
 use Carbon\Carbon;
-use Illuminate\Support\Facades\Redirect;
 
 trait AssistantInvoicesController
 {
@@ -101,6 +98,27 @@ trait AssistantInvoicesController
                 $this->taxRate = $value;
                 $this->setTaxAmount();
                 $this->totalWithTax = max(((float)$this->assistantPrice - (float)$this->discountAmount), 0);
+        }
+
+        /**
+         * validation rules
+         *
+         * @return string[]
+         */
+        public function rules(): array
+        {
+                return [
+                        'doctor' =>'required',
+                        'assistant' =>'required',
+                        'patient' =>'required',
+                        'discountAmount' =>'required|min:0',
+                        'taxRate' =>'required|min:0',
+                        'taxAmount' =>'required|min:0',
+                        'totalWithTax' =>'required|min:0',
+                        'paymentType' =>'required|integer|min:0|max:10',
+                        'assistantPrice' =>'required|min:0',
+                        'doctorDepartment' =>'required|string',
+                ];
         }
 
         public function fillInvoice(&$invoice): void
