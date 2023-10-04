@@ -45,5 +45,6 @@ return [
          * Validation
          */
         'exist' => ':name patient already exist',
+        'fail' => 'can\'t add patient' ,
         'not_exist' => ':name patient do not match our records.',
 ];

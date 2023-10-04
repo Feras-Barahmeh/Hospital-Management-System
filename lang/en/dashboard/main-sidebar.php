@@ -28,6 +28,8 @@ return [
         'ambulance_calls' => 'Ambulance calls',
         'patients' => 'Patients',
         'add_patient' => 'Add patient',
+        'invoices' => 'Invoices',
+        'service_invoices' => 'Service Invoices',
 
 
 ];

@@ -5,6 +5,7 @@ use App\Http\Controllers\Dashboard\AssistantsController;
 use App\Http\Controllers\Dashboard\DepartmentsController;
 use App\Http\Controllers\Dashboard\DoctorController;
 use App\Http\Controllers\Dashboard\InsurancesController;
+use App\Http\Controllers\Dashboard\AssistantInvoicesController;
 use App\Http\Controllers\Dashboard\PackagesController;
 use App\Http\Controllers\Dashboard\PatientsController;
 use Illuminate\Support\Facades\Route;
@@ -125,6 +126,11 @@ Route::middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewP
                          * Patients
                          */
                         Route::resource('patients', PatientsController::class);
+
+                        /**
+                         * invoices assistants
+                         */
+                        Route::resource('invoices-assistants', AssistantInvoicesController::class);
 
                 });
 

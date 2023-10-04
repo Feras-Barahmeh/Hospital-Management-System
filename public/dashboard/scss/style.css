@@ -4,7 +4,7 @@
 Project        :   VALEX - HTML5 Bootstrap Admin Template
 Version        :   V.1
 Create Date    :   09/05/20
-Copyright      :   Spruko Technologies Private Limited 
+Copyright      :   Spruko Technologies Private Limited
 Author         :   SprukoSoft
 Author URL     :   https://themeforest.net/user/sprukosoft
 Support	       :   support@spruko.com
@@ -50,7 +50,7 @@ License        :   Licensed under ThemeForest License
 36. Chat
 37 Contacts
 38. Error
-39. Invoice
+39. AssistantInvoices
 40. Mail
 41. Profile
 42. Background
@@ -37373,7 +37373,7 @@ input.parsley-error:focus, textarea.parsley-error:focus, input.parsley-success:f
   }
 }
 
-/* ###### 7.5 Invoice  ###### */
+/* ###### 7.5 AssistantInvoices  ###### */
 .main-content-left-invoice {
   display: block;
   padding: 0;

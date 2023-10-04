@@ -18,6 +18,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rules\Enum;
+use Illuminate\Validation\ValidationException;
 
 class PatientRepository implements DatabasePatientsInterface
 {
@@ -45,6 +46,7 @@ class PatientRepository implements DatabasePatientsInterface
 
         /**
          * @inheritDoc
+         * @throws ValidationException
          */
         public function store(Request $request): RedirectResponse
         {
@@ -52,16 +54,16 @@ class PatientRepository implements DatabasePatientsInterface
                 $rules = $this->pushToRule($rules, 'blood_type', new Enum(BloodTypes::class));
                 $validator = Validator::make($request->all(), $rules);
 
-                if ($validator->passes()) {
-                        $flag = Patient::create($request->all());
-                        if ($flag) {
-                                self::showSuccessPopup('patients', 'success_add', ['name' => request('name_patient')]);
-                                return Redirect::route('admin.patients.index');
-                        }
+                if ($validator->fails()) throw new ValidationException($validator);
 
+                $flag = Patient::create($request->all());
+
+                if ($flag) {
+                        self::showSuccessPopup('patients', 'success_add', ['name' => request('name_patient')]);
+                        return Redirect::route('admin.patients.index');
                 }
 
-                self::showPopupFail('patients', 'not_exist', ['name' => request('name_patient')]);
+                self::showPopupFail('patients', 'fail', ['name' => request('name_patient')]);
                 return Redirect::back();
         }
 
