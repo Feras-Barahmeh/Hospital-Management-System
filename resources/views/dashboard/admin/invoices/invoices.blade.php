@@ -1,15 +1,23 @@
+@php use App\Helpers\Enums\PaymentTypes;use Illuminate\Support\Str; @endphp
 <tr>
         <td>{{ $invoice->id }}</td>
-        <td>{{ $invoice->invoice_date}}</td>
-        <td>{{ $invoice->patients->name_patient }}</td>
-        <td>{{ $invoice->doctors->name }}</td>
-        <td>{{ $invoice->assistants->name }}</td>
-        <td>{{ $invoice->departments->name }}</td>
+        <td>{{ $invoice->patient->name_patient }}</td>
+        <td>{{ $invoice->doctor->name }}</td>
+        <td>{{ $invoice->assistant->name }}</td>
+        <td>{{ Str::limit($invoice->department->name, 10) }}</td>
         <td>{{ $invoice->price_assistant }}</td>
         <td>{{ $invoice->discount_amount }}</td>
         <td>{{ $invoice->tax_rate }}%</td>
         <td>{{ $invoice->tax_amount }}</td>
         <td>{{ $invoice->total_with_tax }}</td>
+        <td class="text-center">
+                @if($invoice->payment_type === PaymentTypes::Cash->value)
+                        <span class="badge badge-success-transparent">{{ PaymentTypes::Cash->name }}</span>
+                @else
+                        <span class="badge badge-danger-transparent">{{ PaymentTypes::Later->name }}</span>
+                @endif
+        </td>
+        <td>{{ $invoice->invoice_date}}</td>
         <td>{{ $invoice->created_at->diffForHumans()   }}</td>
         <td>{{ $invoice->updated_at->diffForHumans()   }}</td>
 

@@ -1,7 +1,5 @@
 <?php
 
-use App\Helpers\Enums\PaymentTypes;
-use Carbon\Carbon;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -18,23 +16,24 @@ return new class extends Migration {
                         $table->dateTime('invoice_date');
 
                         $table->foreignId('patient_id')
-                                ->references('id')
-                                ->on('patients')
+                                ->constrained('patients')
                                 ->cascadeOnDelete();
 
                         $table->foreignId('doctor_id')
-                                ->references('id')
-                                ->on('doctors')
+                                ->constrained('doctors')
                                 ->cascadeOnDelete();
 
                         $table->foreignId('assistant_id')
-                                ->references('id')
-                                ->on('assistants')
+                                ->constrained('assistants')
                                 ->cascadeOnDelete();
 
                         $table->foreignId('department_id')
-                                ->references('id')
-                                ->on('departments')
+                                ->constrained('departments')
+                                ->cascadeOnDelete();
+
+                        $table->foreignId('patient_account_id')
+                                ->nullable()
+                                ->constrained('patient_accounts')
                                 ->cascadeOnDelete();
 
                         $table->decimal('price_assistant');
@@ -42,7 +41,7 @@ return new class extends Migration {
                         $table->string('tax_rate');
                         $table->string('tax_amount');
                         $table->decimal('total_with_tax');
-                        $table->smallInteger('payment_type')->default(PaymentTypes::Cash->value)->unsigned();
+                        $table->unsignedSmallInteger('payment_type');
                         $table->timestamps();
                 });
         }
@@ -52,6 +51,6 @@ return new class extends Migration {
          */
         public function down(): void
         {
-                Schema::dropIfExists('invoices');
+                Schema::dropIfExists('assistant_invoices');
         }
 };

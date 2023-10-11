@@ -73,7 +73,7 @@
 
                                 <div class="row">
 
-                                        <div class="form-group col-6">
+                                        <div class="form-group col-4">
                                                 <label for="assistant_name">{{ __('dashboard/invoices.assistant_name') }}</label>
 
                                                 <select class="form-control select2-no-search"
@@ -93,13 +93,23 @@
                                                 </select>
                                         </div>
 
-                                        <div class="form-group col-6">
+                                        <div class="form-group col-4">
                                                 <label for="price_assistant">{{ __('dashboard/invoices.price_assistant') }}</label>
                                                 <input type="text" class="form-control"
                                                        id="price_assistant"
                                                        readonly
                                                        wire:model="assistantPrice"
                                                        placeholder="{{ __('dashboard/invoices.price_assistant') }}">
+                                        </div>
+
+                                        <div class="form-group col-4">
+                                                <label for="down_payment">{{ __('dashboard/invoices.down_payment') }}</label>
+                                                <input type="text" class="form-control"
+                                                       id="down_payment"
+                                                       {{  $paymentType == '' || $paymentType == PaymentTypes::Later->value ? 'readonly' : ''}}
+                                                       wire:model="downPayment"
+                                                       wire:change="setDownPayment($event.target.value)"
+                                                       placeholder="{{ __('dashboard/invoices.down_payment') }}">
                                         </div>
                                 </div>
 
@@ -144,10 +154,12 @@
                                         </div>
 
                                         <div class="form-group col-2">
-                                                <label for="invoice_type">{{ __('dashboard/invoices.invoice_type') }}</label>
+                                                <label for="payment_type">{{ __('dashboard/invoices.invoice_type') }}</label>
+
                                                 <select class="form-control select2-no-search"
                                                         wire:change="setPaymentType($event.target.value)"
                                                         id="payment_type" name="payment_type">
+                                                        <option value="" disabled selected>{{ __('dashboard/invoices.select_payment_type') }}</option>
                                                         <option value="{{ PaymentTypes::Cash->value }}">
                                                                 {{ PaymentTypes::Cash->name }}
                                                         </option>

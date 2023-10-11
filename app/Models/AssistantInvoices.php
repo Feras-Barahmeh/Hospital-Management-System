@@ -16,31 +16,34 @@ class AssistantInvoices extends Model
                 'doctor_id',
                 'assistant_id',
                 'department_id',
+                'patient_account_id',
                 'price',
                 'discount_value',
                 'tax_rate',
                 'tax_value',
                 'total_with_tax',
-                'type',
+                'payment_type',
         ];
 
-        public function doctors(): BelongsTo
+        public function doctor(): BelongsTo
         {
                 return $this->belongsTo(Doctor::class, 'doctor_id');
         }
 
-        public function departments(): BelongsTo
+        public function department(): BelongsTo
         {
                 return $this->belongsTo(Department::class, 'department_id');
         }
-        public function patients(): BelongsTo
+        public function patient(): BelongsTo
         {
                 return $this->belongsTo(Patient::class, 'patient_id');
         }
-        public function assistants(): BelongsTo
+        public function assistant(): BelongsTo
         {
                 return $this->belongsTo(Assistant::class, 'assistant_id');
         }
-
-
+        public function patientAccount(): BelongsTo
+        {
+                return $this->belongsTo(PatientAccount::class, 'patient_account_id');
+        }
 }

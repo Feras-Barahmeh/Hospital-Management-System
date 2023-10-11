@@ -8,7 +8,9 @@ use App\Models\Doctor;
 use App\Models\Patient;
 use App\Traits\Messages;
 use Carbon\Carbon;
+use Livewire\Attributes\Rule;
 
+// TODO: add tax amount to total price
 trait AssistantInvoicesController
 {
         use Messages;
@@ -26,7 +28,8 @@ trait AssistantInvoicesController
         public mixed $taxRate = 0;
         public mixed $taxAmount = 0;
         public mixed $totalWithTax = 0;
-        public mixed $paymentType = PaymentTypes::Cash->value;
+        public mixed $downPayment = 0;
+        public mixed $paymentType = '';
 
 
         /**
@@ -71,12 +74,25 @@ trait AssistantInvoicesController
                 $assistant = Assistant::findOrFail($id);
                 $this->assistant = $assistant;
                 $this->assistantPrice = $assistant->price;
+                if ($this->paymentType == PaymentTypes::Cash->value) {
+                        $this->downPayment  = $this->assistantPrice;
+                }
                 $this->setTotalWithTax();
+        }
+
+        public function setDownPayment($value): void
+        {
+                $this->downPayment = $value;
         }
 
         public function setPaymentType($type): void
         {
                 $this->paymentType = $type;
+                if ($type == PaymentTypes::Later->value || $type!=PaymentTypes::Cash->value) {
+                        $this->downPayment = 0;
+                } else {
+                        $this->downPayment = $this->totalWithTax;
+                }
         }
 
         public function setTotalWithTax(): void
@@ -105,7 +121,7 @@ trait AssistantInvoicesController
          *
          * @return string[]
          */
-        public function rules(): array
+        protected function rules(): array
         {
                 return [
                         'doctor' =>'required',
@@ -118,10 +134,11 @@ trait AssistantInvoicesController
                         'paymentType' =>'required|integer|min:0|max:10',
                         'assistantPrice' =>'required|min:0',
                         'doctorDepartment' =>'required|string',
+                        'downPayment' =>'min:0',
                 ];
         }
 
-        public function fillInvoice(&$invoice): void
+        protected function fillInvoice(&$invoice): void
         {
                 $invoice->invoice_date = Carbon::now();
                 $invoice->patient_id = $this->patient->id;

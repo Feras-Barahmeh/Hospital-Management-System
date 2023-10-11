@@ -2,6 +2,8 @@
 
 namespace App\Livewire;
 
+use App\Helpers\Enums\PaymentTypes;
+use App\Helpers\Transactions;
 use App\Http\Controllers\TraitsController\AssistantInvoicesController;
 use App\Models\AssistantInvoices;
 use Illuminate\Contracts\Foundation\Application;
@@ -25,6 +27,8 @@ class CreateAssistantInvoices extends Component
                 $this->fillInvoice($invoice);
 
                 if ($invoice->save()) {
+                        Transactions::cashReceipt($invoice, $this->downPayment);
+                        $invoice->save();
                         self::showSuccessPopup('invoices', 'success_add', ['name' => $invoice->id]);
                         return Redirect::route('admin.invoices-assistants.index');
                 }

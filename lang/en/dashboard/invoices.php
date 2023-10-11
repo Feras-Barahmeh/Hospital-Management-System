@@ -27,11 +27,14 @@ return [
         'invoice_date' => 'Invoice date',
         'assistant_name' => 'Assistant name',
         'select_assistant_name' => 'Select Assistant name',
+        'select_payment_type' => 'Select payment type',
         'price_assistant' => 'Assistant price',
         'discount_amount' => 'Discount amount',
         'tax_rate' => 'Tax rate',
         'tax_amount' => 'Tax amount',
         'total_with_tax' => 'Out the door price',
+        'not_recipient' => 'Not recipient <span class="text-danger">:value</span>',
+        'invoice_completed' => '<spna class="text-success">The invoice Completed</spna>',
 
         /**
          * columns
@@ -41,12 +44,19 @@ return [
         'assistant' =>'Assistant',
         'department' =>'Department',
         'total_with_out_discount' =>'Total',
+        'down_payment' =>'Down payment',
+        'payment_type' =>'Payment type',
 
 
         /**
          * Create
          */
         'title_create_assistant_invoice' => 'Admin | Invoices | Create',
+
+        /**
+         * Edit
+         */
+        'title_edit_assistant_invoice' => 'Admin | Invoices | Edit',
 
         /**
          * Messages

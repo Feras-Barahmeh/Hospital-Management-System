@@ -69,7 +69,6 @@
                                                         <thead>
                                                         <tr>
                                                                 <th class="wd-15p border-bottom-0">#</th>
-                                                                <th class="wd-15p border-bottom-0"> {{ __('dashboard/invoices.invoice_date') }}</th>
                                                                 <th class="wd-15p border-bottom-0"> {{ __('dashboard/invoices.patient') }}</th>
                                                                 <th class="wd-15p border-bottom-0"> {{ __('dashboard/invoices.doctor') }}</th>
                                                                 <th class="wd-15p border-bottom-0"> {{ __('dashboard/invoices.assistant') }}</th>
@@ -79,7 +78,8 @@
                                                                 <th class="wd-15p border-bottom-0"> {{ __('dashboard/invoices.tax_rate') }}</th>
                                                                 <th class="wd-15p border-bottom-0"> {{ __('dashboard/invoices.tax_amount') }}</th>
                                                                 <th class="wd-15p border-bottom-0"> {{ __('dashboard/invoices.total_with_tax') }}</th>
-
+                                                                <th class="wd-15p border-bottom-0"> {{ __('dashboard/invoices.payment_type') }}</th>
+                                                                <th class="wd-15p border-bottom-0"> {{ __('dashboard/invoices.invoice_date') }}</th>
                                                                 <th class="wd-20p border-bottom-0"> {{ __('common.created_since') }}</th>
                                                                 <th class="wd-20p border-bottom-0"> {{ __('common.updated_since') }}</th>
                                                                 <th class="wd-20p border-bottom-0"> {{ __('common.operations') }}</th>
