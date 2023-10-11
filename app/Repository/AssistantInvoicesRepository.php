@@ -83,13 +83,11 @@ class AssistantInvoicesRepository implements DatabaseInvoicesInterface
          */
         public function destroy(string $id): RedirectResponse
         {
-
                 $invoice = AssistantInvoices::findOrFail($id);
                 $id = $invoice->id ?? '';
 
                 if ($invoice) {
-                        $invoice->paymentRecord()->delete();
-                        $invoice->creditDebit()->delete();
+                        $invoice->patientAccount->delete();
                         $invoice->delete();
                         self::showSuccessPopup('invoices', 'success_delete', ['id' => $id]);
                         return Redirect::route('admin.invoices-assistants.index');
