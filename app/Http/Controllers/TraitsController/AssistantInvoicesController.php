@@ -8,9 +8,7 @@ use App\Models\Doctor;
 use App\Models\Patient;
 use App\Traits\Messages;
 use Carbon\Carbon;
-use Livewire\Attributes\Rule;
 
-// TODO: add tax amount to total price
 trait AssistantInvoicesController
 {
         use Messages;
@@ -59,7 +57,7 @@ trait AssistantInvoicesController
         {
                 $taxAmount = (float)$this->taxRate / 100 * (float)$this->totalWithTax;
                 $this->taxAmount = number_format($taxAmount, 2);
-                $this->totalWithTax = max(((float)$this->assistantPrice - (float)$this->discountAmount), 0);
+                $this->totalWithTax = max(((float)$this->assistantPrice - (float)$this->discountAmount), 0) + $this->taxAmount;
         }
 
         /**
@@ -97,8 +95,8 @@ trait AssistantInvoicesController
 
         public function setTotalWithTax(): void
         {
-                $this->totalWithTax = max(((float)$this->assistantPrice - (float)$this->discountAmount), 0);
                 $this->setTaxAmount();
+                $this->totalWithTax = max(((float)$this->assistantPrice - (float)$this->discountAmount), 0) + $this->taxAmount;
                 $this->totalWithTax += $this->taxAmount;
         }
 
@@ -106,14 +104,14 @@ trait AssistantInvoicesController
         public function setDiscountAmount($value): void
         {
                 $this->discountAmount = $value;
-                $this->totalWithTax = max(((float)$this->assistantPrice - (float)$this->discountAmount), 0);
+                $this->totalWithTax = max(((float)$this->assistantPrice - (float)$this->discountAmount), 0) + $this->taxAmount;
         }
 
         public function setTaxRate($value): void
         {
                 $this->taxRate = $value;
                 $this->setTaxAmount();
-                $this->totalWithTax = max(((float)$this->assistantPrice - (float)$this->discountAmount), 0);
+                $this->totalWithTax = max(((float)$this->assistantPrice - (float)$this->discountAmount), 0) + $this->taxAmount;
         }
 
         /**

@@ -3,8 +3,8 @@
 namespace App\Helpers;
 
 use App\Helpers\Enums\PaymentTypes;
-use App\Models\PatientAccount;
 use App\Models\AssistantInvoicePaymentRecord;
+use App\Models\PatientAccount;
 use Illuminate\Support\Carbon;
 
 /**
@@ -16,9 +16,9 @@ class Transactions
         {
                 $fund = new PatientAccount();
                 $fund->fill([
-                        'date'          => $invoice->invoice_date,
+                        'date' => $invoice->invoice_date,
                         'patient_id' => $invoice->patient->id,
-                        'credit' => (float)$invoice->total_with_tax -  (float)$downAmount,
+                        'credit' => (float)$invoice->total_with_tax - (float)$downAmount,
                         'debit' => $downAmount,
                 ]);
                 $fund->save();
@@ -89,8 +89,8 @@ class Transactions
                         ]);
                         $record->save();
 
-                         self::decrementCreditInvoice($invoice, $downPayment);
-                         self::incrementDebitInvoice($invoice, $downPayment);
+                        self::decrementCreditInvoice($invoice, $downPayment);
+                        self::incrementDebitInvoice($invoice, $downPayment);
                         $invoice->patientAccount->save();
                 }
 
